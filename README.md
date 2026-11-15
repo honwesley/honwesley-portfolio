@@ -52,4 +52,15 @@ Small text fixes can also be made directly in the HTML files on GitHub, but thos
 
 ## The hero simulation
 
-`main.js` simulates the Pendubot using the real link geometry (6061 aluminum, 2 in × 1/4 in, 8 in and 14 in long). It runs RK4 at 1 kHz with an LQR controller designed on the linearization about upright (Q = diag(10, 40, 1, 1), R = 2), and the torque is saturated at 3 N·m. To show a different controller, change `K` and `UMAX`.
+`main.js` simulates the Pendubot with the real link geometry (6061 aluminum, 2 in × 1/4 in, 8 in and 14 in long) at 1 kHz with RK4 and a 3 N·m motor limit. The motor never switches off. A supervisor switches between:
+
+- **Swing-up:** energy pumping through collocated partial feedback linearization of the shoulder. It runs whenever the arm is far from upright.
+- **Balance:** the controller picked in the panel. It takes over once the LQR cost-to-go xᵀPx drops below 25, and hands back to swing-up above 75.
+  - **PID:** two PID loops, on the link 1 angle and the absolute link 2 angle, with the integral on link 1.
+  - **LQR:** Q = diag(10, 40, 1, 1), R = 2, on the linearization about upright.
+  - **NMPC:** pre-stabilized nonlinear MPC: u = sat(−Kx + v), with v piecewise constant over four blocks of a 0.2 s horizon, re-solved at 50 Hz by gradient descent on the full nonlinear model.
+  - **Fuzzy:** 5×5 rule base on the LQR-projected angle error and rate error, with product inference and weighted-average defuzzification.
+
+Visitors can grab the arm and throw it. A spring from the pointer to the tip is mapped to joint torques through the Jacobian. The two scopes show joint angles, motor torque and energy error, and the panel below shows live telemetry.
+
+Gains were tuned offline on the same model. Each controller recovered from hanging straight down and from random states up to 10 rad/s on link 1 and 20 rad/s on link 2. The simulation code also lives in `_build/pendubot.js` for reference.

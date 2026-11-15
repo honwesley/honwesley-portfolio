@@ -59,20 +59,39 @@
   </div>
   <figure class="rig" aria-labelledby="rig-cap">
   <div class="rig-stage">
-    <canvas id="pendubot" role="img" aria-label="Simulated Pendubot balancing upright. Click or use the push buttons to disturb it."></canvas>
-    <div class="readout">
-      <span><i class="sw ch1"></i>θ₂ <b id="r-q2">0.0°</b></span>
-      <span><i class="sw ch2"></i>τ <b id="r-u">0.00 N·m</b></span>
-      <span class="state" id="r-state">Balancing</span>
+    <canvas id="pendubot" role="img" aria-label="Simulated Pendubot. Drag the arm to disturb it; the controller swings it back up and balances it."></canvas>
+    <span class="grab-hint">Grab the arm and throw it</span>
+  </div>
+  <div class="rig-bar">
+    <div class="ctl-pick" role="group" aria-label="Balance controller">
+      <button type="button" data-ctl="pid" aria-pressed="false">PID</button>
+      <button type="button" data-ctl="lqr" aria-pressed="true">LQR</button>
+      <button type="button" data-ctl="nmpc" aria-pressed="false">NMPC</button>
+      <button type="button" data-ctl="fuzzy" aria-pressed="false">Fuzzy</button>
+    </div>
+    <p class="ctl-note" id="ctl-note">Full-state feedback from the Riccati solution on the linearized model.</p>
+  </div>
+  <div class="scopes">
+    <div class="scope">
+      <p class="scope-h"><b>Joint angles</b><span><i class="sw ch1"></i>θ₁ link 1</span><span><i class="sw ch2"></i>θ₂ link 2</span><span class="scale">±180°, last 10 s</span></p>
+      <canvas id="scope-a" aria-hidden="true"></canvas>
+    </div>
+    <div class="scope">
+      <p class="scope-h"><b>Effort and energy</b><span><i class="sw ch1"></i>τ motor torque</span><span><i class="sw ch2"></i>E − E<sub>top</sub></span><span class="scale">±3 N·m, ±1.5 J</span></p>
+      <canvas id="scope-b" aria-hidden="true"></canvas>
     </div>
   </div>
-  <canvas id="scope" aria-hidden="true"></canvas>
-  <div class="rig-controls">
-    <button type="button" data-push="-1">Push left</button>
-    <button type="button" data-push="1">Push right</button>
-    <span class="hint">or click the arm</span>
-  </div>
-  <figcaption id="rig-cap">My Pendubot, simulated live: 8 in and 14 in aluminum links, a motor at the shoulder only, held upright by LQR with a 3 N·m torque limit. Push too hard and it falls, just like the real one.</figcaption>
+  <dl class="telemetry">
+    <div class="t-mode"><dt>Mode</dt><dd id="t-mode" data-mode="swing">Swinging up</dd></div>
+    <div><dt>θ₁</dt><dd id="t-q1">0.0°</dd></div>
+    <div><dt>θ₂</dt><dd id="t-q2">0.0°</dd></div>
+    <div><dt>τ, N·m</dt><dd id="t-u">0.00</dd></div>
+    <div><dt>Compute, µs</dt><dd id="t-solve">0</dd></div>
+    <div><dt>ω₁, rad/s</dt><dd id="t-w1">0.00</dd></div>
+    <div><dt>ω₂, rad/s</dt><dd id="t-w2">0.00</dd></div>
+    <div><dt>E − E<sub>top</sub>, J</dt><dd id="t-e">0.000</dd></div>
+  </dl>
+  <figcaption id="rig-cap">My Pendubot, simulated live at 1 kHz with the real link geometry and a 3 N·m motor limit. The motor never switches off: when the arm falls, an energy-based swing-up brings it back and hands off to the controller you pick.</figcaption>
 </figure>
 </section>
 
