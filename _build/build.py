@@ -180,7 +180,12 @@ def build_home():
     <dl class="facts">
       <div><dt>Focus</dt><dd>Power electronics, feedback control, autonomous systems, mechatronics</dd></div>
       <div><dt>Degree</dt><dd>BS expected 2028, MS expected 2029</dd></div>
-      <div><dt>Now</dt><dd>Undergraduate researcher, Power Electronics and Energy Conversion Lab</dd></div>
+      <div><dt>Now</dt><dd>Undergraduate researcher
+        <ul class="labs">
+          <li>Power Electronics and Energy Conversion Lab</li>
+          <li>Emergence of Communication Lab</li>
+          <li>Ozcan Lab</li>
+        </ul></dd></div>
     </dl>
     <div class="actions">
       <a class="btn primary" href="projects.html">See my projects</a>

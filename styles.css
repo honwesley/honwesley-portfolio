@@ -142,6 +142,7 @@ h1, .page-h {
 .facts div { display: grid; grid-template-columns: 4.5rem 1fr; gap: .75rem; padding-top: .55rem; border-top: 1px solid var(--rule); }
 .facts dt { color: var(--steel); font-size: .92rem; }
 .facts dd { margin: 0; font-size: .97rem; }
+.labs { list-style: none; margin: .3rem 0 0; padding: 0 0 0 .9rem; display: grid; gap: .15rem; color: var(--steel); }
 
 .band { padding-top: 3rem; padding-bottom: 4rem; }
 .band-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; border-top: 2px solid var(--ink); padding-top: 2.25rem; margin-bottom: .25rem; flex-wrap: wrap; }
