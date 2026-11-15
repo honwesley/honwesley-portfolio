@@ -149,6 +149,14 @@ SIM = """<figure class="rig" aria-labelledby="rig-cap">
     </div>
     <p class="ctl-note" id="ctl-note">Full-state feedback from the Riccati solution on the linearized model.</p>
   </div>
+  <div class="rig-bar rig-actions">
+    <div class="ctl-pick" role="group" aria-label="Reset position">
+      <button type="button" data-reset="up" aria-pressed="false">Reset upright</button>
+      <button type="button" data-reset="down" aria-pressed="false">Reset hanging</button>
+    </div>
+    <button type="button" class="start-btn" data-start disabled>Start motor</button>
+    <p class="rig-status" id="rig-status" aria-live="polite"></p>
+  </div>
   <div class="scopes">
     <div class="scope">
       <p class="scope-h"><b>Joint angles</b><span><i class="sw ch1"></i>θ₁ link 1</span><span><i class="sw ch2"></i>θ₂ link 2</span><span class="scale">±180°, last 10 s</span></p>

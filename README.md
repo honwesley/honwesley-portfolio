@@ -65,4 +65,6 @@ The motor never switches off. A supervisor switches between two modes:
   - **NMPC:** pre-stabilized nonlinear MPC: u = sat(−Kx + v), with v piecewise constant over four blocks of a 0.2 s horizon, re-solved at 50 Hz by gradient descent on the full nonlinear model.
   - **Fuzzy:** 5×5 rule base on the LQR-projected angle error and rate error, with product inference and weighted-average defuzzification.
 
+**Reset upright** and **Reset hanging** put the arm in that position with the motor off and time frozen. Upright would otherwise fall at once. **Start motor**, or the same reset button again, releases it.
+
 Gains were tuned offline on the same model. Each controller recovered from hanging straight down, from link 2 spinning at up to 20 rad/s, and from random states up to 10 rad/s on link 1 and 20 rad/s on link 2. The slowest recovery was 7.7 s (PID); LQR, NMPC and fuzzy all recovered within 6 s. The simulation code also lives in `_build/pendubot.js` for reference.

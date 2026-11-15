@@ -176,6 +176,7 @@
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   let x = reduce ? [0, 0, 0, 0] : [Math.PI - 0.02, 0, 0, 0];   // start hanging down: watch it swing up
   let u = 0, mode = 'swing', kind = 'lqr', solveUs = 0, grab = null;
+  let running = true;   // false after a reset: the arm is frozen and the motor is off until started
   const N = 600;   // 10 s of history at 60 Hz
   const hist = { q1: new Float32Array(N), q2: new Float32Array(N), u: new Float32Array(N), e: new Float32Array(N) };
   let head = 0;
@@ -194,6 +195,36 @@
     picker.forEach((p) => p.setAttribute('aria-pressed', String(p === btn)));
     if (ctlNote) ctlNote.textContent = NOTES[kind];
   }));
+
+  // ---------- reset and start ----------
+  // A reset puts the arm in a known position with the motor off and time frozen
+  // (upright would otherwise fall straight away). Start motor, or the same reset
+  // button again, releases it.
+  const resetBtns = document.querySelectorAll('[data-reset]');
+  const startBtn = document.querySelector('[data-start]');
+  const rigNote = document.getElementById('rig-status');
+  let armed = null;
+  function setButtons() {
+    resetBtns.forEach((b) => b.setAttribute('aria-pressed', String(!running && armed === b.dataset.reset)));
+    if (startBtn) startBtn.disabled = running;
+    if (rigNote) rigNote.textContent = running ? '' : 'Motor off. Press Start motor, or the same reset again.';
+  }
+  function resetTo(where) {
+    x = where === 'up' ? [0, 0, 0, 0] : [Math.PI, 0, 0, 0];
+    u = 0; grab = null; ctl.reset(); solveUs = 0;
+    mode = where === 'up' ? 'balance' : 'swing';
+    Object.values(hist).forEach((a) => a.fill(0));
+    if (where !== 'up') { hist.q1.fill(180); hist.e.fill(energy(x) - ETOP); }
+    running = false; armed = where; setButtons();
+  }
+  function startMotor() {
+    if (running) return;
+    running = true; armed = null; last = performance.now(); setButtons();
+  }
+  resetBtns.forEach((b) => b.addEventListener('click', () => {
+    if (!running && armed === b.dataset.reset) startMotor(); else resetTo(b.dataset.reset);
+  }));
+  if (startBtn) startBtn.addEventListener('click', startMotor);
 
   // ---------- drawing setup ----------
   const sA = document.getElementById('scope-a'), sB = document.getElementById('scope-b');
@@ -235,7 +266,7 @@
     const dx = p1[0] - bx, dy = p1[1] - by, len2 = dx * dx + dy * dy;
     const t = Math.max(0, Math.min(1, ((mx - bx) * dx + (my - by) * dy) / len2));
     const cx = bx + t * dx, cy = by + t * dy;
-    if (Math.hypot(mx - cx, my - cy) > 36) return;
+    if (!running || Math.hypot(mx - cx, my - cy) > 36) return;
     grabS = Math.max(0.25, t) * l1;
     grab = [mx, my]; cv.setPointerCapture(ev.pointerId); ev.preventDefault();
   });
@@ -327,13 +358,14 @@
   const fx = (v, d) => (Math.abs(v) < 0.5 * 10 ** -d ? 0 : v).toFixed(d);
   const deg = (r) => fx(r * 180 / Math.PI, 1) + '°';
   const MODE = { swing: 'Swinging up', balance: 'Balancing' };
+  setButtons();
 
   let last = performance.now(), acc = 0, visible = true, tick = 0;
   new IntersectionObserver((es) => { visible = es[0].isIntersecting; }).observe(cv);
   function frame(now) {
     const dt = Math.min((now - last) / 1000, 1 / 20); last = now;
     if (visible && !document.hidden) {
-      step(dt);
+      if (running) step(dt);
       acc += dt;
       while (acc >= 1 / 60) {
         acc -= 1 / 60;
@@ -346,8 +378,8 @@
       drawScope(cB, sB, [[hist.u, col.ch1, UMAX], [hist.e, col.ch2, 1.5]], 'τ ±3 N·m   E − E_top ±1.5 J');
       if (++tick % 6 === 0) {
         const z = err(x);
-        T.mode.textContent = grab ? 'Held' : MODE[mode];
-        T.mode.dataset.mode = grab ? 'held' : mode;
+        T.mode.textContent = !running ? 'Motor off' : grab ? 'Held' : MODE[mode];
+        T.mode.dataset.mode = !running ? 'off' : grab ? 'held' : mode;
         T.q1.textContent = deg(z[0]); T.q2.textContent = deg(z[1]);
         T.w1.textContent = fx(x[2], 2); T.w2.textContent = fx(x[3], 2);
         T.u.textContent = fx(u, 2); T.e.textContent = fx(energy(x) - ETOP, 3);

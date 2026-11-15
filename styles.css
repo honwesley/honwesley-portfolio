@@ -175,6 +175,19 @@ h1, .page-h {
 .ctl-pick button + button { border-left: 1.5px solid var(--ink); }
 .ctl-pick button[aria-pressed="true"] { background: var(--ink); color: var(--plate); }
 .ctl-pick button:hover:not([aria-pressed="true"]) { background: var(--alu); }
+.rig-actions { border-top: 1px dashed var(--rule); padding-top: .6rem; }
+.ctl-pick button[data-reset][aria-pressed="true"] { background: var(--signal); color: #fff; }
+.start-btn {
+  font-family: var(--ui); font-size: .78rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+  min-height: 36px; padding: .3rem .9rem; border-radius: 4px; cursor: pointer;
+  background: var(--signal); color: #fff; border: 1.5px solid var(--signal);
+}
+.start-btn:hover:not(:disabled) { background: #A9551A; border-color: #A9551A; }
+.start-btn:disabled { background: transparent; color: var(--steel); border-color: var(--rule); cursor: default; }
+:root[data-theme="dark"] .start-btn:not(:disabled), :root[data-theme="dark"] .ctl-pick button[data-reset][aria-pressed="true"] { color: #211D15; }
+.rig-status { margin: 0; flex: 1 1 12rem; font-size: .88rem; line-height: 1.35; color: var(--signal); font-family: var(--ui); }
+.rig-status:empty { display: none; }
+.telemetry dd[data-mode="off"] { color: var(--steel); }
 .ctl-note { margin: 0; flex: 1 1 14rem; min-width: 0; font-size: .9rem; line-height: 1.35; color: var(--steel); }
 .scopes { background: var(--deep); display: grid; gap: 1px; }
 .scope { background: var(--deep); padding: .5rem 0 0; }
