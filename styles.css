@@ -148,7 +148,11 @@ h1, .page-h {
 .band-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; border-top: 2px solid var(--ink); padding-top: 2.25rem; margin-bottom: .25rem; flex-wrap: wrap; }
 .more-link { font-weight: 650; }
 .where { list-style: none; margin: 0; padding: 0; }
-.where li { display: flex; justify-content: space-between; gap: 1rem; padding: 1rem 0; border-top: 1px solid var(--rule); flex-wrap: wrap; }
+.where li, .awards li { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; column-gap: 2rem; row-gap: .2rem; padding: 1rem 0; border-top: 1px solid var(--rule); }
+.where span, .awards span { text-align: right; }
+.awards { list-style: none; margin: 0 0 4rem; padding: 0; }
+.awards b { font-family: var(--ui); font-weight: 700; letter-spacing: .01em; }
+.awards span { color: var(--steel); }
 .where b { font-weight: 700; font-variation-settings: "wdth" var(--wide); }
 .where span { color: var(--steel); }
 
@@ -345,6 +349,8 @@ dialog#lightbox img { max-width: 94vw; max-height: 84vh; object-fit: contain; bo
 }
 @media (max-width: 640px) {
   body { font-size: 1rem; }
+  .where li, .awards li { grid-template-columns: 1fr; }
+  .where span, .awards span { text-align: left; }
   .tile-m { grid-column: span 12; }
   .tiles-home { grid-template-columns: 1fr; }
   .tiles-home .tile:first-child { grid-column: auto; }

@@ -213,7 +213,17 @@ def build_home():
   </div>
   <ul class="where">
     <li><b>Power Electronics and Energy Conversion Lab</b><span>Undergraduate researcher, June 2026 to present</span></li>
+    <li><b>Emergence of Communication Lab</b><span>Undergraduate researcher, October 2026 to present</span></li>
+    <li><b>Ozcan Lab</b><span>Undergraduate researcher, November 2026 to present</span></li>
     <li><b>UCLA Bruin Racing SAE</b><span>Electronics project lead, April 2025 to present</span></li>
+  </ul>
+</section>
+
+<section class="wrap band" aria-labelledby="awards-h">
+  <div class="band-head">
+    <h2 id="awards-h" class="section-h">Awards</h2>
+  </div>
+  <ul class="where">
     <li><b>IdeaHacks 2026</b><span>2nd place, hardware hackathon</span></li>
   </ul>
 </section>
@@ -325,6 +335,24 @@ def build_experience():
   <h1 class="page-h">Experience</h1>
   <ol class="timeline">
     <li>
+      <p class="t-when">November 2026 to present</p>
+      <h2>Undergraduate researcher</h2>
+      <p class="t-org">Ozcan Lab, UCLA</p>
+      <ul class="did">
+        <li>Revising a Raspberry Pi HAT that drives three heaters and reads three thermistors: input protection and filtering, power routing fixes and connector changes from design review.</li>
+      </ul>
+      <p class="t-link"><a href="projects/heater-control-pcb.html">Read the project write-up</a></p>
+    </li>
+    <li>
+      <p class="t-when">October 2026 to present</p>
+      <h2>Undergraduate researcher</h2>
+      <p class="t-org">Emergence of Communication Lab, UCLA</p>
+      <ul class="did">
+        <li>Evaluating a smaller, lower-quiescent-current buck–boost regulator for the 3.3 V rail from a single Li-ion cell, with a characterization plan covering regulation, efficiency, load steps, ripple and thermals.</li>
+      </ul>
+      <p class="t-link"><a href="projects/buck-boost.html">Read the project write-up</a></p>
+    </li>
+    <li>
       <p class="t-when">June 2026 to present</p>
       <h2>Undergraduate researcher</h2>
       <p class="t-org">Power Electronics and Energy Conversion Lab, UCLA</p>
@@ -346,12 +374,12 @@ def build_experience():
       </ul>
       <p class="t-link"><a href="projects/actuator-testbench.html">Actuator testbench</a><a href="projects/baja-daq.html">DAQ board</a><a href="projects/supermileage-ui.html">Supermileage UI board</a></p>
     </li>
-    <li>
-      <p class="t-when">2026</p>
-      <h2>2nd place, IdeaHacks hardware hackathon</h2>
-      <p class="t-org">Los Angeles</p>
-    </li>
   </ol>
+
+  <h2 class="section-h">Awards</h2>
+  <ul class="awards">
+    <li><b>2nd place, IdeaHacks 2026</b><span>Hardware hackathon, Los Angeles</span></li>
+  </ul>
 
   <h2 class="section-h">Education</h2>
   <div class="edu">

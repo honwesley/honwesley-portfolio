@@ -159,7 +159,7 @@ PROJECTS = [
     dict(
         slug="buck-boost", title="Buck–boost power stage study", size="m",
         short="Smaller, lower-power 3.3 V rail from a single Li-ion cell, and a plan to prove it.",
-        when=None, year="2026", org="Emergence of Communication Lab",
+        when="October 2026 to present", year="2026", org="Emergence of Communication Lab, UCLA", role="Undergraduate researcher",
         cats=["power"],
         tools=["TPS63060", "TPS63802", "Power analyzer", "Electronic load", "Thermal camera"],
         cover="eoc-buckboost.jpg",
@@ -184,7 +184,7 @@ PROJECTS = [
     dict(
         slug="heater-control-pcb", title="Heater and thermistor control PCB", size="m",
         short="A Raspberry Pi HAT that drives three heaters and reads three thermistors.",
-        when=None, year="2026", org="Ozcan Lab, UCLA",
+        when="November 2026 to present", year="2026", org="Ozcan Lab, UCLA", role="Undergraduate researcher",
         cats=["pcb", "power", "embedded"],
         tools=["KiCad", "ADS1115", "TPS56837", "AP2114H", "MOSFET switching"],
         cover="ozcan-pcb.jpg",
