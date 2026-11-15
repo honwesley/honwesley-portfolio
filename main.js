@@ -484,3 +484,28 @@
   const chip = chips.find((c) => c.dataset.filter === start);
   if (chip) chip.click();
 })();
+
+/* =========================================================
+   About page: sticky section titles sit just under the site header
+   ========================================================= */
+(() => {
+  const heads = [...document.querySelectorAll('.ab-head')];
+  if (!heads.length) return;
+  const top = document.querySelector('.top');
+  let topH = 56;
+  const measure = () => {
+    topH = top ? top.getBoundingClientRect().height : 0;
+    document.documentElement.style.setProperty('--top-h', topH + 'px');
+  };
+  let ticking = false;
+  const update = () => {
+    ticking = false;
+    // stuck only while pinned under the header, not after its section has scrolled away
+    heads.forEach((h) => h.classList.toggle('stuck', Math.abs(h.getBoundingClientRect().top - topH) < 1));
+  };
+  const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
+  measure(); update();
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', () => { measure(); update(); });
+  if (top) new ResizeObserver(() => { measure(); update(); }).observe(top);
+})();

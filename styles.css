@@ -441,9 +441,16 @@ h4,
 .ab-lede { font-size: clamp(1.3rem, 2.2vw, 1.75rem); font-weight: 300; line-height: 1.35; max-width: 34ch; margin: 1.25rem 0 2.5rem; }
 .ab-hero { margin: 0 0 1rem; }
 .ab-hero img { width: 100%; height: clamp(240px, 42vw, 560px); object-fit: cover; object-position: center 60%; }
-.ab-sec { padding: 3rem 0 1rem; border-top: 2px solid var(--ink); margin-top: 3rem; }
+.ab-sec { padding: 2.25rem 0 1rem; border-top: 2px solid var(--ink); margin-top: 3rem; }
 .ab-sec:first-child { margin-top: 2.5rem; }
-.ab-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 1rem 3rem; align-items: end; margin-bottom: 1.75rem; }
+.ab-head {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: .5rem 3rem; align-items: end;
+  margin-bottom: 1.25rem; padding: .75rem 0 .9rem;
+  /* the section title and caption ride along under the site header until their section ends */
+  position: sticky; top: var(--top-h, 56px); z-index: 5; background: var(--alu);
+  border-bottom: 1px solid transparent; transition: border-color .2s ease;
+}
+.ab-head.stuck { border-bottom-color: var(--rule); }
 .ab-head .section-h { margin: 0; }
 .ab-head p { margin: 0; font-size: 1.15rem; max-width: 46ch; color: var(--steel); }
 .ab-grid { columns: 3 16rem; column-gap: 1rem; }
@@ -453,4 +460,8 @@ h4,
 .ab-fig figcaption { font-family: var(--ui); font-size: .82rem; color: var(--steel); padding-top: .45rem; }
 .ab-video video { width: 100%; display: block; border-radius: 4px; background: var(--deep); }
 .ab-foot { margin: 3.5rem 0 0; padding-top: 1.5rem; border-top: 1px solid var(--rule); font-size: 1.1rem; }
-@media (max-width: 760px) { .ab-head { grid-template-columns: 1fr; } }
+@media (max-width: 760px) {
+  .ab-head { grid-template-columns: 1fr; }
+  .ab-head .section-h { font-size: 2rem; }
+  .ab-head p { font-size: 1rem; }
+}
