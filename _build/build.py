@@ -52,7 +52,7 @@ def cats_text(p):
 
 
 def page(title, body, root="", desc="Engineering portfolio of Wesley Hon: power electronics, controls, embedded hardware and PCB design.", current="", path=""):
-    nav = [("index.html", "Home", "home"), ("projects.html", "Projects", "projects"), ("experience.html", "Experience", "experience")]
+    nav = [("index.html", "Home", "home"), ("about.html", "About", "about"), ("projects.html", "Projects", "projects"), ("experience.html", "Experience", "experience")]
     links = "".join(
         f'<a href="{root}{h}"{" aria-current=\"page\"" if k == current else ""}>{t}</a>' for h, t, k in nav)
     return f"""<!doctype html>
@@ -433,10 +433,75 @@ def build_experience():
     (ROOT / "experience.html").write_text(page("Experience — Wesley Hon", body, "", current="experience", path="experience.html"))
 
 
+ABOUT = [
+    ("Hiking", "My favorite hikes end somewhere high with a long view. Yosemite has given me a few of the best.", [
+        ("half-dome.jpg", "Half Dome, Yosemite"),
+        ("mist-trail-group.jpg", "Liberty Cap and Nevada Fall on a group hike in Yosemite"),
+        ("ridge-photo.jpg", "Stopping to get the shot"),
+        ("snow-sunset.jpg", "Sunset in the snow with friends"),
+    ]),
+    ("Viewpoints", "I'll go a long way for a good view, especially at sunset. Lately I've been bringing a drone along too.", [
+        ("summit-sunset.jpg", "Sunset above the clouds"),
+        ("drone-sunset.jpg", "Golden hour over the coast, from the drone"),
+        ("beach-sunset.jpg", "Sunset on the coast"),
+    ]),
+    ("Sports", "In the pool or on a field. I swim, play flag football, and will try anything once, including skiing (results vary).", [
+        ("swimming.jpg", "On the blocks at a swim meet"),
+        ("flag-football.jpg", "Flag football at UCLA"),
+        ("ski-wipeout.jpg", "Skiing, mid-wipeout"),
+        ("flag-football-team.jpg", "Flag football team"),
+        ("rose-bowl.jpg", "Cheering on UCLA football at the Rose Bowl"),
+    ]),
+    ("Off-road", "Where the fun and the engineering overlap: testing day with the Bruin Racing Baja car.", [
+        ("baja-car.jpg", "The Baja car on the test track"),
+    ]),
+    ("Good company", "Most of the best views were better because of who I was with.", [
+        ("friends-camp.jpg", "Friends"),
+        ("volunteer-group.jpg", "With the team at an event"),
+    ]),
+]
+
+
+def build_about():
+    secs = []
+    for title, text, photos in ABOUT:
+        figs = "".join(
+            f'<figure class="ab-fig"><button class="shot" data-full="assets/img/about/{f}"><img src="assets/img/about/{f}" alt="{e(c)}" loading="lazy"></button><figcaption>{e(c)}</figcaption></figure>'
+            for f, c in photos)
+        if title == "Off-road":
+            figs = ('<figure class="ab-fig ab-video"><video controls preload="none" playsinline poster="assets/img/about/baja-drive-poster.jpg">'
+                    '<source src="assets/video/baja-drive.mp4" type="video/mp4"></video><figcaption>Testing day, on video</figcaption></figure>') + figs
+        slug = title.lower().replace(" ", "-")
+        secs.append(f"""
+  <section class="ab-sec" aria-labelledby="ab-{slug}">
+    <div class="ab-head">
+      <h2 id="ab-{slug}" class="section-h">{e(title)}</h2>
+      <p>{e(text)}</p>
+    </div>
+    <div class="ab-grid">{figs}</div>
+  </section>""")
+    body = f"""
+<article class="about-page">
+  <div class="wrap">
+    <h1 class="page-h">About</h1>
+    <p class="ab-lede">Outside the lab I'm usually outdoors: on a trail, in the pool or on a field, or somewhere high up waiting for the sun to go down.</p>
+  </div>
+  <figure class="ab-hero"><img src="assets/img/about/drone-sunset-wide.jpg" alt="Golden-hour sunset over a coastline and forested hills, shot from a drone"></figure>
+  <div class="wrap">
+    {"".join(secs)}
+    <p class="ab-foot">Looking for the engineering? <a href="projects.html">See my projects</a> or <a href="experience.html">my experience</a>.</p>
+  </div>
+</article>
+"""
+    (ROOT / "about.html").write_text(page("About — Wesley Hon", body, "", current="about", path="about.html",
+                                          desc="Wesley Hon outside of engineering: hiking, viewpoints and sports."))
+
+
 if __name__ == "__main__":
     build_home()
     build_projects()
     for i in range(len(PROJECTS)):
         build_project(i)
     build_experience()
+    build_about()
     print(f"Built home, projects, experience and {len(PROJECTS)} project pages.")
