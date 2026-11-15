@@ -168,7 +168,7 @@
     // scope
     sctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     sctx.clearRect(0, 0, SW, SH);
-    sctx.strokeStyle = 'rgba(230,233,236,.12)'; sctx.lineWidth = 1;
+    sctx.strokeStyle = 'rgba(255,247,232,.1)'; sctx.lineWidth = 1;
     for (let i = 1; i < 8; i++) { const gx = SW * i / 8; sctx.beginPath(); sctx.moveTo(gx, 0); sctx.lineTo(gx, SH); sctx.stroke(); }
     for (let i = 1; i < 4; i++) { const gy = SH * i / 4; sctx.beginPath(); sctx.moveTo(0, gy); sctx.lineTo(SW, gy); sctx.stroke(); }
     const trace = (arr, c, s) => {
@@ -182,7 +182,7 @@
     };
     trace(histU, col.ch2, UMAX);
     trace(histQ, col.ch1, 60);
-    sctx.fillStyle = 'rgba(230,233,236,.55)'; sctx.font = '11px Archivo, sans-serif';
+    sctx.fillStyle = 'rgba(255,247,232,.55)'; sctx.font = '11px "Inter Tight", sans-serif';
     sctx.fillText('CH1 θ₂ ±60°   CH2 τ ±3 N·m   8 s', 8, SH - 7);
   }
 
