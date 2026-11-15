@@ -43,7 +43,7 @@ All project content lives in one file: `_build/projects.py`. To change text, add
    ```bash
    python3 _build/build.py
    ```
-   This rewrites every page. It only needs Python 3, no installs.
+   This rewrites every page. It only needs Python 3, no installs. It also stamps each page with a version tag for `styles.css` and `main.js`, so visitors never get a stale cached copy. **If you edit `styles.css` or `main.js`, run the build afterwards** so the tag updates.
 4. Commit and push (or upload the changed files on GitHub).
 
 Small text fixes can also be made directly in the HTML files on GitHub, but those edits are overwritten the next time you run the build script, so prefer editing `projects.py`.

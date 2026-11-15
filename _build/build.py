@@ -21,6 +21,13 @@ LINKEDIN = "https://linkedin.com/in/wesleyhon"
 GITHUB = "https://github.com/honwesley"
 FEATURED = ["pendubot", "dc-microgrid-nmpc", "actuator-testbench"]
 
+# Version tags for the stylesheet and script, taken from their contents. Each build points the pages
+# at e.g. main.js?v=3f9a1c2b, so a browser can never pair a new page with an old cached script.
+import hashlib
+def _ver(name):
+    return hashlib.sha1((ROOT / name).read_bytes()).hexdigest()[:8]
+CSS_V, JS_V = _ver("styles.css"), _ver("main.js")
+
 # Images that are drawings, schematics or plots: shown whole on white instead of cropped.
 CONTAIN = ("schematic", "block", "buckboost", "signet-cad", "pendubot", "brewbird",
            "smv", "peec-simulink", "baja-power", "baja-controls", "ee141-circuit")
@@ -66,7 +73,7 @@ def page(title, body, root="", desc="Engineering portfolio of Wesley Hon: power 
 <meta name="theme-color" content="#F4EFE4" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#211D15" media="(prefers-color-scheme: dark)">
 <script>try{{var t=localStorage.getItem("theme");if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.dataset.theme=t;}}catch(e){{}}</script>
-<link rel="stylesheet" href="{root}styles.css">
+<link rel="stylesheet" href="{root}styles.css?v={CSS_V}">
 </head>
 <body class="pg-{current or 'project'}">
 <a class="skip" href="#main">Skip to content</a>
@@ -104,7 +111,7 @@ def page(title, body, root="", desc="Engineering portfolio of Wesley Hon: power 
   <img alt="">
   <p class="lb-cap"></p>
 </dialog>
-<script src="{root}main.js"></script>
+<script src="{root}main.js?v={JS_V}"></script>
 </body>
 </html>
 """
