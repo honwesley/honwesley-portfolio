@@ -5,94 +5,108 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>About — Wesley Hon</title>
 <meta name="description" content="Wesley Hon outside of engineering: hiking, viewpoints and sports.">
+<link rel="canonical" href="https://honwesley.github.io/honwesley-portfolio/about.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wesley Hon">
 <meta property="og:title" content="About — Wesley Hon">
 <meta property="og:description" content="Wesley Hon outside of engineering: hiking, viewpoints and sports.">
-<meta property="og:image" content="https://honwesley.github.io/honwesley-portfolio/assets/img/peec-pcb-3d.jpg">
-<link rel="canonical" href="https://honwesley.github.io/honwesley-portfolio/about.html">
+<meta property="og:url" content="https://honwesley.github.io/honwesley-portfolio/about.html">
+<meta property="og:image" content="https://honwesley.github.io/honwesley-portfolio/assets/img/about/drone-sunset-wide.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Inter+Tight:wght@300..800&display=swap" rel="stylesheet">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <meta name="theme-color" content="#F4EFE4" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#211D15" media="(prefers-color-scheme: dark)">
-<script>try{var t=localStorage.getItem("theme");if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.dataset.theme=t;}catch(e){}</script>
-<link rel="stylesheet" href="styles.css?v=7fafbb33">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300..500&family=Inter+Tight:wght@400..700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add("js");try{var t=localStorage.getItem("theme");if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.dataset.theme=t;}catch(e){}</script>
+<link rel="stylesheet" href="styles.css?v=fd5c1ae1">
 </head>
 <body class="pg-about">
 <a class="skip" href="#main">Skip to content</a>
 <header class="top">
-  <div class="brand">
-    <a class="mark" href="index.html">Wesley Hon</a>
+  <div class="top-in">
+    <a class="mark" href="index.html" aria-label="Wesley Hon, home">Wesley Hon</a>
     <button type="button" class="theme-toggle" role="switch" aria-checked="false" aria-label="Dark mode">
       <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
       <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
       <span class="knob"></span>
     </button>
+    <button type="button" class="menu-btn" aria-expanded="false" aria-controls="site-nav">
+      <span class="menu-lines" aria-hidden="true"><i></i><i></i></span><span class="menu-word">Menu</span>
+    </button>
+    <nav id="site-nav" class="nav" aria-label="Site">
+      <ul>
+        <li><a href="index.html">Home</a></li><li><a href="about.html" aria-current="page">About</a></li><li><a href="projects.html">Projects</a></li><li><a href="experience.html">Experience</a></li>
+        <li><a href="https://github.com/honwesley" rel="noopener">GitHub</a></li>
+        <li class="nav-resume"><a class="btn btn-sm" href="assets/docs/Wesley_Hon_Resume.pdf">Resume</a></li>
+      </ul>
+    </nav>
   </div>
-  <nav aria-label="Site">
-    <a href="index.html">Home</a><a href="about.html" aria-current="page">About</a><a href="projects.html">Projects</a><a href="experience.html">Experience</a>
-    <a href="https://github.com/honwesley" rel="noopener">GitHub</a>
-    <a class="nav-cta" href="assets/docs/Wesley_Hon_Resume.pdf">Resume</a>
-  </nav>
 </header>
 <main id="main">
 
 <article class="about-page">
-  <div class="wrap">
+  <div class="wrap page-head">
+    <p class="label">Outside the lab</p>
     <h1 class="page-h">About</h1>
     <p class="ab-lede">Outside the lab I'm usually outdoors: on a trail, in the pool or on a field, or somewhere high up waiting for the sun to go down.</p>
   </div>
-  <figure class="ab-hero"><img src="assets/img/about/drone-sunset-wide.jpg" alt="Golden-hour sunset over a coastline and forested hills, shot from a drone"></figure>
+  <figure class="ab-hero"><picture><source type="image/webp" srcset="assets/img/about/drone-sunset-wide-800.webp 800w, assets/img/about/drone-sunset-wide.webp 2000w" sizes="100vw"><img src="assets/img/about/drone-sunset-wide.jpg" alt="Golden-hour sunset over a coastline and forested hills, shot from a drone" width="2000" height="840" fetchpriority="high"></picture></figure>
   <div class="wrap">
     
   <section class="ab-sec" aria-labelledby="ab-hiking">
     <div class="ab-head">
-      <h2 id="ab-hiking" class="section-h">Hiking</h2>
+      <h2 id="ab-hiking" class="section-h"><span class="idx">01</span>Hiking</h2>
       <p>My favorite hikes end somewhere high with a long view. Yosemite has given me a few of the best.</p>
     </div>
-    <div class="ab-grid"><figure class="ab-fig"><button class="shot" data-full="assets/img/about/half-dome.jpg"><img src="assets/img/about/half-dome.jpg" alt="Half Dome, Yosemite" loading="lazy"></button><figcaption>Half Dome, Yosemite</figcaption></figure><figure class="ab-fig"><button class="shot" data-full="assets/img/about/mist-trail-group.jpg"><img src="assets/img/about/mist-trail-group.jpg" alt="Liberty Cap and Nevada Fall on a group hike in Yosemite" loading="lazy"></button><figcaption>Liberty Cap and Nevada Fall on a group hike in Yosemite</figcaption></figure><figure class="ab-fig"><button class="shot" data-full="assets/img/about/ridge-photo.jpg"><img src="assets/img/about/ridge-photo.jpg" alt="Stopping to get the shot" loading="lazy"></button><figcaption>Stopping to get the shot</figcaption></figure><figure class="ab-fig"><button class="shot" data-full="assets/img/about/snow-sunset.jpg"><img src="assets/img/about/snow-sunset.jpg" alt="Sunset in the snow with friends" loading="lazy"></button><figcaption>Sunset in the snow with friends</figcaption></figure></div>
+    <div class="ab-grid"><figure class="ab-fig"><button class="shot" type="button" data-full="assets/img/about/half-dome.jpg" aria-label="Enlarge: Half Dome, Yosemite"><picture><source type="image/webp" srcset="assets/img/about/half-dome-800.webp 800w, assets/img/about/half-dome.webp 1200w" sizes="(min-width: 1000px) 400px, (min-width: 600px) 50vw, 100vw"><img src="assets/img/about/half-dome.jpg" alt="Half Dome, Yosemite" width="1200" height="1600" loading="lazy" decoding="async"></picture></button><figcaption>Half Dome, Yosemite</figcaption></figure><figure class="ab-fig"><button class="shot" type="button" data-full="assets/img/about/mist-trail-group.jpg" aria-label="Enlarge: Liberty Cap and Nevada Fall on a group hike in Yosemite"><picture><source type="image/webp" srcset="assets/img/about/mist-trail-group-800.webp 800w, assets/img/about/mist-trail-group.webp 1600w" sizes="(min-width: 1000px) 400px, (min-width: 600px) 50vw, 100vw"><img src="assets/img/about/mist-trail-group.jpg" alt="Liberty Cap and Nevada Fall on a group hike in Yosemite" width="1600" height="1200" loading="lazy" decoding="async"></picture></button><figcaption>Liberty Cap and Nevada Fall on a group hike in Yosemite</figcaption></figure><figure class="ab-fig"><button class="shot" type="button" data-full="assets/img/about/ridge-photo.jpg" aria-label="Enlarge: Stopping to get the shot"><picture><source type="image/webp" srcset="assets/img/about/ridge-photo-800.webp 800w, assets/img/about/ridge-photo.webp 1200w" sizes="(min-width: 1000px) 400px, (min-width: 600px) 50vw, 100vw"><img src="assets/img/about/ridge-photo.jpg" alt="Stopping to get the shot" width="1200" height="1600" loading="lazy" decoding="async"></picture></button><figcaption>Stopping to get the shot</figcaption></figure><figure class="ab-fig"><button class="shot" type="button" data-full="assets/img/about/snow-sunset.jpg" aria-label="Enlarge: Sunset in the snow with friends"><picture><source type="image/webp" srcset="assets/img/about/snow-sunset-800.webp 800w, assets/img/about/snow-sunset.webp 1600w" sizes="(min-width: 1000px) 400px, (min-width: 600px) 50vw, 100vw"><img src="assets/img/about/snow-sunset.jpg" alt="Sunset in the snow with friends" width="1600" height="1200" loading="lazy" decoding="async"></picture></button><figcaption>Sunset in the snow with friends</figcaption></figure></div>
   </section>
   <section class="ab-sec" aria-labelledby="ab-viewpoints">
     <div class="ab-head">
-      <h2 id="ab-viewpoints" class="section-h">Viewpoints</h2>
+      <h2 id="ab-viewpoints" class="section-h"><span class="idx">02</span>Viewpoints</h2>
       <p>I&#x27;ll go a long way for a good view, especially at sunset. Lately I&#x27;ve been bringing a drone along too.</p>
     </div>
-    <div class="ab-grid"><figure class="ab-fig"><button class="shot" data-full="assets/img/about/summit-sunset.jpg"><img src="assets/img/about/summit-sunset.jpg" alt="Sunset above the clouds" loading="lazy"></button><figcaption>Sunset above the clouds</figcaption></figure><figure class="ab-fig"><button class="shot" data-full="assets/img/about/drone-sunset.jpg"><img src="assets/img/about/drone-sunset.jpg" alt="Golden hour over the coast, from the drone" loading="lazy"></button><figcaption>Golden hour over the coast, from the drone</figcaption></figure><figure class="ab-fig"><button class="shot" data-full="assets/img/about/beach-sunset.jpg"><img src="assets/img/about/beach-sunset.jpg" alt="Sunset on the coast" loading="lazy"></button><figcaption>Sunset on the coast</figcaption></figure></div>
+    <div class="ab-grid"><figure class="ab-fig"><button class="shot" type="button" data-full="assets/img/about/summit-sunset.jpg" aria-label="Enlarge: Sunset above the clouds"><picture><source type="image/webp" srcset="assets/img/about/summit-sunset-800.webp 800w, assets/img/about/summit-sunset.webp 900w" sizes="(min-width: 1000px) 400px, (min-width: 600px) 50vw, 100vw"><img src="assets/img/about/summit-sunset.jpg" alt="Sunset above the clouds" width="900" height="1600" loading="lazy" decoding="async"></picture></button><figcaption>Sunset above the clouds</figcaption></figure><figure class="ab-fig"><button class="shot" type="button" data-full="assets/img/about/drone-sunset.jpg" aria-label="Enlarge: Golden hour over the coast, from the drone"><picture><source type="image/webp" srcset="assets/img/about/drone-sunset-800.webp 800w, assets/img/about/drone-sunset.webp 1600w" sizes="(min-width: 1000px) 400px, (min-width: 600px) 50vw, 100vw"><img src="assets/img/about/drone-sunset.jpg" alt="Golden hour over the coast, from the drone" width="1600" height="1200" loading="lazy" decoding="async"></picture></button><figcaption>Golden hour over the coast, from the drone</figcaption></figure><figure class="ab-fig"><button class="shot" type="button" data-full="assets/img/about/beach-sunset.jpg" aria-label="Enlarge: Sunset on the coast"><picture><source type="image/webp" srcset="assets/img/about/beach-sunset-800.webp 800w, assets/img/about/beach-sunset.webp 1200w" sizes="(min-width: 1000px) 400px, (min-width: 600px) 50vw, 100vw"><img src="assets/img/about/beach-sunset.jpg" alt="Sunset on the coast" width="1200" height="1600" loading="lazy" decoding="async"></picture></button><figcaption>Sunset on the coast</figcaption></figure></div>
   </section>
   <section class="ab-sec" aria-labelledby="ab-sports">
     <div class="ab-head">
-      <h2 id="ab-sports" class="section-h">Sports</h2>
+      <h2 id="ab-sports" class="section-h"><span class="idx">03</span>Sports</h2>
       <p>In the pool or on a field. I swim, play flag football, and will try anything once, including skiing (results vary).</p>
     </div>
-    <div class="ab-grid"><figure class="ab-fig"><button class="shot" data-full="assets/img/about/swimming.jpg"><img src="assets/img/about/swimming.jpg" alt="On the blocks at a swim meet" loading="lazy"></button><figcaption>On the blocks at a swim meet</figcaption></figure><figure class="ab-fig"><button class="shot" data-full="assets/img/about/flag-football.jpg"><img src="assets/img/about/flag-football.jpg" alt="Flag football at UCLA" loading="lazy"></button><figcaption>Flag football at UCLA</figcaption></figure><figure class="ab-fig"><button class="shot" data-full="assets/img/about/ski-wipeout.jpg"><img src="assets/img/about/ski-wipeout.jpg" alt="Skiing, mid-wipeout" loading="lazy"></button><figcaption>Skiing, mid-wipeout</figcaption></figure><figure class="ab-fig"><button class="shot" data-full="assets/img/about/flag-football-team.jpg"><img src="assets/img/about/flag-football-team.jpg" alt="Flag football team" loading="lazy"></button><figcaption>Flag football team</figcaption></figure><figure class="ab-fig"><button class="shot" data-full="assets/img/about/rose-bowl.jpg"><img src="assets/img/about/rose-bowl.jpg" alt="Cheering on UCLA football at the Rose Bowl" loading="lazy"></button><figcaption>Cheering on UCLA football at the Rose Bowl</figcaption></figure></div>
+    <div class="ab-grid"><figure class="ab-fig"><button class="shot" type="button" data-full="assets/img/about/swimming.jpg" aria-label="Enlarge: On the blocks at a swim meet"><picture><source type="image/webp" srcset="assets/img/about/swimming-800.webp 800w, assets/img/about/swimming.webp 1600w" sizes="(min-width: 1000px) 400px, (min-width: 600px) 50vw, 100vw"><img src="assets/img/about/swimming.jpg" alt="On the blocks at a swim meet" width="1600" height="1066" loading="lazy" decoding="async"></picture></button><figcaption>On the blocks at a swim meet</figcaption></figure><figure class="ab-fig"><button class="shot" type="button" data-full="assets/img/about/flag-football.jpg" aria-label="Enlarge: Flag football at UCLA"><picture><source type="image/webp" srcset="assets/img/about/flag-football-800.webp 800w, assets/img/about/flag-football.webp 1200w" sizes="(min-width: 1000px) 400px, (min-width: 600px) 50vw, 100vw"><img src="assets/img/about/flag-football.jpg" alt="Flag football at UCLA" width="1200" height="1600" loading="lazy" decoding="async"></picture></button><figcaption>Flag football at UCLA</figcaption></figure><figure class="ab-fig"><button class="shot" type="button" data-full="assets/img/about/ski-wipeout.jpg" aria-label="Enlarge: Skiing, mid-wipeout"><picture><source type="image/webp" srcset="assets/img/about/ski-wipeout-800.webp 800w, assets/img/about/ski-wipeout.webp 1200w" sizes="(min-width: 1000px) 400px, (min-width: 600px) 50vw, 100vw"><img src="assets/img/about/ski-wipeout.jpg" alt="Skiing, mid-wipeout" width="1200" height="1600" loading="lazy" decoding="async"></picture></button><figcaption>Skiing, mid-wipeout</figcaption></figure><figure class="ab-fig"><button class="shot" type="button" data-full="assets/img/about/flag-football-team.jpg" aria-label="Enlarge: Flag football team"><picture><source type="image/webp" srcset="assets/img/about/flag-football-team-800.webp 800w, assets/img/about/flag-football-team.webp 1600w" sizes="(min-width: 1000px) 400px, (min-width: 600px) 50vw, 100vw"><img src="assets/img/about/flag-football-team.jpg" alt="Flag football team" width="1600" height="1066" loading="lazy" decoding="async"></picture></button><figcaption>Flag football team</figcaption></figure><figure class="ab-fig"><button class="shot" type="button" data-full="assets/img/about/rose-bowl.jpg" aria-label="Enlarge: Cheering on UCLA football at the Rose Bowl"><picture><source type="image/webp" srcset="assets/img/about/rose-bowl-800.webp 800w, assets/img/about/rose-bowl.webp 1600w" sizes="(min-width: 1000px) 400px, (min-width: 600px) 50vw, 100vw"><img src="assets/img/about/rose-bowl.jpg" alt="Cheering on UCLA football at the Rose Bowl" width="1600" height="1067" loading="lazy" decoding="async"></picture></button><figcaption>Cheering on UCLA football at the Rose Bowl</figcaption></figure></div>
   </section>
   <section class="ab-sec" aria-labelledby="ab-off-road">
     <div class="ab-head">
-      <h2 id="ab-off-road" class="section-h">Off-road</h2>
+      <h2 id="ab-off-road" class="section-h"><span class="idx">04</span>Off-road</h2>
       <p>Where the fun and the engineering overlap: testing day with the Bruin Racing Baja car.</p>
     </div>
-    <div class="ab-grid"><figure class="ab-fig ab-video"><video controls preload="none" playsinline poster="assets/img/about/baja-drive-poster.jpg"><source src="assets/video/baja-drive.mp4" type="video/mp4"></video><figcaption>Testing day, on video</figcaption></figure><figure class="ab-fig"><button class="shot" data-full="assets/img/about/baja-car.jpg"><img src="assets/img/about/baja-car.jpg" alt="The Baja car on the test track" loading="lazy"></button><figcaption>The Baja car on the test track</figcaption></figure></div>
+    <div class="ab-grid"><figure class="ab-fig ab-video"><video controls preload="none" playsinline poster="assets/img/about/baja-drive-poster.jpg"><source src="assets/video/baja-drive.mp4" type="video/mp4"></video><figcaption>Testing day, on video</figcaption></figure><figure class="ab-fig"><button class="shot" type="button" data-full="assets/img/about/baja-car.jpg" aria-label="Enlarge: The Baja car on the test track"><picture><source type="image/webp" srcset="assets/img/about/baja-car-800.webp 800w, assets/img/about/baja-car.webp 1066w" sizes="(min-width: 1000px) 400px, (min-width: 600px) 50vw, 100vw"><img src="assets/img/about/baja-car.jpg" alt="The Baja car on the test track" width="1066" height="1600" loading="lazy" decoding="async"></picture></button><figcaption>The Baja car on the test track</figcaption></figure></div>
   </section>
   <section class="ab-sec" aria-labelledby="ab-good-company">
     <div class="ab-head">
-      <h2 id="ab-good-company" class="section-h">Good company</h2>
+      <h2 id="ab-good-company" class="section-h"><span class="idx">05</span>Good company</h2>
       <p>Most of the best views were better because of who I was with.</p>
     </div>
-    <div class="ab-grid"><figure class="ab-fig"><button class="shot" data-full="assets/img/about/friends-camp.jpg"><img src="assets/img/about/friends-camp.jpg" alt="Friends" loading="lazy"></button><figcaption>Friends</figcaption></figure><figure class="ab-fig"><button class="shot" data-full="assets/img/about/volunteer-group.jpg"><img src="assets/img/about/volunteer-group.jpg" alt="With the team at an event" loading="lazy"></button><figcaption>With the team at an event</figcaption></figure></div>
+    <div class="ab-grid"><figure class="ab-fig"><button class="shot" type="button" data-full="assets/img/about/friends-camp.jpg" aria-label="Enlarge: Friends"><picture><source type="image/webp" srcset="assets/img/about/friends-camp-800.webp 800w, assets/img/about/friends-camp.webp 1600w" sizes="(min-width: 1000px) 400px, (min-width: 600px) 50vw, 100vw"><img src="assets/img/about/friends-camp.jpg" alt="Friends" width="1600" height="900" loading="lazy" decoding="async"></picture></button><figcaption>Friends</figcaption></figure><figure class="ab-fig"><button class="shot" type="button" data-full="assets/img/about/volunteer-group.jpg" aria-label="Enlarge: With the team at an event"><picture><source type="image/webp" srcset="assets/img/about/volunteer-group-800.webp 800w, assets/img/about/volunteer-group.webp 1600w" sizes="(min-width: 1000px) 400px, (min-width: 600px) 50vw, 100vw"><img src="assets/img/about/volunteer-group.jpg" alt="With the team at an event" width="1600" height="1200" loading="lazy" decoding="async"></picture></button><figcaption>With the team at an event</figcaption></figure></div>
   </section>
     <p class="ab-foot">Looking for the engineering? <a href="projects.html">See my projects</a> or <a href="experience.html">my experience</a>.</p>
   </div>
 </article>
 
 </main>
-<footer class="foot">
-  <h2>Let's talk hardware.</h2>
-  <p>Looking for internships and research in power electronics, controls and embedded systems.</p>
-  <div class="actions">
-    <a class="btn primary" href="mailto:wesleyhon@gmail.com">wesleyhon@gmail.com</a>
-    <a class="btn" href="https://linkedin.com/in/wesleyhon" rel="noopener">LinkedIn</a>
-    <a class="btn" href="https://github.com/honwesley" rel="noopener">GitHub</a>
-    <a class="btn" href="assets/docs/Wesley_Hon_Resume.pdf">Resume (PDF)</a>
+<footer class="foot" aria-labelledby="foot-h">
+  <div class="foot-in">
+    <p class="label label-dark">Contact</p>
+    <h2 id="foot-h">Let's talk hardware.</h2>
+    <p class="foot-lede">Looking for internships and research in power electronics, controls and embedded systems.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="mailto:wesleyhon@gmail.com">wesleyhon@gmail.com</a>
+      <a class="btn btn-on-dark" href="https://linkedin.com/in/wesleyhon" rel="noopener">LinkedIn</a>
+      <a class="btn btn-on-dark" href="https://github.com/honwesley" rel="noopener">GitHub</a>
+      <a class="btn btn-on-dark" href="assets/docs/Wesley_Hon_Resume.pdf">Resume (PDF)</a>
+    </div>
   </div>
   <p class="fine">© 2026 Wesley Hon</p>
 </footer>
@@ -101,6 +115,6 @@
   <img alt="">
   <p class="lb-cap"></p>
 </dialog>
-<script src="main.js?v=af6bd679"></script>
+<script src="main.js?v=42e0cac0"></script>
 </body>
 </html>

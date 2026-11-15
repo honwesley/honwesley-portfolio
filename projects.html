@@ -4,171 +4,201 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Projects — Wesley Hon</title>
-<meta name="description" content="Engineering portfolio of Wesley Hon: power electronics, controls, embedded hardware and PCB design.">
-<meta property="og:title" content="Projects — Wesley Hon">
-<meta property="og:description" content="Engineering portfolio of Wesley Hon: power electronics, controls, embedded hardware and PCB design.">
-<meta property="og:image" content="https://honwesley.github.io/honwesley-portfolio/assets/img/peec-pcb-3d.jpg">
+<meta name="description" content="14 engineering projects by Wesley Hon: power electronics, controls, embedded systems, PCB design and mechanical builds.">
 <link rel="canonical" href="https://honwesley.github.io/honwesley-portfolio/projects.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wesley Hon">
+<meta property="og:title" content="Projects — Wesley Hon">
+<meta property="og:description" content="14 engineering projects by Wesley Hon: power electronics, controls, embedded systems, PCB design and mechanical builds.">
+<meta property="og:url" content="https://honwesley.github.io/honwesley-portfolio/projects.html">
+<meta property="og:image" content="https://honwesley.github.io/honwesley-portfolio/assets/img/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Inter+Tight:wght@300..800&display=swap" rel="stylesheet">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <meta name="theme-color" content="#F4EFE4" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#211D15" media="(prefers-color-scheme: dark)">
-<script>try{var t=localStorage.getItem("theme");if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.dataset.theme=t;}catch(e){}</script>
-<link rel="stylesheet" href="styles.css?v=7fafbb33">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300..500&family=Inter+Tight:wght@400..700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add("js");try{var t=localStorage.getItem("theme");if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.dataset.theme=t;}catch(e){}</script>
+<link rel="stylesheet" href="styles.css?v=fd5c1ae1">
 </head>
 <body class="pg-projects">
 <a class="skip" href="#main">Skip to content</a>
 <header class="top">
-  <div class="brand">
-    <a class="mark" href="index.html">Wesley Hon</a>
+  <div class="top-in">
+    <a class="mark" href="index.html" aria-label="Wesley Hon, home">Wesley Hon</a>
     <button type="button" class="theme-toggle" role="switch" aria-checked="false" aria-label="Dark mode">
       <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
       <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
       <span class="knob"></span>
     </button>
+    <button type="button" class="menu-btn" aria-expanded="false" aria-controls="site-nav">
+      <span class="menu-lines" aria-hidden="true"><i></i><i></i></span><span class="menu-word">Menu</span>
+    </button>
+    <nav id="site-nav" class="nav" aria-label="Site">
+      <ul>
+        <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="projects.html" aria-current="page">Projects</a></li><li><a href="experience.html">Experience</a></li>
+        <li><a href="https://github.com/honwesley" rel="noopener">GitHub</a></li>
+        <li class="nav-resume"><a class="btn btn-sm" href="assets/docs/Wesley_Hon_Resume.pdf">Resume</a></li>
+      </ul>
+    </nav>
   </div>
-  <nav aria-label="Site">
-    <a href="index.html">Home</a><a href="about.html">About</a><a href="projects.html" aria-current="page">Projects</a><a href="experience.html">Experience</a>
-    <a href="https://github.com/honwesley" rel="noopener">GitHub</a>
-    <a class="nav-cta" href="assets/docs/Wesley_Hon_Resume.pdf">Resume</a>
-  </nav>
 </header>
 <main id="main">
 
-<section class="wrap pj-head">
-  <h1 class="page-h">Projects</h1>
-  <p class="page-sub">14 builds, from converter boards to robot arms. Hover a project to flip through it, then click in for the full write-up.</p>
-  <div class="chips" role="group" aria-label="Filter projects"><button type="button" class="chip" aria-pressed="true" data-filter="all">All</button><button type="button" class="chip" aria-pressed="false" data-filter="power">Power electronics</button><button type="button" class="chip" aria-pressed="false" data-filter="controls">Controls</button><button type="button" class="chip" aria-pressed="false" data-filter="embedded">Embedded</button><button type="button" class="chip" aria-pressed="false" data-filter="pcb">PCB design</button><button type="button" class="chip" aria-pressed="false" data-filter="mech">Mechanical</button><button type="button" class="chip" aria-pressed="false" data-filter="course">Coursework</button></div>
-  <p class="count" aria-live="polite"><span id="count">14</span> shown</p>
+<section class="wrap page-head" aria-labelledby="pj-h">
+  <p class="label">Index of work</p>
+  <h1 id="pj-h" class="page-h">Projects</h1>
+  <p class="page-sub">14 builds, from converter boards to robot arms. Filter by discipline, then open any project for the full write-up.</p>
+  <div class="filter-row">
+    <div class="chips" role="group" aria-label="Filter projects by discipline"><button type="button" class="chip" aria-pressed="true" data-filter="all">All</button><button type="button" class="chip" aria-pressed="false" data-filter="power">Power electronics</button><button type="button" class="chip" aria-pressed="false" data-filter="controls">Controls</button><button type="button" class="chip" aria-pressed="false" data-filter="embedded">Embedded</button><button type="button" class="chip" aria-pressed="false" data-filter="pcb">PCB design</button><button type="button" class="chip" aria-pressed="false" data-filter="mech">Mechanical</button><button type="button" class="chip" aria-pressed="false" data-filter="course">Coursework</button></div>
+    <p class="count" aria-live="polite"><span id="count">14</span> of 14 shown</p>
+  </div>
 </section>
-<section class="wrap">
-  <div class="tiles tiles-all" id="tiles">
-<a class="tile tile-xl" href="projects/pendubot.html" data-cats="controls mech embedded pcb" style="--i:0">
-  <span class="tile-media" style="view-transition-name: p-pendubot"><img src="assets/img/pendubot-sketch.jpg" alt="" class="fit-contain on" loading="eager"><img src="assets/img/pendubot-plant.jpg" alt="" class="fit-contain" loading="eager"><img src="assets/img/pendubot-block.jpg" alt="" class="fit-contain" loading="eager"><span class="ticks" aria-hidden="true"><i></i><i></i><i></i></span></span>
-  <span class="tile-info">
-    <span class="tile-title">Underactuated Pendubot</span>
-    <span class="tile-short">Two links, one motor. Balancing the free link through the dynamics of the driven one.</span>
-    <span class="tile-meta"><span>2026</span><span>Controls, Mechanical, Embedded, PCB design</span></span>
+<section class="wrap" aria-label="Project list">
+  <div class="cards cards-all" id="tiles">
+<a class="card" href="projects/pendubot.html" data-cats="controls mech embedded pcb" style="--i:0">
+  <span class="card-media fit-contain" style="view-transition-name: p-pendubot"><picture><source type="image/webp" srcset="assets/img/pendubot-sketch-800.webp 800w, assets/img/pendubot-sketch.webp 1377w" sizes="(min-width: 1100px) 400px, (min-width: 640px) 50vw, 100vw"><img src="assets/img/pendubot-sketch.jpg" alt="" width="1377" height="1400"></picture></span>
+  <span class="card-body">
+    <span class="card-cat">Controls, Mechanical, Embedded, PCB design</span>
+    <h2 class="card-title">Underactuated Pendubot</h2>
+    <span class="card-short">Two links, one motor. Balancing the free link through the dynamics of the driven one.</span>
+    <span class="card-meta"><span>2026</span><svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
   </span>
 </a>
-<a class="tile tile-l" href="projects/dc-microgrid-nmpc.html" data-cats="power controls pcb" style="--i:1">
-  <span class="tile-media" style="view-transition-name: p-dc-microgrid-nmpc"><img src="assets/img/peec-pcb-3d.jpg" alt="" class="fit-cover on" loading="eager"><img src="assets/img/peec-simulink.jpg" alt="" class="fit-contain" loading="eager"><img src="assets/img/peec-pcb-layout.jpg" alt="" class="fit-cover" loading="eager"><span class="ticks" aria-hidden="true"><i></i><i></i><i></i></span></span>
-  <span class="tile-info">
-    <span class="tile-title">Nonlinear MPC for a DC microgrid</span>
-    <span class="tile-short">Holding a shared DC bus steady through constant-power load steps with four boost converters.</span>
-    <span class="tile-meta"><span>June 2026 to present</span><span>Power electronics, Controls, PCB design</span></span>
+<a class="card" href="projects/dc-microgrid-nmpc.html" data-cats="power controls pcb" style="--i:1">
+  <span class="card-media fit-cover" style="view-transition-name: p-dc-microgrid-nmpc"><picture><source type="image/webp" srcset="assets/img/peec-pcb-3d.webp 772w" sizes="(min-width: 1100px) 400px, (min-width: 640px) 50vw, 100vw"><img src="assets/img/peec-pcb-3d.jpg" alt="" width="772" height="570"></picture></span>
+  <span class="card-body">
+    <span class="card-cat">Power electronics, Controls, PCB design</span>
+    <h2 class="card-title">Nonlinear MPC for a DC microgrid</h2>
+    <span class="card-short">Holding a shared DC bus steady through constant-power load steps with four boost converters.</span>
+    <span class="card-meta"><span>June 2026 to present</span><svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
   </span>
 </a>
-<a class="tile tile-l" href="projects/actuator-testbench.html" data-cats="controls embedded mech" style="--i:2">
-  <span class="tile-media" style="view-transition-name: p-actuator-testbench"><img src="assets/img/testbench-model.jpg" alt="" class="fit-cover on" loading="eager"><img src="assets/img/testbench-shifter.jpg" alt="" class="fit-cover" loading="eager"><img src="assets/img/testbench-wiring.jpg" alt="" class="fit-cover" loading="eager"><img src="assets/img/testbench-model-2.jpg" alt="" class="fit-cover" loading="eager"><span class="ticks" aria-hidden="true"><i></i><i></i><i></i><i></i></span></span>
-  <span class="tile-info">
-    <span class="tile-title">eCVT actuator testbench</span>
-    <span class="tile-short">A hardware-in-the-loop rig that finds shifter failures on the bench instead of on race day.</span>
-    <span class="tile-meta"><span>Aug 2025 to May 2026</span><span>Controls, Embedded, Mechanical</span></span>
+<a class="card" href="projects/actuator-testbench.html" data-cats="controls embedded mech" style="--i:2">
+  <span class="card-media fit-cover" style="view-transition-name: p-actuator-testbench"><picture><source type="image/webp" srcset="assets/img/testbench-model-800.webp 800w, assets/img/testbench-model.webp 1050w" sizes="(min-width: 1100px) 400px, (min-width: 640px) 50vw, 100vw"><img src="assets/img/testbench-model.jpg" alt="" width="1050" height="1400"></picture></span>
+  <span class="card-body">
+    <span class="card-cat">Controls, Embedded, Mechanical</span>
+    <h2 class="card-title">eCVT actuator testbench</h2>
+    <span class="card-short">A hardware-in-the-loop rig that finds shifter failures on the bench instead of on race day.</span>
+    <span class="card-meta"><span>Aug 2025 to May 2026</span><svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
   </span>
 </a>
-<a class="tile tile-m" href="projects/signet.html" data-cats="embedded controls mech" style="--i:3">
-  <span class="tile-media" style="view-transition-name: p-signet"><img src="assets/img/signet-hand.jpg" alt="" class="fit-board on" loading="lazy"><img src="assets/img/signet-cad.jpg" alt="" class="fit-contain" loading="lazy"><span class="ticks" aria-hidden="true"><i></i><i></i></span></span>
-  <span class="tile-info">
-    <span class="tile-title">SIGNET robotic arm</span>
-    <span class="tile-short">A 6-DOF arm that mirrors my arm and a vision model that reads ASL.</span>
-    <span class="tile-meta"><span>May 2026 to present</span><span>Embedded, Controls, Mechanical</span></span>
+<a class="card" href="projects/signet.html" data-cats="embedded controls mech" style="--i:3">
+  <span class="card-media fit-board" style="view-transition-name: p-signet"><picture><source type="image/webp" srcset="assets/img/signet-hand-800.webp 800w, assets/img/signet-hand.webp 872w" sizes="(min-width: 1100px) 400px, (min-width: 640px) 50vw, 100vw"><img src="assets/img/signet-hand.jpg" alt="" width="872" height="1200" loading="lazy" decoding="async"></picture></span>
+  <span class="card-body">
+    <span class="card-cat">Embedded, Controls, Mechanical</span>
+    <h2 class="card-title">SIGNET robotic arm</h2>
+    <span class="card-short">A 6-DOF arm that mirrors my arm and a vision model that reads ASL.</span>
+    <span class="card-meta"><span>May 2026 to present</span><svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
   </span>
 </a>
-<a class="tile tile-m" href="projects/baja-daq.html" data-cats="pcb embedded" style="--i:4">
-  <span class="tile-media" style="view-transition-name: p-baja-daq"><img src="assets/img/daq-board.jpg" alt="" class="fit-cover on" loading="lazy"><img src="assets/img/daq-schematic.jpg" alt="" class="fit-contain" loading="lazy"><img src="assets/img/baja-power.jpg" alt="" class="fit-contain" loading="lazy"><img src="assets/img/baja-controls.jpg" alt="" class="fit-contain" loading="lazy"><span class="ticks" aria-hidden="true"><i></i><i></i><i></i><i></i></span></span>
-  <span class="tile-info">
-    <span class="tile-title">Baja controls and DAQ board</span>
-    <span class="tile-short">One board to log what the car is doing, timestamped and synchronized.</span>
-    <span class="tile-meta"><span>UCLA Bruin Racing Baja SAE</span><span>PCB design, Embedded</span></span>
+<a class="card" href="projects/baja-daq.html" data-cats="pcb embedded" style="--i:4">
+  <span class="card-media fit-cover" style="view-transition-name: p-baja-daq"><picture><source type="image/webp" srcset="assets/img/daq-board-800.webp 800w, assets/img/daq-board.webp 1400w" sizes="(min-width: 1100px) 400px, (min-width: 640px) 50vw, 100vw"><img src="assets/img/daq-board.jpg" alt="" width="1400" height="1050" loading="lazy" decoding="async"></picture></span>
+  <span class="card-body">
+    <span class="card-cat">PCB design, Embedded</span>
+    <h2 class="card-title">Baja controls and DAQ board</h2>
+    <span class="card-short">One board to log what the car is doing, timestamped and synchronized.</span>
+    <span class="card-meta"><span>UCLA Bruin Racing Baja SAE</span><svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
   </span>
 </a>
-<a class="tile tile-m" href="projects/buck-boost.html" data-cats="power" style="--i:5">
-  <span class="tile-media" style="view-transition-name: p-buck-boost"><img src="assets/img/eoc-buckboost.jpg" alt="" class="fit-contain on" loading="lazy"></span>
-  <span class="tile-info">
-    <span class="tile-title">Buck–boost power stage study</span>
-    <span class="tile-short">Smaller, lower-power 3.3 V rail from a single Li-ion cell, and a plan to prove it.</span>
-    <span class="tile-meta"><span>October 2026 to present</span><span>Power electronics</span></span>
+<a class="card" href="projects/buck-boost.html" data-cats="power" style="--i:5">
+  <span class="card-media fit-contain" style="view-transition-name: p-buck-boost"><picture><source type="image/webp" srcset="assets/img/eoc-buckboost-800.webp 800w, assets/img/eoc-buckboost.webp 1400w" sizes="(min-width: 1100px) 400px, (min-width: 640px) 50vw, 100vw"><img src="assets/img/eoc-buckboost.jpg" alt="" width="1400" height="787" loading="lazy" decoding="async"></picture></span>
+  <span class="card-body">
+    <span class="card-cat">Power electronics</span>
+    <h2 class="card-title">Buck–boost power stage study</h2>
+    <span class="card-short">Smaller, lower-power 3.3 V rail from a single Li-ion cell, and a plan to prove it.</span>
+    <span class="card-meta"><span>October 2026 to present</span><svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
   </span>
 </a>
-<a class="tile tile-m" href="projects/heater-control-pcb.html" data-cats="pcb power embedded" style="--i:6">
-  <span class="tile-media" style="view-transition-name: p-heater-control-pcb"><img src="assets/img/ozcan-pcb.jpg" alt="" class="fit-board on" loading="lazy"></span>
-  <span class="tile-info">
-    <span class="tile-title">Heater and thermistor control PCB</span>
-    <span class="tile-short">A Raspberry Pi HAT that drives three heaters and reads three thermistors.</span>
-    <span class="tile-meta"><span>November 2026 to present</span><span>PCB design, Power electronics, Embedded</span></span>
+<a class="card" href="projects/heater-control-pcb.html" data-cats="pcb power embedded" style="--i:6">
+  <span class="card-media fit-board" style="view-transition-name: p-heater-control-pcb"><picture><source type="image/webp" srcset="assets/img/ozcan-pcb-800.webp 800w, assets/img/ozcan-pcb.webp 1400w" sizes="(min-width: 1100px) 400px, (min-width: 640px) 50vw, 100vw"><img src="assets/img/ozcan-pcb.jpg" alt="" width="1400" height="1216" loading="lazy" decoding="async"></picture></span>
+  <span class="card-body">
+    <span class="card-cat">PCB design, Power electronics, Embedded</span>
+    <h2 class="card-title">Heater and thermistor control PCB</h2>
+    <span class="card-short">A Raspberry Pi HAT that drives three heaters and reads three thermistors.</span>
+    <span class="card-meta"><span>November 2026 to present</span><svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
   </span>
 </a>
-<a class="tile tile-m" href="projects/lumos.html" data-cats="embedded pcb mech" style="--i:7">
-  <span class="tile-media" style="view-transition-name: p-lumos"><img src="assets/img/lumos.jpg" alt="" class="fit-cover on" loading="lazy"></span>
-  <span class="tile-info">
-    <span class="tile-title">LUMOS</span>
-    <span class="tile-short">A 48-LED display with an ESP32, two LED drivers and a printed enclosure.</span>
-    <span class="tile-meta"><span>Personal build</span><span>Embedded, PCB design, Mechanical</span></span>
+<a class="card" href="projects/lumos.html" data-cats="embedded pcb mech" style="--i:7">
+  <span class="card-media fit-cover" style="view-transition-name: p-lumos"><picture><source type="image/webp" srcset="assets/img/lumos-800.webp 800w, assets/img/lumos.webp 1050w" sizes="(min-width: 1100px) 400px, (min-width: 640px) 50vw, 100vw"><img src="assets/img/lumos.jpg" alt="" width="1050" height="1400" loading="lazy" decoding="async"></picture></span>
+  <span class="card-body">
+    <span class="card-cat">Embedded, PCB design, Mechanical</span>
+    <h2 class="card-title">LUMOS</h2>
+    <span class="card-short">A 48-LED display with an ESP32, two LED drivers and a printed enclosure.</span>
+    <span class="card-meta"><span>Personal build</span><svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
   </span>
 </a>
-<a class="tile tile-m" href="projects/supermileage-ui.html" data-cats="pcb embedded power" style="--i:8">
-  <span class="tile-media" style="view-transition-name: p-supermileage-ui"><img src="assets/img/smv-schematic.jpg" alt="" class="fit-contain on" loading="lazy"><img src="assets/img/smv-block.jpg" alt="" class="fit-contain" loading="lazy"><span class="ticks" aria-hidden="true"><i></i><i></i></span></span>
-  <span class="tile-info">
-    <span class="tile-title">Supermileage driver UI board</span>
-    <span class="tile-short">The driver&#x27;s control panel and a node on the car&#x27;s CAN bus.</span>
-    <span class="tile-meta"><span>Bruin Supermileage SAE</span><span>PCB design, Embedded, Power electronics</span></span>
+<a class="card" href="projects/supermileage-ui.html" data-cats="pcb embedded power" style="--i:8">
+  <span class="card-media fit-contain" style="view-transition-name: p-supermileage-ui"><picture><source type="image/webp" srcset="assets/img/smv-schematic-800.webp 800w, assets/img/smv-schematic.webp 1287w" sizes="(min-width: 1100px) 400px, (min-width: 640px) 50vw, 100vw"><img src="assets/img/smv-schematic.jpg" alt="" width="1287" height="910" loading="lazy" decoding="async"></picture></span>
+  <span class="card-body">
+    <span class="card-cat">PCB design, Embedded, Power electronics</span>
+    <h2 class="card-title">Supermileage driver UI board</h2>
+    <span class="card-short">The driver&#x27;s control panel and a node on the car&#x27;s CAN bus.</span>
+    <span class="card-meta"><span>Bruin Supermileage SAE</span><svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
   </span>
 </a>
-<a class="tile tile-m" href="projects/brewbird.html" data-cats="embedded" style="--i:9">
-  <span class="tile-media" style="view-transition-name: p-brewbird"><img src="assets/img/brewbird-schematic.jpg" alt="" class="fit-contain on" loading="lazy"><img src="assets/img/brewbird-sensor.jpg" alt="" class="fit-contain" loading="lazy"><img src="assets/img/brewbird-placement.jpg" alt="" class="fit-contain" loading="lazy"><span class="ticks" aria-hidden="true"><i></i><i></i><i></i></span></span>
-  <span class="tile-info">
-    <span class="tile-title">Brewbird flow sensing</span>
-    <span class="tile-short">Accurate water volume for a brewing machine with a pulse-output flow sensor.</span>
-    <span class="tile-meta"><span>Brewbird</span><span>Embedded</span></span>
+<a class="card" href="projects/brewbird.html" data-cats="embedded" style="--i:9">
+  <span class="card-media fit-contain" style="view-transition-name: p-brewbird"><picture><source type="image/webp" srcset="assets/img/brewbird-schematic-800.webp 800w, assets/img/brewbird-schematic.webp 1400w" sizes="(min-width: 1100px) 400px, (min-width: 640px) 50vw, 100vw"><img src="assets/img/brewbird-schematic.jpg" alt="" width="1400" height="751" loading="lazy" decoding="async"></picture></span>
+  <span class="card-body">
+    <span class="card-cat">Embedded</span>
+    <h2 class="card-title">Brewbird flow sensing</h2>
+    <span class="card-short">Accurate water volume for a brewing machine with a pulse-output flow sensor.</span>
+    <span class="card-meta"><span>Brewbird</span><svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
   </span>
 </a>
-<a class="tile tile-xl" href="projects/go-kart.html" data-cats="embedded mech" style="--i:10">
-  <span class="tile-media" style="view-transition-name: p-go-kart"><img src="assets/img/kart-car.jpg" alt="" class="fit-cover on" loading="lazy"><img src="assets/img/kart-soldering.jpg" alt="" class="fit-cover" loading="lazy"><img src="assets/img/kart-box.jpg" alt="" class="fit-cover" loading="lazy"><img src="assets/img/kart-wiring.jpg" alt="" class="fit-cover" loading="lazy"><span class="ticks" aria-hidden="true"><i></i><i></i><i></i><i></i></span></span>
-  <span class="tile-info">
-    <span class="tile-title">Verstappenmobiel electric go-kart</span>
-    <span class="tile-short">A 36 V, two-motor kart with Ackermann steering and an F1-style wheel.</span>
-    <span class="tile-meta"><span>Team of six</span><span>Embedded, Mechanical</span></span>
+<a class="card" href="projects/go-kart.html" data-cats="embedded mech" style="--i:10">
+  <span class="card-media fit-cover" style="view-transition-name: p-go-kart"><picture><source type="image/webp" srcset="assets/img/kart-car-800.webp 800w, assets/img/kart-car.webp 1050w" sizes="(min-width: 1100px) 400px, (min-width: 640px) 50vw, 100vw"><img src="assets/img/kart-car.jpg" alt="" width="1050" height="1400" loading="lazy" decoding="async"></picture></span>
+  <span class="card-body">
+    <span class="card-cat">Embedded, Mechanical</span>
+    <h2 class="card-title">Verstappenmobiel electric go-kart</h2>
+    <span class="card-short">A 36 V, two-motor kart with Ackermann steering and an F1-style wheel.</span>
+    <span class="card-meta"><span>Team of six</span><svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
   </span>
 </a>
-<a class="tile tile-m" href="projects/greenglide.html" data-cats="embedded pcb" style="--i:11">
-  <span class="tile-media" style="view-transition-name: p-greenglide"><img src="assets/img/greenglide-1.jpg" alt="" class="fit-cover on" loading="lazy"><img src="assets/img/greenglide-2.jpg" alt="" class="fit-cover" loading="lazy"><img src="assets/img/greenglide-3.jpg" alt="" class="fit-cover" loading="lazy"><img src="assets/img/greenglide-4.jpg" alt="" class="fit-cover" loading="lazy"><span class="ticks" aria-hidden="true"><i></i><i></i><i></i><i></i></span></span>
-  <span class="tile-info">
-    <span class="tile-title">Project GreenGlide</span>
-    <span class="tile-short">Sensors and embedded feedback to make shared e-scooters safer.</span>
-    <span class="tile-meta"><span>With Vlasi Pagonis and Joseph Gitonga</span><span>Embedded, PCB design</span></span>
+<a class="card" href="projects/greenglide.html" data-cats="embedded pcb" style="--i:11">
+  <span class="card-media fit-cover" style="view-transition-name: p-greenglide"><picture><source type="image/webp" srcset="assets/img/greenglide-1-800.webp 800w, assets/img/greenglide-1.webp 1050w" sizes="(min-width: 1100px) 400px, (min-width: 640px) 50vw, 100vw"><img src="assets/img/greenglide-1.jpg" alt="" width="1050" height="1400" loading="lazy" decoding="async"></picture></span>
+  <span class="card-body">
+    <span class="card-cat">Embedded, PCB design</span>
+    <h2 class="card-title">Project GreenGlide</h2>
+    <span class="card-short">Sensors and embedded feedback to make shared e-scooters safer.</span>
+    <span class="card-meta"><span>With Vlasi Pagonis and Joseph Gitonga</span><svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
   </span>
 </a>
-<a class="tile tile-l" href="projects/ee141-cpl-control.html" data-cats="controls power course" style="--i:12">
-  <span class="tile-media" style="view-transition-name: p-ee141-cpl-control"><img src="assets/img/ee141-voltage.jpg" alt="" class="fit-dark on" loading="lazy"><img src="assets/img/ee141-circuit.jpg" alt="" class="fit-contain" loading="lazy"><img src="assets/img/ee141-simulink.jpg" alt="" class="fit-dark" loading="lazy"><img src="assets/img/ee141-current.jpg" alt="" class="fit-dark" loading="lazy"><span class="ticks" aria-hidden="true"><i></i><i></i><i></i><i></i></span></span>
-  <span class="tile-info">
-    <span class="tile-title">Feedback control of a constant power load</span>
-    <span class="tile-short">Linearize, design, then see what the nonlinear plant does to your controller.</span>
-    <span class="tile-meta"><span>March 2026</span><span>Controls, Power electronics</span></span>
+<a class="card" href="projects/ee141-cpl-control.html" data-cats="controls power course" style="--i:12">
+  <span class="card-media fit-dark" style="view-transition-name: p-ee141-cpl-control"><picture><source type="image/webp" srcset="assets/img/ee141-voltage-800.webp 800w, assets/img/ee141-voltage.webp 1378w" sizes="(min-width: 1100px) 400px, (min-width: 640px) 50vw, 100vw"><img src="assets/img/ee141-voltage.jpg" alt="" width="1378" height="903" loading="lazy" decoding="async"></picture></span>
+  <span class="card-body">
+    <span class="card-cat">Controls, Power electronics</span>
+    <h2 class="card-title">Feedback control of a constant power load</h2>
+    <span class="card-short">Linearize, design, then see what the nonlinear plant does to your controller.</span>
+    <span class="card-meta"><span>March 2026</span><svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
   </span>
 </a>
-<a class="tile tile-l" href="projects/ece131a-detection.html" data-cats="course" style="--i:13">
-  <span class="tile-media" style="view-transition-name: p-ece131a-detection"><img src="assets/img/ece131-threshold.jpg" alt="" class="fit-dark on" loading="lazy"><img src="assets/img/ece131-error.jpg" alt="" class="fit-dark" loading="lazy"><img src="assets/img/ece131-cost.jpg" alt="" class="fit-dark" loading="lazy"><span class="ticks" aria-hidden="true"><i></i><i></i><i></i></span></span>
-  <span class="tile-info">
-    <span class="tile-title">Distributed detection in Gaussian noise</span>
-    <span class="tile-short">How many noisy sensors does it take to get the error rate under 10⁻³?</span>
-    <span class="tile-meta"><span>June 2026</span><span>Coursework</span></span>
+<a class="card" href="projects/ece131a-detection.html" data-cats="course" style="--i:13">
+  <span class="card-media fit-dark" style="view-transition-name: p-ece131a-detection"><picture><source type="image/webp" srcset="assets/img/ece131-threshold-800.webp 800w, assets/img/ece131-threshold.webp 1373w" sizes="(min-width: 1100px) 400px, (min-width: 640px) 50vw, 100vw"><img src="assets/img/ece131-threshold.jpg" alt="" width="1373" height="903" loading="lazy" decoding="async"></picture></span>
+  <span class="card-body">
+    <span class="card-cat">Coursework</span>
+    <h2 class="card-title">Distributed detection in Gaussian noise</h2>
+    <span class="card-short">How many noisy sensors does it take to get the error rate under 10⁻³?</span>
+    <span class="card-meta"><span>June 2026</span><svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
   </span>
 </a>
   </div>
 </section>
 
 </main>
-<footer class="foot">
-  <h2>Let's talk hardware.</h2>
-  <p>Looking for internships and research in power electronics, controls and embedded systems.</p>
-  <div class="actions">
-    <a class="btn primary" href="mailto:wesleyhon@gmail.com">wesleyhon@gmail.com</a>
-    <a class="btn" href="https://linkedin.com/in/wesleyhon" rel="noopener">LinkedIn</a>
-    <a class="btn" href="https://github.com/honwesley" rel="noopener">GitHub</a>
-    <a class="btn" href="assets/docs/Wesley_Hon_Resume.pdf">Resume (PDF)</a>
+<footer class="foot" aria-labelledby="foot-h">
+  <div class="foot-in">
+    <p class="label label-dark">Contact</p>
+    <h2 id="foot-h">Let's talk hardware.</h2>
+    <p class="foot-lede">Looking for internships and research in power electronics, controls and embedded systems.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="mailto:wesleyhon@gmail.com">wesleyhon@gmail.com</a>
+      <a class="btn btn-on-dark" href="https://linkedin.com/in/wesleyhon" rel="noopener">LinkedIn</a>
+      <a class="btn btn-on-dark" href="https://github.com/honwesley" rel="noopener">GitHub</a>
+      <a class="btn btn-on-dark" href="assets/docs/Wesley_Hon_Resume.pdf">Resume (PDF)</a>
+    </div>
   </div>
   <p class="fine">© 2026 Wesley Hon</p>
 </footer>
@@ -177,6 +207,6 @@
   <img alt="">
   <p class="lb-cap"></p>
 </dialog>
-<script src="main.js?v=af6bd679"></script>
+<script src="main.js?v=42e0cac0"></script>
 </body>
 </html>

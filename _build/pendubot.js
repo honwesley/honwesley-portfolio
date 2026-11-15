@@ -209,7 +209,7 @@
   // ---------- drawing setup ----------
   const sA = document.getElementById('scope-a'), sB = document.getElementById('scope-b');
   const ctx = cv.getContext('2d'), cA = sA.getContext('2d'), cB = sB.getContext('2d');
-  const css = (n) => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+  const css = (n) => getComputedStyle(cv).getPropertyValue(n).trim();  // read on the canvas: the rig sets its own palette
   const col = {};
   const readColors = () => { ['ink', 'steel', 'rule', 'link', 'ch1', 'ch2', 'signal', 'plate'].forEach((k) => { col[k] = css('--' + k); }); };
   readColors();

@@ -5,75 +5,93 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SIGNET robotic arm — Wesley Hon</title>
 <meta name="description" content="A 6-DOF arm that mirrors my arm and a vision model that reads ASL.">
+<link rel="canonical" href="https://honwesley.github.io/honwesley-portfolio/projects/signet.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wesley Hon">
 <meta property="og:title" content="SIGNET robotic arm — Wesley Hon">
 <meta property="og:description" content="A 6-DOF arm that mirrors my arm and a vision model that reads ASL.">
-<meta property="og:image" content="https://honwesley.github.io/honwesley-portfolio/assets/img/peec-pcb-3d.jpg">
-<link rel="canonical" href="https://honwesley.github.io/honwesley-portfolio/projects/signet.html">
+<meta property="og:url" content="https://honwesley.github.io/honwesley-portfolio/projects/signet.html">
+<meta property="og:image" content="https://honwesley.github.io/honwesley-portfolio/assets/img/signet-hand.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Inter+Tight:wght@300..800&display=swap" rel="stylesheet">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
 <meta name="theme-color" content="#F4EFE4" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#211D15" media="(prefers-color-scheme: dark)">
-<script>try{var t=localStorage.getItem("theme");if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.dataset.theme=t;}catch(e){}</script>
-<link rel="stylesheet" href="../styles.css?v=7fafbb33">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300..500&family=Inter+Tight:wght@400..700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add("js");try{var t=localStorage.getItem("theme");if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.dataset.theme=t;}catch(e){}</script>
+<link rel="stylesheet" href="../styles.css?v=fd5c1ae1">
 </head>
 <body class="pg-project">
 <a class="skip" href="#main">Skip to content</a>
 <header class="top">
-  <div class="brand">
-    <a class="mark" href="../index.html">Wesley Hon</a>
+  <div class="top-in">
+    <a class="mark" href="../index.html" aria-label="Wesley Hon, home">Wesley Hon</a>
     <button type="button" class="theme-toggle" role="switch" aria-checked="false" aria-label="Dark mode">
       <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
       <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
       <span class="knob"></span>
     </button>
+    <button type="button" class="menu-btn" aria-expanded="false" aria-controls="site-nav">
+      <span class="menu-lines" aria-hidden="true"><i></i><i></i></span><span class="menu-word">Menu</span>
+    </button>
+    <nav id="site-nav" class="nav" aria-label="Site">
+      <ul>
+        <li><a href="../index.html">Home</a></li><li><a href="../about.html">About</a></li><li><a href="../projects.html">Projects</a></li><li><a href="../experience.html">Experience</a></li>
+        <li><a href="https://github.com/honwesley" rel="noopener">GitHub</a></li>
+        <li class="nav-resume"><a class="btn btn-sm" href="../assets/docs/Wesley_Hon_Resume.pdf">Resume</a></li>
+      </ul>
+    </nav>
   </div>
-  <nav aria-label="Site">
-    <a href="../index.html">Home</a><a href="../about.html">About</a><a href="../projects.html">Projects</a><a href="../experience.html">Experience</a>
-    <a href="https://github.com/honwesley" rel="noopener">GitHub</a>
-    <a class="nav-cta" href="../assets/docs/Wesley_Hon_Resume.pdf">Resume</a>
-  </nav>
 </header>
 <main id="main">
 
-<article class="wrap proj-page">
-  <p class="crumb"><a href="../projects.html">All projects</a></p>
-  <header class="p-head">
-    <h1>SIGNET robotic arm</h1>
-    <p class="p-short">A 6-DOF arm that mirrors my arm and a vision model that reads ASL.</p>
-  </header>
-  <figure class="p-hero fit-board" style="view-transition-name: p-signet"><img src="../assets/img/signet-hand.jpg" alt="Render of SIGNET&#x27;s 3D-printed left hand"></figure>
-  <div class="p-grid">
-    <aside class="spec">
-      <dl><div><dt>When</dt><dd>May 2026 to present</dd></div><div><dt>Status</dt><dd>In progress</dd></div><div><dt>Areas</dt><dd>Embedded, Controls, Mechanical</dd></div></dl>
-      <h2>Tools</h2><ul class="toollist"><li>ESP32</li><li>Embedded C++</li><li>PyTorch</li><li>OpenCV</li><li>MediaPipe</li><li>KiCad</li><li>Onshape</li></ul>
-      
-    </aside>
-    <div class="p-content">
-      <p class="p-summary">A teleoperated 6-DOF arm that copies the motion of my own arm, paired with a vision model that recognizes American Sign Language gestures.</p>
-      <p class="impact">Under 50 ms control latency and 80% fewer telemetry faults.</p>
-      <section class="p-sec"><h2>Hardware and firmware</h2><ul class="did"><li>ESP32 controllers with servo and BLDC drivers, IMUs and encoder feedback for multi-axis joint tracking.</li><li>Distributed embedded C++ firmware across I2C and UART buses, with PID trajectory control.</li><li>Hand, forearm and joints modeled in Onshape and 3D printed; boards in KiCad.</li></ul></section><section class="p-sec"><h2>Vision</h2><ul class="did"><li>Custom PyTorch and OpenCV models trained on more than 10,000 self-collected multimodal samples covering 26 ASL gestures.</li><li>Real-time gesture recognition through a MediaPipe pipeline.</li></ul></section><section class="p-sec"><h2>Still learning</h2><p>Inverse kinematics for the joint targets, plus tighter motor control. A full build log is coming.</p></section>
-      
-      
-      <section class="p-sec"><h2>Gallery</h2><div class="p-gallery"><button class="shot fit-board" data-full="../assets/img/signet-hand.jpg"><img src="../assets/img/signet-hand.jpg" alt="Render of SIGNET&#x27;s 3D-printed left hand" loading="lazy"></button><button class="shot fit-contain" data-full="../assets/img/signet-cad.jpg"><img src="../assets/img/signet-cad.jpg" alt="Renders of SIGNET&#x27;s printed hand, forearm shell and wrist joint" loading="lazy"></button></div></section>
+<article class="proj-page">
+  <div class="wrap">
+    <p class="crumb"><a href="../projects.html"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M16 10H5M9 5l-5 5 5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>All projects</a></p>
+    <header class="p-head">
+      <p class="label">Embedded, Controls, Mechanical</p>
+      <h1>SIGNET robotic arm</h1>
+      <p class="p-short">A 6-DOF arm that mirrors my arm and a vision model that reads ASL.</p>
+      <dl class="spec-strip"><div><dt>When</dt><dd>May 2026 to present</dd></div><div><dt>Status</dt><dd>In progress</dd></div></dl>
+    </header>
+    <figure class="p-hero-fig"><div class="p-hero fit-board" style="view-transition-name: p-signet"><picture><source type="image/webp" srcset="../assets/img/signet-hand-800.webp 800w, ../assets/img/signet-hand.webp 872w" sizes="(min-width: 1280px) 1200px, 100vw"><img src="../assets/img/signet-hand.jpg" alt="Render of SIGNET&#x27;s 3D-printed left hand" width="872" height="1200" fetchpriority="high"></picture></div><figcaption><span class="idx">Fig. 1</span>Render of SIGNET&#x27;s 3D-printed left hand</figcaption></figure>
+    <div class="p-grid">
+      <div class="p-content">
+        <p class="p-summary">A teleoperated 6-DOF arm that copies the motion of my own arm, paired with a vision model that recognizes American Sign Language gestures.</p>
+        <p class="impact">Under 50 ms control latency and 80% fewer telemetry faults.</p>
+        <section class="p-sec"><h2>Hardware and firmware</h2><ul class="did"><li>ESP32 controllers with servo and BLDC drivers, IMUs and encoder feedback for multi-axis joint tracking.</li><li>Distributed embedded C++ firmware across I2C and UART buses, with PID trajectory control.</li><li>Hand, forearm and joints modeled in Onshape and 3D printed; boards in KiCad.</li></ul></section><section class="p-sec"><h2>Vision</h2><ul class="did"><li>Custom PyTorch and OpenCV models trained on more than 10,000 self-collected multimodal samples covering 26 ASL gestures.</li><li>Real-time gesture recognition through a MediaPipe pipeline.</li></ul></section><section class="p-sec"><h2>Still learning</h2><p>Inverse kinematics for the joint targets, plus tighter motor control. A full build log is coming.</p></section>
+        
+      </div>
+      <aside class="p-aside" aria-label="Project details">
+        <h2>Tools</h2><ul class="toollist"><li>ESP32</li><li>Embedded C++</li><li>PyTorch</li><li>OpenCV</li><li>MediaPipe</li><li>KiCad</li><li>Onshape</li></ul>
+        
+      </aside>
     </div>
   </div>
-  <nav class="prevnext" aria-label="More projects">
-    <a class="pn" href="actuator-testbench.html"><span class="pn-label">Previous</span><span class="pn-title">eCVT actuator testbench</span><img src="../assets/img/testbench-model.jpg" alt="" class="fit-cover" loading="lazy"></a>
-    <a class="pn" href="baja-daq.html"><span class="pn-label">Next</span><span class="pn-title">Baja controls and DAQ board</span><img src="../assets/img/daq-board.jpg" alt="" class="fit-cover" loading="lazy"></a>
-  </nav>
+  
+  <div class="wrap">
+    <section class="figs" aria-labelledby="figs-h"><h2 id="figs-h" class="figs-h">Figures</h2><div class="fig-grid"><figure class="fig fit-contain"><button class="shot" type="button" data-full="../assets/img/signet-cad.jpg" aria-label="Enlarge figure 2: Renders of SIGNET&#x27;s printed hand, forearm shell and wrist joint"><picture><source type="image/webp" srcset="../assets/img/signet-cad-800.webp 800w, ../assets/img/signet-cad.webp 1186w" sizes="(min-width: 960px) 600px, 100vw"><img src="../assets/img/signet-cad.jpg" alt="Renders of SIGNET&#x27;s printed hand, forearm shell and wrist joint" width="1186" height="320" loading="lazy" decoding="async"></picture></button><figcaption><span class="idx">Fig. 2</span>Renders of SIGNET&#x27;s printed hand, forearm shell and wrist joint</figcaption></figure></div></section>
+    <nav class="prevnext" aria-label="More projects">
+      <a class="pn pn-previous" href="actuator-testbench.html"><span class="pn-text"><span class="pn-label">Previous</span><span class="pn-title">eCVT actuator testbench</span></span><span class="pn-img fit-cover"><picture><source type="image/webp" srcset="../assets/img/testbench-model-800.webp 800w, ../assets/img/testbench-model.webp 1050w" sizes="160px"><img src="../assets/img/testbench-model.jpg" alt="" width="1050" height="1400" loading="lazy" decoding="async"></picture></span></a>
+      <a class="pn pn-next" href="baja-daq.html"><span class="pn-text"><span class="pn-label">Next</span><span class="pn-title">Baja controls and DAQ board</span></span><span class="pn-img fit-cover"><picture><source type="image/webp" srcset="../assets/img/daq-board-800.webp 800w, ../assets/img/daq-board.webp 1400w" sizes="160px"><img src="../assets/img/daq-board.jpg" alt="" width="1400" height="1050" loading="lazy" decoding="async"></picture></span></a>
+    </nav>
+  </div>
 </article>
 
 </main>
-<footer class="foot">
-  <h2>Let's talk hardware.</h2>
-  <p>Looking for internships and research in power electronics, controls and embedded systems.</p>
-  <div class="actions">
-    <a class="btn primary" href="mailto:wesleyhon@gmail.com">wesleyhon@gmail.com</a>
-    <a class="btn" href="https://linkedin.com/in/wesleyhon" rel="noopener">LinkedIn</a>
-    <a class="btn" href="https://github.com/honwesley" rel="noopener">GitHub</a>
-    <a class="btn" href="../assets/docs/Wesley_Hon_Resume.pdf">Resume (PDF)</a>
+<footer class="foot" aria-labelledby="foot-h">
+  <div class="foot-in">
+    <p class="label label-dark">Contact</p>
+    <h2 id="foot-h">Let's talk hardware.</h2>
+    <p class="foot-lede">Looking for internships and research in power electronics, controls and embedded systems.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="mailto:wesleyhon@gmail.com">wesleyhon@gmail.com</a>
+      <a class="btn btn-on-dark" href="https://linkedin.com/in/wesleyhon" rel="noopener">LinkedIn</a>
+      <a class="btn btn-on-dark" href="https://github.com/honwesley" rel="noopener">GitHub</a>
+      <a class="btn btn-on-dark" href="../assets/docs/Wesley_Hon_Resume.pdf">Resume (PDF)</a>
+    </div>
   </div>
   <p class="fine">© 2026 Wesley Hon</p>
 </footer>
@@ -82,6 +100,6 @@
   <img alt="">
   <p class="lb-cap"></p>
 </dialog>
-<script src="../main.js?v=af6bd679"></script>
+<script src="../main.js?v=42e0cac0"></script>
 </body>
 </html>

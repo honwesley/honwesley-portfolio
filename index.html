@@ -5,42 +5,60 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Wesley Hon — Power electronics, controls, mechatronics</title>
 <meta name="description" content="Engineering portfolio of Wesley Hon: power electronics, controls, embedded hardware and PCB design.">
+<link rel="canonical" href="https://honwesley.github.io/honwesley-portfolio/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wesley Hon">
 <meta property="og:title" content="Wesley Hon — Power electronics, controls, mechatronics">
 <meta property="og:description" content="Engineering portfolio of Wesley Hon: power electronics, controls, embedded hardware and PCB design.">
-<meta property="og:image" content="https://honwesley.github.io/honwesley-portfolio/assets/img/peec-pcb-3d.jpg">
-<link rel="canonical" href="https://honwesley.github.io/honwesley-portfolio/">
+<meta property="og:url" content="https://honwesley.github.io/honwesley-portfolio/">
+<meta property="og:image" content="https://honwesley.github.io/honwesley-portfolio/assets/img/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Inter+Tight:wght@300..800&display=swap" rel="stylesheet">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <meta name="theme-color" content="#F4EFE4" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#211D15" media="(prefers-color-scheme: dark)">
-<script>try{var t=localStorage.getItem("theme");if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.dataset.theme=t;}catch(e){}</script>
-<link rel="stylesheet" href="styles.css?v=7fafbb33">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300..500&family=Inter+Tight:wght@400..700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add("js");try{var t=localStorage.getItem("theme");if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.dataset.theme=t;}catch(e){}</script>
+<link rel="stylesheet" href="styles.css?v=fd5c1ae1">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Wesley Hon", "url": "https://honwesley.github.io/honwesley-portfolio/", "affiliation": "University of California, Los Angeles", "sameAs": ["https://linkedin.com/in/wesleyhon", "https://github.com/honwesley"]}</script>
 </head>
 <body class="pg-home">
 <a class="skip" href="#main">Skip to content</a>
 <header class="top">
-  <div class="brand">
-    <a class="mark" href="index.html">Wesley Hon</a>
+  <div class="top-in">
+    <a class="mark" href="index.html" aria-label="Wesley Hon, home">Wesley Hon</a>
     <button type="button" class="theme-toggle" role="switch" aria-checked="false" aria-label="Dark mode">
       <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
       <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
       <span class="knob"></span>
     </button>
+    <button type="button" class="menu-btn" aria-expanded="false" aria-controls="site-nav">
+      <span class="menu-lines" aria-hidden="true"><i></i><i></i></span><span class="menu-word">Menu</span>
+    </button>
+    <nav id="site-nav" class="nav" aria-label="Site">
+      <ul>
+        <li><a href="index.html" aria-current="page">Home</a></li><li><a href="about.html">About</a></li><li><a href="projects.html">Projects</a></li><li><a href="experience.html">Experience</a></li>
+        <li><a href="https://github.com/honwesley" rel="noopener">GitHub</a></li>
+        <li class="nav-resume"><a class="btn btn-sm" href="assets/docs/Wesley_Hon_Resume.pdf">Resume</a></li>
+      </ul>
+    </nav>
   </div>
-  <nav aria-label="Site">
-    <a href="index.html" aria-current="page">Home</a><a href="about.html">About</a><a href="projects.html">Projects</a><a href="experience.html">Experience</a>
-    <a href="https://github.com/honwesley" rel="noopener">GitHub</a>
-    <a class="nav-cta" href="assets/docs/Wesley_Hon_Resume.pdf">Resume</a>
-  </nav>
 </header>
 <main id="main">
 
-<section class="hero wrap">
+<section class="hero wrap" aria-labelledby="hero-h">
   <div class="hero-text">
-    <h1>Wesley<br>Hon</h1>
+    <p class="label">Electrical engineering, UCLA</p>
+    <h1 id="hero-h">Wesley<br>Hon</h1>
+    <p class="hero-tag">Power electronics, controls and embedded hardware</p>
     <p class="lede">Electrical engineering at UCLA. I design power converters, the controllers that keep them stable, and the boards they run on, then take them to the bench to see what breaks.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="projects.html">View projects</a>
+      <a class="btn" href="assets/docs/Wesley_Hon_Resume.pdf">Resume</a>
+      <a class="btn btn-ghost" href="mailto:wesleyhon@gmail.com">Contact</a>
+    </div>
     <dl class="facts">
       <div><dt>Focus</dt><dd>Power electronics, feedback control, autonomous systems, mechatronics</dd></div>
       <div><dt>Degree</dt><dd>BS expected 2028, MS expected 2029</dd></div>
@@ -51,19 +69,77 @@
           <li>Ozcan Lab</li>
         </ul></dd></div>
     </dl>
-    <div class="actions">
-      <a class="btn primary" href="projects.html">See my projects</a>
-      <a class="btn" href="assets/docs/Wesley_Hon_Resume.pdf">Resume</a>
-      <a class="btn" href="mailto:wesleyhon@gmail.com">Email me</a>
-    </div>
   </div>
-  <figure class="rig" aria-labelledby="rig-cap">
+  <div class="plate" aria-label="Hardware from my projects">
+    <a class="plate-fig plate-1 fit-cover" href="projects/actuator-testbench.html"><picture><source type="image/webp" srcset="assets/img/testbench-model-2-800.webp 800w, assets/img/testbench-model-2.webp 1050w" sizes="(min-width: 960px) 30vw, 50vw"><img src="assets/img/testbench-model-2.jpg" alt="Drive motor and encoder on the eCVT actuator testbench" width="1050" height="1400" fetchpriority="high"></picture><span class="plate-cap"><span class="idx">Fig. 1</span>eCVT actuator testbench</span></a><a class="plate-fig plate-2 fit-cover" href="projects/baja-daq.html"><picture><source type="image/webp" srcset="assets/img/daq-board-800.webp 800w, assets/img/daq-board.webp 1400w" sizes="(min-width: 960px) 30vw, 50vw"><img src="assets/img/daq-board.jpg" alt="Assembled Baja controls and DAQ board" width="1400" height="1050"></picture><span class="plate-cap"><span class="idx">Fig. 2</span>Baja controls and DAQ board</span></a><a class="plate-fig plate-3 fit-board" href="projects/heater-control-pcb.html"><picture><source type="image/webp" srcset="assets/img/ozcan-pcb-800.webp 800w, assets/img/ozcan-pcb.webp 1400w" sizes="(min-width: 960px) 30vw, 50vw"><img src="assets/img/ozcan-pcb.jpg" alt="Heater and thermistor control PCB, drawn from its KiCad layout" width="1400" height="1216"></picture><span class="plate-cap"><span class="idx">Fig. 3</span>Heater control PCB, from the KiCad layout</span></a>
+  </div>
+</section>
+
+<section class="band wrap" aria-labelledby="sel-h">
+  <div class="band-head">
+    <div><p class="label"><span class="idx">01</span>Selected work</p><h2 id="sel-h" class="section-h">Selected work</h2></div>
+    <a class="more-link" href="projects.html">All 14 projects <svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+  <div class="cards cards-feature">
+<a class="card" href="projects/pendubot.html" data-cats="controls mech embedded pcb" style="--i:0">
+  <span class="card-media fit-contain" style="view-transition-name: p-pendubot"><picture><source type="image/webp" srcset="assets/img/pendubot-sketch-800.webp 800w, assets/img/pendubot-sketch.webp 1377w" sizes="(min-width: 1100px) 400px, (min-width: 640px) 50vw, 100vw"><img src="assets/img/pendubot-sketch.jpg" alt="" width="1377" height="1400" loading="lazy" decoding="async"></picture></span>
+  <span class="card-body">
+    <span class="card-cat">Controls, Mechanical, Embedded, PCB design</span>
+    <h3 class="card-title">Underactuated Pendubot</h3>
+    <span class="card-short">Two links, one motor. Balancing the free link through the dynamics of the driven one.</span>
+    <span class="card-meta"><span>2026</span><svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+  </span>
+</a>
+<a class="card" href="projects/dc-microgrid-nmpc.html" data-cats="power controls pcb" style="--i:1">
+  <span class="card-media fit-cover" style="view-transition-name: p-dc-microgrid-nmpc"><picture><source type="image/webp" srcset="assets/img/peec-pcb-3d.webp 772w" sizes="(min-width: 1100px) 400px, (min-width: 640px) 50vw, 100vw"><img src="assets/img/peec-pcb-3d.jpg" alt="" width="772" height="570" loading="lazy" decoding="async"></picture></span>
+  <span class="card-body">
+    <span class="card-cat">Power electronics, Controls, PCB design</span>
+    <h3 class="card-title">Nonlinear MPC for a DC microgrid</h3>
+    <span class="card-short">Holding a shared DC bus steady through constant-power load steps with four boost converters.</span>
+    <span class="card-meta"><span>June 2026 to present</span><svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+  </span>
+</a>
+<a class="card" href="projects/actuator-testbench.html" data-cats="controls embedded mech" style="--i:2">
+  <span class="card-media fit-cover" style="view-transition-name: p-actuator-testbench"><picture><source type="image/webp" srcset="assets/img/testbench-model-800.webp 800w, assets/img/testbench-model.webp 1050w" sizes="(min-width: 1100px) 400px, (min-width: 640px) 50vw, 100vw"><img src="assets/img/testbench-model.jpg" alt="" width="1050" height="1400" loading="lazy" decoding="async"></picture></span>
+  <span class="card-body">
+    <span class="card-cat">Controls, Embedded, Mechanical</span>
+    <h3 class="card-title">eCVT actuator testbench</h3>
+    <span class="card-short">A hardware-in-the-loop rig that finds shifter failures on the bench instead of on race day.</span>
+    <span class="card-meta"><span>Aug 2025 to May 2026</span><svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+  </span>
+</a>
+<a class="card" href="projects/baja-daq.html" data-cats="pcb embedded" style="--i:3">
+  <span class="card-media fit-cover" style="view-transition-name: p-baja-daq"><picture><source type="image/webp" srcset="assets/img/daq-board-800.webp 800w, assets/img/daq-board.webp 1400w" sizes="(min-width: 1100px) 400px, (min-width: 640px) 50vw, 100vw"><img src="assets/img/daq-board.jpg" alt="" width="1400" height="1050" loading="lazy" decoding="async"></picture></span>
+  <span class="card-body">
+    <span class="card-cat">PCB design, Embedded</span>
+    <h3 class="card-title">Baja controls and DAQ board</h3>
+    <span class="card-short">One board to log what the car is doing, timestamped and synchronized.</span>
+    <span class="card-meta"><span>UCLA Bruin Racing Baja SAE</span><svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+  </span>
+</a>
+  </div>
+</section>
+
+<section class="showcase" aria-labelledby="sim-h">
+  <div class="wrap showcase-in">
+    <div class="showcase-text">
+      <p class="label label-dark"><span class="idx">02</span>Interactive engineering</p>
+      <h2 id="sim-h" class="section-h">Explore the control system</h2>
+      <p>This is my Pendubot, running live in your browser: two links, one motor at the shoulder, and a free elbow. Pick a controller and try to knock it over.</p>
+      <ol class="how">
+        <li>Choose PID, LQR, NMPC or fuzzy control.</li>
+        <li>Grab link 1 and shove it, as hard as you like.</li>
+        <li>Watch the scopes and telemetry as it recovers, or reset it upright or hanging and start the motor yourself.</li>
+      </ol>
+      <a class="more-link more-link-dark" href="projects/pendubot.html">Read the Pendubot write-up <svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+    <figure class="rig" aria-labelledby="rig-cap">
   <div class="rig-stage">
     <canvas id="pendubot" role="img" aria-label="Simulated Pendubot. Drag link 1 to disturb it; the controller swings it back up and balances it."></canvas>
     <span class="grab-hint">Grab link 1 and shove it</span>
   </div>
   <div class="rig-bar">
-    <div class="ctl-pick" role="group" aria-label="Balance controller">
+    <div class="seg" role="group" aria-label="Balance controller">
       <button type="button" data-ctl="pid" aria-pressed="false">PID</button>
       <button type="button" data-ctl="lqr" aria-pressed="true">LQR</button>
       <button type="button" data-ctl="nmpc" aria-pressed="false">NMPC</button>
@@ -72,7 +148,7 @@
     <p class="ctl-note" id="ctl-note">Full-state feedback from the Riccati solution on the linearized model.</p>
   </div>
   <div class="rig-bar rig-actions">
-    <div class="ctl-pick" role="group" aria-label="Reset position">
+    <div class="seg" role="group" aria-label="Reset position">
       <button type="button" data-reset="up" aria-pressed="false">Reset upright</button>
       <button type="button" data-reset="down" aria-pressed="false">Reset hanging</button>
     </div>
@@ -101,72 +177,38 @@
   </dl>
   <figcaption id="rig-cap">My Pendubot, simulated live at 1 kHz with two equal 11 in aluminum links and a 3 N·m motor limit. The motor drives the shoulder only; the elbow is a free, frictionless pin moved by nothing but gravity and link 1. When the arm falls, an energy-based swing-up brings it back and hands off to the controller you pick.</figcaption>
 </figure>
-</section>
-
-<section class="wrap band" aria-labelledby="sel-h">
-  <div class="band-head">
-    <h2 id="sel-h" class="section-h">Selected work</h2>
-    <a class="more-link" href="projects.html">All 14 projects</a>
-  </div>
-  <div class="tiles tiles-home">
-<a class="tile tile-xl" href="projects/pendubot.html" data-cats="controls mech embedded pcb" style="--i:0">
-  <span class="tile-media" style="view-transition-name: p-pendubot"><img src="assets/img/pendubot-sketch.jpg" alt="" class="fit-contain on" loading="eager"><img src="assets/img/pendubot-plant.jpg" alt="" class="fit-contain" loading="eager"><img src="assets/img/pendubot-block.jpg" alt="" class="fit-contain" loading="eager"><span class="ticks" aria-hidden="true"><i></i><i></i><i></i></span></span>
-  <span class="tile-info">
-    <span class="tile-title">Underactuated Pendubot</span>
-    <span class="tile-short">Two links, one motor. Balancing the free link through the dynamics of the driven one.</span>
-    <span class="tile-meta"><span>2026</span><span>Controls, Mechanical, Embedded, PCB design</span></span>
-  </span>
-</a>
-<a class="tile tile-l" href="projects/dc-microgrid-nmpc.html" data-cats="power controls pcb" style="--i:1">
-  <span class="tile-media" style="view-transition-name: p-dc-microgrid-nmpc"><img src="assets/img/peec-pcb-3d.jpg" alt="" class="fit-cover on" loading="eager"><img src="assets/img/peec-simulink.jpg" alt="" class="fit-contain" loading="eager"><img src="assets/img/peec-pcb-layout.jpg" alt="" class="fit-cover" loading="eager"><span class="ticks" aria-hidden="true"><i></i><i></i><i></i></span></span>
-  <span class="tile-info">
-    <span class="tile-title">Nonlinear MPC for a DC microgrid</span>
-    <span class="tile-short">Holding a shared DC bus steady through constant-power load steps with four boost converters.</span>
-    <span class="tile-meta"><span>June 2026 to present</span><span>Power electronics, Controls, PCB design</span></span>
-  </span>
-</a>
-<a class="tile tile-l" href="projects/actuator-testbench.html" data-cats="controls embedded mech" style="--i:2">
-  <span class="tile-media" style="view-transition-name: p-actuator-testbench"><img src="assets/img/testbench-model.jpg" alt="" class="fit-cover on" loading="eager"><img src="assets/img/testbench-shifter.jpg" alt="" class="fit-cover" loading="eager"><img src="assets/img/testbench-wiring.jpg" alt="" class="fit-cover" loading="eager"><img src="assets/img/testbench-model-2.jpg" alt="" class="fit-cover" loading="eager"><span class="ticks" aria-hidden="true"><i></i><i></i><i></i><i></i></span></span>
-  <span class="tile-info">
-    <span class="tile-title">eCVT actuator testbench</span>
-    <span class="tile-short">A hardware-in-the-loop rig that finds shifter failures on the bench instead of on race day.</span>
-    <span class="tile-meta"><span>Aug 2025 to May 2026</span><span>Controls, Embedded, Mechanical</span></span>
-  </span>
-</a>
   </div>
 </section>
 
-<section class="wrap band" aria-labelledby="now-h">
+<section class="band wrap" aria-labelledby="now-h">
   <div class="band-head">
-    <h2 id="now-h" class="section-h">Where I work</h2>
-    <a class="more-link" href="experience.html">Experience and skills</a>
+    <div><p class="label"><span class="idx">03</span>Experience</p><h2 id="now-h" class="section-h">Where I work</h2></div>
+    <a class="more-link" href="experience.html">Experience and skills <svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
   </div>
-  <ul class="where">
-    <li><b>Power Electronics and Energy Conversion Lab</b><span>Undergraduate researcher, June 2026 to present</span></li>
-    <li><b>Emergence of Communication Lab</b><span>Undergraduate researcher, October 2026 to present</span></li>
-    <li><b>Ozcan Lab</b><span>Undergraduate researcher, November 2026 to present</span></li>
-    <li><b>UCLA Bruin Racing SAE</b><span>Electronics project lead, April 2025 to present</span></li>
-  </ul>
+  <ul class="worklist"><li><span class="w-org">Power Electronics and Energy Conversion Lab</span><span class="w-role">Undergraduate researcher</span><span class="w-when">June 2026 to present</span></li><li><span class="w-org">Emergence of Communication Lab</span><span class="w-role">Undergraduate researcher</span><span class="w-when">October 2026 to present</span></li><li><span class="w-org">Ozcan Lab</span><span class="w-role">Undergraduate researcher</span><span class="w-when">November 2026 to present</span></li><li><span class="w-org">UCLA Bruin Racing SAE</span><span class="w-role">Electronics project lead</span><span class="w-when">April 2025 to present</span></li></ul>
 </section>
 
-<section class="wrap band" aria-labelledby="awards-h">
+<section class="band band-last wrap" aria-labelledby="awards-h">
   <div class="band-head">
-    <h2 id="awards-h" class="section-h">Awards</h2>
+    <div><p class="label"><span class="idx">04</span>Recognition</p><h2 id="awards-h" class="section-h">Awards</h2></div>
   </div>
-  <ul class="where">
-    <li><b>IdeaHacks 2026</b><span>2nd place for <a href="https://devpost.com/software/cpr-trainer-a9olkm" rel="noopener">CPR Trainer</a>, an ESP32 CPR trainer with real-time feedback</span></li>
+  <ul class="worklist">
+    <li><span class="w-org">IdeaHacks 2026</span><span class="w-role">2nd place for <a href="https://devpost.com/software/cpr-trainer-a9olkm" rel="noopener">CPR Trainer</a>, an ESP32 CPR trainer with real-time feedback</span><span class="w-when">2026</span></li>
   </ul>
 </section>
 
 </main>
-<footer class="foot">
-  <h2>Let's talk hardware.</h2>
-  <p>Looking for internships and research in power electronics, controls and embedded systems.</p>
-  <div class="actions">
-    <a class="btn primary" href="mailto:wesleyhon@gmail.com">wesleyhon@gmail.com</a>
-    <a class="btn" href="https://linkedin.com/in/wesleyhon" rel="noopener">LinkedIn</a>
-    <a class="btn" href="https://github.com/honwesley" rel="noopener">GitHub</a>
-    <a class="btn" href="assets/docs/Wesley_Hon_Resume.pdf">Resume (PDF)</a>
+<footer class="foot" aria-labelledby="foot-h">
+  <div class="foot-in">
+    <p class="label label-dark">Contact</p>
+    <h2 id="foot-h">Let's talk hardware.</h2>
+    <p class="foot-lede">Looking for internships and research in power electronics, controls and embedded systems.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="mailto:wesleyhon@gmail.com">wesleyhon@gmail.com</a>
+      <a class="btn btn-on-dark" href="https://linkedin.com/in/wesleyhon" rel="noopener">LinkedIn</a>
+      <a class="btn btn-on-dark" href="https://github.com/honwesley" rel="noopener">GitHub</a>
+      <a class="btn btn-on-dark" href="assets/docs/Wesley_Hon_Resume.pdf">Resume (PDF)</a>
+    </div>
   </div>
   <p class="fine">© 2026 Wesley Hon</p>
 </footer>
@@ -175,6 +217,6 @@
   <img alt="">
   <p class="lb-cap"></p>
 </dialog>
-<script src="main.js?v=af6bd679"></script>
+<script src="main.js?v=42e0cac0"></script>
 </body>
 </html>

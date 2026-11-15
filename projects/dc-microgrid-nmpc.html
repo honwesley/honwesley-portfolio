@@ -5,75 +5,93 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Nonlinear MPC for a DC microgrid — Wesley Hon</title>
 <meta name="description" content="Holding a shared DC bus steady through constant-power load steps with four boost converters.">
+<link rel="canonical" href="https://honwesley.github.io/honwesley-portfolio/projects/dc-microgrid-nmpc.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wesley Hon">
 <meta property="og:title" content="Nonlinear MPC for a DC microgrid — Wesley Hon">
 <meta property="og:description" content="Holding a shared DC bus steady through constant-power load steps with four boost converters.">
+<meta property="og:url" content="https://honwesley.github.io/honwesley-portfolio/projects/dc-microgrid-nmpc.html">
 <meta property="og:image" content="https://honwesley.github.io/honwesley-portfolio/assets/img/peec-pcb-3d.jpg">
-<link rel="canonical" href="https://honwesley.github.io/honwesley-portfolio/projects/dc-microgrid-nmpc.html">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Inter+Tight:wght@300..800&display=swap" rel="stylesheet">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
 <meta name="theme-color" content="#F4EFE4" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#211D15" media="(prefers-color-scheme: dark)">
-<script>try{var t=localStorage.getItem("theme");if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.dataset.theme=t;}catch(e){}</script>
-<link rel="stylesheet" href="../styles.css?v=7fafbb33">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300..500&family=Inter+Tight:wght@400..700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add("js");try{var t=localStorage.getItem("theme");if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.dataset.theme=t;}catch(e){}</script>
+<link rel="stylesheet" href="../styles.css?v=fd5c1ae1">
 </head>
 <body class="pg-project">
 <a class="skip" href="#main">Skip to content</a>
 <header class="top">
-  <div class="brand">
-    <a class="mark" href="../index.html">Wesley Hon</a>
+  <div class="top-in">
+    <a class="mark" href="../index.html" aria-label="Wesley Hon, home">Wesley Hon</a>
     <button type="button" class="theme-toggle" role="switch" aria-checked="false" aria-label="Dark mode">
       <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
       <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
       <span class="knob"></span>
     </button>
+    <button type="button" class="menu-btn" aria-expanded="false" aria-controls="site-nav">
+      <span class="menu-lines" aria-hidden="true"><i></i><i></i></span><span class="menu-word">Menu</span>
+    </button>
+    <nav id="site-nav" class="nav" aria-label="Site">
+      <ul>
+        <li><a href="../index.html">Home</a></li><li><a href="../about.html">About</a></li><li><a href="../projects.html">Projects</a></li><li><a href="../experience.html">Experience</a></li>
+        <li><a href="https://github.com/honwesley" rel="noopener">GitHub</a></li>
+        <li class="nav-resume"><a class="btn btn-sm" href="../assets/docs/Wesley_Hon_Resume.pdf">Resume</a></li>
+      </ul>
+    </nav>
   </div>
-  <nav aria-label="Site">
-    <a href="../index.html">Home</a><a href="../about.html">About</a><a href="../projects.html">Projects</a><a href="../experience.html">Experience</a>
-    <a href="https://github.com/honwesley" rel="noopener">GitHub</a>
-    <a class="nav-cta" href="../assets/docs/Wesley_Hon_Resume.pdf">Resume</a>
-  </nav>
 </header>
 <main id="main">
 
-<article class="wrap proj-page">
-  <p class="crumb"><a href="../projects.html">All projects</a></p>
-  <header class="p-head">
-    <h1>Nonlinear MPC for a DC microgrid</h1>
-    <p class="p-short">Holding a shared DC bus steady through constant-power load steps with four boost converters.</p>
-  </header>
-  <figure class="p-hero fit-cover" style="view-transition-name: p-dc-microgrid-nmpc"><img src="../assets/img/peec-pcb-3d.jpg" alt="3D render of the four-phase boost converter PCB with bulk capacitors"></figure>
-  <div class="p-grid">
-    <aside class="spec">
-      <dl><div><dt>When</dt><dd>June 2026 to present</dd></div><div><dt>Where</dt><dd>Power Electronics and Energy Conversion Lab, UCLA</dd></div><div><dt>Role</dt><dd>Undergraduate researcher</dd></div><div><dt>Areas</dt><dd>Power electronics, Controls, PCB design</dd></div></dl>
-      <h2>Tools</h2><ul class="toollist"><li>MATLAB</li><li>Simulink</li><li>LTspice</li><li>KiCad</li><li>Oscilloscopes</li><li>Differential probes</li><li>Electronic loads</li></ul>
-      <h2>Documents</h2><ul class="doclist"><li><a href="../assets/docs/peec-boost-schematic.pdf">Board schematic <span>(PDF)</span></a></li></ul>
-    </aside>
-    <div class="p-content">
-      <p class="p-summary">Constant power loads are destabilizing: when the bus voltage dips, the load draws more current to hold its power, which pulls the voltage down further. I designed a nonlinear model predictive controller that sets the duty cycles of several parallel boost converters to hold a shared DC bus at its reference through large load steps.</p>
-      <p class="impact">The bus recovers to its reference in under 0.1 s after load steps, and often under 20 ms in the switching-model simulation.</p>
-      <section class="p-sec"><h2>Building the model up in stages</h2><ol class="steps"><li><b>One averaged converter with a CPL.</b> Verified the steady state: duty cycle 0.669, zero state derivatives.</li><li><b>Open loop.</b> Fixed duty cycle, then a 5 kW to 8 kW load step to watch the bus sag.</li><li><b>Simple duty controller.</b> Used to confirm the plant behaves before adding anything clever.</li><li><b>Nonlinear MPC.</b> Cost, state and output functions written by hand.</li><li><b>Four converters, one bus.</b> States are every inductor current plus bus voltage, inputs are every duty cycle, and the cost adds current sharing.</li><li><b>Switching models.</b> Averaged converters replaced with MOSFET, diode and PWM models and compared against the averaged version.</li></ol></section><section class="p-sec"><h2>Constraints the controller respects</h2><ul class="did"><li>Duty cycle between 0.05 and 0.90.</li><li>Inductor current within its maximum.</li><li>Bus voltage between its minimum and maximum.</li></ul></section><section class="p-sec"><h2>The board</h2><p>Four boost stages, each with a current sensor feeding the controller, which runs the optimization and drives the MOSFET PWM. An external supply comes in through a buck and an LDO for the logic rails, with low-pass filtering on the power lines. The boost stages sit on one edge, the supply in the bottom left and the controller in the bottom right. I did the bring-up with scopes, differential probes and electronic loads, chasing gate ringing, conduction losses and VDS switching transients.</p></section>
-      
-      
-      <section class="p-sec"><h2>Gallery</h2><div class="p-gallery"><button class="shot fit-cover" data-full="../assets/img/peec-pcb-3d.jpg"><img src="../assets/img/peec-pcb-3d.jpg" alt="3D render of the four-phase boost converter PCB with bulk capacitors" loading="lazy"></button><button class="shot fit-contain" data-full="../assets/img/peec-simulink.jpg"><img src="../assets/img/peec-simulink.jpg" alt="Simulink model of four boost converters on a shared DC bus with the NMPC" loading="lazy"></button><button class="shot fit-cover" data-full="../assets/img/peec-pcb-layout.jpg"><img src="../assets/img/peec-pcb-layout.jpg" alt="PCB layout of the boost converter board" loading="lazy"></button></div></section>
+<article class="proj-page">
+  <div class="wrap">
+    <p class="crumb"><a href="../projects.html"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M16 10H5M9 5l-5 5 5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>All projects</a></p>
+    <header class="p-head">
+      <p class="label">Power electronics, Controls, PCB design</p>
+      <h1>Nonlinear MPC for a DC microgrid</h1>
+      <p class="p-short">Holding a shared DC bus steady through constant-power load steps with four boost converters.</p>
+      <dl class="spec-strip"><div><dt>When</dt><dd>June 2026 to present</dd></div><div><dt>Where</dt><dd>Power Electronics and Energy Conversion Lab, UCLA</dd></div><div><dt>Role</dt><dd>Undergraduate researcher</dd></div></dl>
+    </header>
+    <figure class="p-hero-fig"><div class="p-hero fit-cover" style="view-transition-name: p-dc-microgrid-nmpc"><picture><source type="image/webp" srcset="../assets/img/peec-pcb-3d.webp 772w" sizes="(min-width: 1280px) 1200px, 100vw"><img src="../assets/img/peec-pcb-3d.jpg" alt="3D render of the four-phase boost converter PCB with bulk capacitors" width="772" height="570" fetchpriority="high"></picture></div><figcaption><span class="idx">Fig. 1</span>3D render of the four-phase boost converter PCB with bulk capacitors</figcaption></figure>
+    <div class="p-grid">
+      <div class="p-content">
+        <p class="p-summary">Constant power loads are destabilizing: when the bus voltage dips, the load draws more current to hold its power, which pulls the voltage down further. I designed a nonlinear model predictive controller that sets the duty cycles of several parallel boost converters to hold a shared DC bus at its reference through large load steps.</p>
+        <p class="impact">The bus recovers to its reference in under 0.1 s after load steps, and often under 20 ms in the switching-model simulation.</p>
+        <section class="p-sec"><h2>Building the model up in stages</h2><ol class="steps"><li><b>One averaged converter with a CPL.</b> Verified the steady state: duty cycle 0.669, zero state derivatives.</li><li><b>Open loop.</b> Fixed duty cycle, then a 5 kW to 8 kW load step to watch the bus sag.</li><li><b>Simple duty controller.</b> Used to confirm the plant behaves before adding anything clever.</li><li><b>Nonlinear MPC.</b> Cost, state and output functions written by hand.</li><li><b>Four converters, one bus.</b> States are every inductor current plus bus voltage, inputs are every duty cycle, and the cost adds current sharing.</li><li><b>Switching models.</b> Averaged converters replaced with MOSFET, diode and PWM models and compared against the averaged version.</li></ol></section><section class="p-sec"><h2>Constraints the controller respects</h2><ul class="did"><li>Duty cycle between 0.05 and 0.90.</li><li>Inductor current within its maximum.</li><li>Bus voltage between its minimum and maximum.</li></ul></section><section class="p-sec"><h2>The board</h2><p>Four boost stages, each with a current sensor feeding the controller, which runs the optimization and drives the MOSFET PWM. An external supply comes in through a buck and an LDO for the logic rails, with low-pass filtering on the power lines. The boost stages sit on one edge, the supply in the bottom left and the controller in the bottom right. I did the bring-up with scopes, differential probes and electronic loads, chasing gate ringing, conduction losses and VDS switching transients.</p></section>
+        
+      </div>
+      <aside class="p-aside" aria-label="Project details">
+        <h2>Tools</h2><ul class="toollist"><li>MATLAB</li><li>Simulink</li><li>LTspice</li><li>KiCad</li><li>Oscilloscopes</li><li>Differential probes</li><li>Electronic loads</li></ul>
+        <h2>Documents</h2><ul class="doclist"><li><a href="../assets/docs/peec-boost-schematic.pdf">Board schematic <span>PDF</span></a></li></ul>
+      </aside>
     </div>
   </div>
-  <nav class="prevnext" aria-label="More projects">
-    <a class="pn" href="pendubot.html"><span class="pn-label">Previous</span><span class="pn-title">Underactuated Pendubot</span><img src="../assets/img/pendubot-sketch.jpg" alt="" class="fit-contain" loading="lazy"></a>
-    <a class="pn" href="actuator-testbench.html"><span class="pn-label">Next</span><span class="pn-title">eCVT actuator testbench</span><img src="../assets/img/testbench-model.jpg" alt="" class="fit-cover" loading="lazy"></a>
-  </nav>
+  
+  <div class="wrap">
+    <section class="figs" aria-labelledby="figs-h"><h2 id="figs-h" class="figs-h">Figures</h2><div class="fig-grid"><figure class="fig fit-contain"><button class="shot" type="button" data-full="../assets/img/peec-simulink.jpg" aria-label="Enlarge figure 2: Simulink model of four boost converters on a shared DC bus with the NMPC"><picture><source type="image/webp" srcset="../assets/img/peec-simulink-800.webp 800w, ../assets/img/peec-simulink.webp 1396w" sizes="(min-width: 960px) 600px, 100vw"><img src="../assets/img/peec-simulink.jpg" alt="Simulink model of four boost converters on a shared DC bus with the NMPC" width="1396" height="974" loading="lazy" decoding="async"></picture></button><figcaption><span class="idx">Fig. 2</span>Simulink model of four boost converters on a shared DC bus with the NMPC</figcaption></figure><figure class="fig fit-cover"><button class="shot" type="button" data-full="../assets/img/peec-pcb-layout.jpg" aria-label="Enlarge figure 3: PCB layout of the boost converter board"><picture><source type="image/webp" srcset="../assets/img/peec-pcb-layout-800.webp 800w, ../assets/img/peec-pcb-layout.webp 1156w" sizes="(min-width: 960px) 600px, 100vw"><img src="../assets/img/peec-pcb-layout.jpg" alt="PCB layout of the boost converter board" width="1156" height="960" loading="lazy" decoding="async"></picture></button><figcaption><span class="idx">Fig. 3</span>PCB layout of the boost converter board</figcaption></figure></div></section>
+    <nav class="prevnext" aria-label="More projects">
+      <a class="pn pn-previous" href="pendubot.html"><span class="pn-text"><span class="pn-label">Previous</span><span class="pn-title">Underactuated Pendubot</span></span><span class="pn-img fit-contain"><picture><source type="image/webp" srcset="../assets/img/pendubot-sketch-800.webp 800w, ../assets/img/pendubot-sketch.webp 1377w" sizes="160px"><img src="../assets/img/pendubot-sketch.jpg" alt="" width="1377" height="1400" loading="lazy" decoding="async"></picture></span></a>
+      <a class="pn pn-next" href="actuator-testbench.html"><span class="pn-text"><span class="pn-label">Next</span><span class="pn-title">eCVT actuator testbench</span></span><span class="pn-img fit-cover"><picture><source type="image/webp" srcset="../assets/img/testbench-model-800.webp 800w, ../assets/img/testbench-model.webp 1050w" sizes="160px"><img src="../assets/img/testbench-model.jpg" alt="" width="1050" height="1400" loading="lazy" decoding="async"></picture></span></a>
+    </nav>
+  </div>
 </article>
 
 </main>
-<footer class="foot">
-  <h2>Let's talk hardware.</h2>
-  <p>Looking for internships and research in power electronics, controls and embedded systems.</p>
-  <div class="actions">
-    <a class="btn primary" href="mailto:wesleyhon@gmail.com">wesleyhon@gmail.com</a>
-    <a class="btn" href="https://linkedin.com/in/wesleyhon" rel="noopener">LinkedIn</a>
-    <a class="btn" href="https://github.com/honwesley" rel="noopener">GitHub</a>
-    <a class="btn" href="../assets/docs/Wesley_Hon_Resume.pdf">Resume (PDF)</a>
+<footer class="foot" aria-labelledby="foot-h">
+  <div class="foot-in">
+    <p class="label label-dark">Contact</p>
+    <h2 id="foot-h">Let's talk hardware.</h2>
+    <p class="foot-lede">Looking for internships and research in power electronics, controls and embedded systems.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="mailto:wesleyhon@gmail.com">wesleyhon@gmail.com</a>
+      <a class="btn btn-on-dark" href="https://linkedin.com/in/wesleyhon" rel="noopener">LinkedIn</a>
+      <a class="btn btn-on-dark" href="https://github.com/honwesley" rel="noopener">GitHub</a>
+      <a class="btn btn-on-dark" href="../assets/docs/Wesley_Hon_Resume.pdf">Resume (PDF)</a>
+    </div>
   </div>
   <p class="fine">© 2026 Wesley Hon</p>
 </footer>
@@ -82,6 +100,6 @@
   <img alt="">
   <p class="lb-cap"></p>
 </dialog>
-<script src="../main.js?v=af6bd679"></script>
+<script src="../main.js?v=42e0cac0"></script>
 </body>
 </html>

@@ -5,75 +5,93 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Verstappenmobiel electric go-kart — Wesley Hon</title>
 <meta name="description" content="A 36 V, two-motor kart with Ackermann steering and an F1-style wheel.">
+<link rel="canonical" href="https://honwesley.github.io/honwesley-portfolio/projects/go-kart.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wesley Hon">
 <meta property="og:title" content="Verstappenmobiel electric go-kart — Wesley Hon">
 <meta property="og:description" content="A 36 V, two-motor kart with Ackermann steering and an F1-style wheel.">
-<meta property="og:image" content="https://honwesley.github.io/honwesley-portfolio/assets/img/peec-pcb-3d.jpg">
-<link rel="canonical" href="https://honwesley.github.io/honwesley-portfolio/projects/go-kart.html">
+<meta property="og:url" content="https://honwesley.github.io/honwesley-portfolio/projects/go-kart.html">
+<meta property="og:image" content="https://honwesley.github.io/honwesley-portfolio/assets/img/kart-car.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Inter+Tight:wght@300..800&display=swap" rel="stylesheet">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
 <meta name="theme-color" content="#F4EFE4" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#211D15" media="(prefers-color-scheme: dark)">
-<script>try{var t=localStorage.getItem("theme");if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.dataset.theme=t;}catch(e){}</script>
-<link rel="stylesheet" href="../styles.css?v=7fafbb33">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300..500&family=Inter+Tight:wght@400..700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add("js");try{var t=localStorage.getItem("theme");if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.dataset.theme=t;}catch(e){}</script>
+<link rel="stylesheet" href="../styles.css?v=fd5c1ae1">
 </head>
 <body class="pg-project">
 <a class="skip" href="#main">Skip to content</a>
 <header class="top">
-  <div class="brand">
-    <a class="mark" href="../index.html">Wesley Hon</a>
+  <div class="top-in">
+    <a class="mark" href="../index.html" aria-label="Wesley Hon, home">Wesley Hon</a>
     <button type="button" class="theme-toggle" role="switch" aria-checked="false" aria-label="Dark mode">
       <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
       <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
       <span class="knob"></span>
     </button>
+    <button type="button" class="menu-btn" aria-expanded="false" aria-controls="site-nav">
+      <span class="menu-lines" aria-hidden="true"><i></i><i></i></span><span class="menu-word">Menu</span>
+    </button>
+    <nav id="site-nav" class="nav" aria-label="Site">
+      <ul>
+        <li><a href="../index.html">Home</a></li><li><a href="../about.html">About</a></li><li><a href="../projects.html">Projects</a></li><li><a href="../experience.html">Experience</a></li>
+        <li><a href="https://github.com/honwesley" rel="noopener">GitHub</a></li>
+        <li class="nav-resume"><a class="btn btn-sm" href="../assets/docs/Wesley_Hon_Resume.pdf">Resume</a></li>
+      </ul>
+    </nav>
   </div>
-  <nav aria-label="Site">
-    <a href="../index.html">Home</a><a href="../about.html">About</a><a href="../projects.html">Projects</a><a href="../experience.html">Experience</a>
-    <a href="https://github.com/honwesley" rel="noopener">GitHub</a>
-    <a class="nav-cta" href="../assets/docs/Wesley_Hon_Resume.pdf">Resume</a>
-  </nav>
 </header>
 <main id="main">
 
-<article class="wrap proj-page">
-  <p class="crumb"><a href="../projects.html">All projects</a></p>
-  <header class="p-head">
-    <h1>Verstappenmobiel electric go-kart</h1>
-    <p class="p-short">A 36 V, two-motor kart with Ackermann steering and an F1-style wheel.</p>
-  </header>
-  <figure class="p-hero fit-cover" style="view-transition-name: p-go-kart"><img src="../assets/img/kart-car.jpg" alt="The finished go-kart"></figure>
-  <div class="p-grid">
-    <aside class="spec">
-      <dl><div><dt>Where</dt><dd>Team of six</dd></div><div><dt>Areas</dt><dd>Embedded, Mechanical</dd></div></dl>
-      <h2>Tools</h2><ul class="toollist"><li>Arduino</li><li>ESC</li><li>OLED</li><li>Perfboard</li><li>Soldering</li></ul>
-      
-    </aside>
-    <div class="p-content">
-      <p class="p-summary">A team-built electric kart. I worked on the electronics.</p>
-      
-      <section class="p-sec"><h2>Electronics</h2><ul class="did"><li>An ESC powered by a 36 V battery drives both motors: speed, direction and braking.</li><li>A potentiometer at the end of the steering rod measures steering angle.</li><li>An OLED on the F1-inspired steering wheel shows steering angle and speed.</li><li>The microcontroller and wiring are soldered onto perfboard and sealed in a box behind the seat.</li></ul></section><section class="p-sec"><h2>Chassis</h2><p>Designed for 50/50 left-right weight, ideally 40/60 front-rear. The front wheels mount above the chassis to center the weight, and the seat position came from measuring our drivers.</p></section>
-      
-      <section class="p-sec"><h2>On track</h2><video class="p-video" controls preload="none" playsinline poster="../assets/img/kart-lap-poster.jpg"><source src="../assets/video/kart-lap.mp4" type="video/mp4"></video></section>
-      <section class="p-sec"><h2>Gallery</h2><div class="p-gallery"><button class="shot fit-cover" data-full="../assets/img/kart-car.jpg"><img src="../assets/img/kart-car.jpg" alt="The finished go-kart" loading="lazy"></button><button class="shot fit-cover" data-full="../assets/img/kart-soldering.jpg"><img src="../assets/img/kart-soldering.jpg" alt="Soldering the perfboard controller" loading="lazy"></button><button class="shot fit-cover" data-full="../assets/img/kart-box.jpg"><img src="../assets/img/kart-box.jpg" alt="Electronics enclosure behind the seat" loading="lazy"></button><button class="shot fit-cover" data-full="../assets/img/kart-wiring.jpg"><img src="../assets/img/kart-wiring.jpg" alt="Wiring the controller on the breadboard" loading="lazy"></button><button class="shot fit-cover" data-full="../assets/img/kart-arduino.jpg"><img src="../assets/img/kart-arduino.jpg" alt="Testing the microcontroller" loading="lazy"></button><button class="shot fit-contain" data-full="../assets/img/kart-block.jpg"><img src="../assets/img/kart-block.jpg" alt="Electrical block diagram" loading="lazy"></button></div></section>
+<article class="proj-page">
+  <div class="wrap">
+    <p class="crumb"><a href="../projects.html"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M16 10H5M9 5l-5 5 5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>All projects</a></p>
+    <header class="p-head">
+      <p class="label">Embedded, Mechanical</p>
+      <h1>Verstappenmobiel electric go-kart</h1>
+      <p class="p-short">A 36 V, two-motor kart with Ackermann steering and an F1-style wheel.</p>
+      <dl class="spec-strip"><div><dt>Where</dt><dd>Team of six</dd></div></dl>
+    </header>
+    <figure class="p-hero-fig"><div class="p-hero fit-cover" style="view-transition-name: p-go-kart"><picture><source type="image/webp" srcset="../assets/img/kart-car-800.webp 800w, ../assets/img/kart-car.webp 1050w" sizes="(min-width: 1280px) 1200px, 100vw"><img src="../assets/img/kart-car.jpg" alt="The finished go-kart" width="1050" height="1400" fetchpriority="high"></picture></div><figcaption><span class="idx">Fig. 1</span>The finished go-kart</figcaption></figure>
+    <div class="p-grid">
+      <div class="p-content">
+        <p class="p-summary">A team-built electric kart. I worked on the electronics.</p>
+        
+        <section class="p-sec"><h2>Electronics</h2><ul class="did"><li>An ESC powered by a 36 V battery drives both motors: speed, direction and braking.</li><li>A potentiometer at the end of the steering rod measures steering angle.</li><li>An OLED on the F1-inspired steering wheel shows steering angle and speed.</li><li>The microcontroller and wiring are soldered onto perfboard and sealed in a box behind the seat.</li></ul></section><section class="p-sec"><h2>Chassis</h2><p>Designed for 50/50 left-right weight, ideally 40/60 front-rear. The front wheels mount above the chassis to center the weight, and the seat position came from measuring our drivers.</p></section>
+        <section class="p-sec"><h2>On track</h2><video class="p-video" controls preload="none" playsinline poster="../assets/img/kart-lap-poster.jpg"><source src="../assets/video/kart-lap.mp4" type="video/mp4"></video></section>
+      </div>
+      <aside class="p-aside" aria-label="Project details">
+        <h2>Tools</h2><ul class="toollist"><li>Arduino</li><li>ESC</li><li>OLED</li><li>Perfboard</li><li>Soldering</li></ul>
+        
+      </aside>
     </div>
   </div>
-  <nav class="prevnext" aria-label="More projects">
-    <a class="pn" href="brewbird.html"><span class="pn-label">Previous</span><span class="pn-title">Brewbird flow sensing</span><img src="../assets/img/brewbird-schematic.jpg" alt="" class="fit-contain" loading="lazy"></a>
-    <a class="pn" href="greenglide.html"><span class="pn-label">Next</span><span class="pn-title">Project GreenGlide</span><img src="../assets/img/greenglide-1.jpg" alt="" class="fit-cover" loading="lazy"></a>
-  </nav>
+  
+  <div class="wrap">
+    <section class="figs" aria-labelledby="figs-h"><h2 id="figs-h" class="figs-h">Figures</h2><div class="fig-grid"><figure class="fig fit-cover"><button class="shot" type="button" data-full="../assets/img/kart-soldering.jpg" aria-label="Enlarge figure 2: Soldering the perfboard controller"><picture><source type="image/webp" srcset="../assets/img/kart-soldering-800.webp 800w, ../assets/img/kart-soldering.webp 1050w" sizes="(min-width: 960px) 600px, 100vw"><img src="../assets/img/kart-soldering.jpg" alt="Soldering the perfboard controller" width="1050" height="1400" loading="lazy" decoding="async"></picture></button><figcaption><span class="idx">Fig. 2</span>Soldering the perfboard controller</figcaption></figure><figure class="fig fit-cover"><button class="shot" type="button" data-full="../assets/img/kart-box.jpg" aria-label="Enlarge figure 3: Electronics enclosure behind the seat"><picture><source type="image/webp" srcset="../assets/img/kart-box-800.webp 800w, ../assets/img/kart-box.webp 1050w" sizes="(min-width: 960px) 600px, 100vw"><img src="../assets/img/kart-box.jpg" alt="Electronics enclosure behind the seat" width="1050" height="1400" loading="lazy" decoding="async"></picture></button><figcaption><span class="idx">Fig. 3</span>Electronics enclosure behind the seat</figcaption></figure><figure class="fig fit-cover"><button class="shot" type="button" data-full="../assets/img/kart-wiring.jpg" aria-label="Enlarge figure 4: Wiring the controller on the breadboard"><picture><source type="image/webp" srcset="../assets/img/kart-wiring-800.webp 800w, ../assets/img/kart-wiring.webp 1050w" sizes="(min-width: 960px) 600px, 100vw"><img src="../assets/img/kart-wiring.jpg" alt="Wiring the controller on the breadboard" width="1050" height="1400" loading="lazy" decoding="async"></picture></button><figcaption><span class="idx">Fig. 4</span>Wiring the controller on the breadboard</figcaption></figure><figure class="fig fit-cover"><button class="shot" type="button" data-full="../assets/img/kart-arduino.jpg" aria-label="Enlarge figure 5: Testing the microcontroller"><picture><source type="image/webp" srcset="../assets/img/kart-arduino-800.webp 800w, ../assets/img/kart-arduino.webp 1050w" sizes="(min-width: 960px) 600px, 100vw"><img src="../assets/img/kart-arduino.jpg" alt="Testing the microcontroller" width="1050" height="1400" loading="lazy" decoding="async"></picture></button><figcaption><span class="idx">Fig. 5</span>Testing the microcontroller</figcaption></figure><figure class="fig fit-contain"><button class="shot" type="button" data-full="../assets/img/kart-block.jpg" aria-label="Enlarge figure 6: Electrical block diagram"><picture><source type="image/webp" srcset="../assets/img/kart-block-800.webp 800w, ../assets/img/kart-block.webp 1197w" sizes="(min-width: 960px) 600px, 100vw"><img src="../assets/img/kart-block.jpg" alt="Electrical block diagram" width="1197" height="777" loading="lazy" decoding="async"></picture></button><figcaption><span class="idx">Fig. 6</span>Electrical block diagram</figcaption></figure></div></section>
+    <nav class="prevnext" aria-label="More projects">
+      <a class="pn pn-previous" href="brewbird.html"><span class="pn-text"><span class="pn-label">Previous</span><span class="pn-title">Brewbird flow sensing</span></span><span class="pn-img fit-contain"><picture><source type="image/webp" srcset="../assets/img/brewbird-schematic-800.webp 800w, ../assets/img/brewbird-schematic.webp 1400w" sizes="160px"><img src="../assets/img/brewbird-schematic.jpg" alt="" width="1400" height="751" loading="lazy" decoding="async"></picture></span></a>
+      <a class="pn pn-next" href="greenglide.html"><span class="pn-text"><span class="pn-label">Next</span><span class="pn-title">Project GreenGlide</span></span><span class="pn-img fit-cover"><picture><source type="image/webp" srcset="../assets/img/greenglide-1-800.webp 800w, ../assets/img/greenglide-1.webp 1050w" sizes="160px"><img src="../assets/img/greenglide-1.jpg" alt="" width="1050" height="1400" loading="lazy" decoding="async"></picture></span></a>
+    </nav>
+  </div>
 </article>
 
 </main>
-<footer class="foot">
-  <h2>Let's talk hardware.</h2>
-  <p>Looking for internships and research in power electronics, controls and embedded systems.</p>
-  <div class="actions">
-    <a class="btn primary" href="mailto:wesleyhon@gmail.com">wesleyhon@gmail.com</a>
-    <a class="btn" href="https://linkedin.com/in/wesleyhon" rel="noopener">LinkedIn</a>
-    <a class="btn" href="https://github.com/honwesley" rel="noopener">GitHub</a>
-    <a class="btn" href="../assets/docs/Wesley_Hon_Resume.pdf">Resume (PDF)</a>
+<footer class="foot" aria-labelledby="foot-h">
+  <div class="foot-in">
+    <p class="label label-dark">Contact</p>
+    <h2 id="foot-h">Let's talk hardware.</h2>
+    <p class="foot-lede">Looking for internships and research in power electronics, controls and embedded systems.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="mailto:wesleyhon@gmail.com">wesleyhon@gmail.com</a>
+      <a class="btn btn-on-dark" href="https://linkedin.com/in/wesleyhon" rel="noopener">LinkedIn</a>
+      <a class="btn btn-on-dark" href="https://github.com/honwesley" rel="noopener">GitHub</a>
+      <a class="btn btn-on-dark" href="../assets/docs/Wesley_Hon_Resume.pdf">Resume (PDF)</a>
+    </div>
   </div>
   <p class="fine">© 2026 Wesley Hon</p>
 </footer>
@@ -82,6 +100,6 @@
   <img alt="">
   <p class="lb-cap"></p>
 </dialog>
-<script src="../main.js?v=af6bd679"></script>
+<script src="../main.js?v=42e0cac0"></script>
 </body>
 </html>

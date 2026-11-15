@@ -19,6 +19,47 @@
 })();
 
 /* =========================================================
+   Mobile menu: a disclosure button that shows the site links
+   ========================================================= */
+(() => {
+  const top = document.querySelector('.top');
+  const btn = top && top.querySelector('.menu-btn');
+  const nav = document.getElementById('site-nav');
+  if (!btn || !nav) return;
+  const word = btn.querySelector('.menu-word');
+  const mq = window.matchMedia('(max-width: 900px)');
+  const links = () => [...nav.querySelectorAll('a')];
+  const setOpen = (open, focusBtn) => {
+    top.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    if (word) word.textContent = open ? 'Close' : 'Menu';
+    // hidden links stay out of the tab order on small screens
+    nav.inert = mq.matches && !open;
+    if (open) links()[0]?.focus();
+    else if (focusBtn) btn.focus();
+  };
+  const sync = () => { if (!mq.matches) top.classList.remove('open'); setOpen(false, false); };
+  btn.addEventListener('click', () => setOpen(btn.getAttribute('aria-expanded') !== 'true', true));
+  nav.addEventListener('click', (e) => { if (e.target.closest('a') && mq.matches) setOpen(false, false); });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && top.classList.contains('open')) { e.preventDefault(); setOpen(false, true); }
+  });
+  document.addEventListener('click', (e) => { if (top.classList.contains('open') && !top.contains(e.target)) setOpen(false, false); });
+  // keep Tab inside the open menu (button plus links)
+  top.addEventListener('keydown', (e) => {
+    if (e.key !== 'Tab' || !top.classList.contains('open')) return;
+    const items = [btn, ...links()];
+    const i = items.indexOf(document.activeElement);
+    if (e.shiftKey && i <= 0) { e.preventDefault(); items[items.length - 1].focus(); }
+    else if (!e.shiftKey && i === items.length - 1) { e.preventDefault(); items[0].focus(); }
+  });
+  mq.addEventListener('change', sync);
+  window.addEventListener('pageshow', sync);
+  sync();
+})();
+
+/* =========================================================
    Pendubot simulation
    Plant: two equal aluminum links (6061, 2 in x 1/4 in), each 11 in long.
    Angles: q1 = link 1 from upright, q2 = link 2 relative to link 1.
@@ -229,7 +270,7 @@
   // ---------- drawing setup ----------
   const sA = document.getElementById('scope-a'), sB = document.getElementById('scope-b');
   const ctx = cv.getContext('2d'), cA = sA.getContext('2d'), cB = sB.getContext('2d');
-  const css = (n) => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+  const css = (n) => getComputedStyle(cv).getPropertyValue(n).trim();  // read on the canvas: the rig sets its own palette
   const col = {};
   const readColors = () => { ['ink', 'steel', 'rule', 'link', 'ch1', 'ch2', 'signal', 'plate'].forEach((k) => { col[k] = css('--' + k); }); };
   readColors();
@@ -413,42 +454,13 @@
 })();
 
 /* =========================================================
-   Project tiles: flip through photos on hover / focus
-   ========================================================= */
-(() => {
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  document.querySelectorAll('.tile').forEach((t) => {
-    const imgs = [...t.querySelectorAll('.tile-media img')];
-    const ticks = [...t.querySelectorAll('.ticks i')];
-    if (imgs.length < 2) return;
-    let k = 0, timer = null;
-    const show = (n) => {
-      imgs.forEach((im, j) => im.classList.toggle('on', j === n));
-      ticks.forEach((tk, j) => tk.classList.toggle('on', j === n));
-      k = n;
-    };
-    show(0);
-    const start = () => {
-      if (reduce || timer) return;
-      show((k + 1) % imgs.length);
-      timer = setInterval(() => show((k + 1) % imgs.length), 1100);
-    };
-    const stop = () => { clearInterval(timer); timer = null; show(0); };
-    t.addEventListener('pointerenter', (ev) => { if (ev.pointerType === 'mouse') start(); });
-    t.addEventListener('pointerleave', stop);
-    t.addEventListener('focus', start);
-    t.addEventListener('blur', stop);
-  });
-})();
-
-/* =========================================================
-   Projects page filter, with tiles gliding to new spots
+   Projects page filter, with cards gliding to new spots
    ========================================================= */
 (() => {
   const grid = document.getElementById('tiles');
   if (!grid) return;
   const chips = [...document.querySelectorAll('.chip')];
-  const tiles = [...grid.querySelectorAll('.tile')];
+  const tiles = [...grid.querySelectorAll('.card')];
   const count = document.getElementById('count');
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -458,18 +470,18 @@
     count.textContent = tiles.filter((t) => !t.hidden).length;
     if (reduce) return;
     tiles.filter((t) => !t.hidden).forEach((t) => {
-      t.querySelectorAll('.tile-media, .tile-info').forEach((el) => { el.style.animation = 'none'; });
+      t.querySelectorAll('.card-media').forEach((el) => { el.style.animation = 'none'; });
       const a = before.get(t), b = t.getBoundingClientRect();
       if (a) {
         const dx = a.left - b.left, dy = a.top - b.top, sx = a.width / b.width;
         if (dx || dy || sx !== 1) {
           t.animate([{ transformOrigin: 'top left', transform: `translate(${dx}px, ${dy}px) scale(${sx})` },
                      { transformOrigin: 'top left', transform: 'none' }],
-                    { duration: 450, easing: 'cubic-bezier(.2,.7,.2,1)' });
+                    { duration: 250, easing: 'cubic-bezier(.2,.7,.2,1)' });
         }
       } else {
         t.animate([{ opacity: 0, transform: 'scale(.96)' }, { opacity: 1, transform: 'none' }],
-                  { duration: 350, easing: 'ease-out' });
+                  { duration: 220, easing: 'ease-out' });
       }
     });
   }
@@ -494,8 +506,8 @@
   const top = document.querySelector('.top');
   let topH = 56;
   const measure = () => {
+    // the heads stick just under the header (CSS: top = --top-h + its 1px border)
     topH = top ? top.getBoundingClientRect().height : 0;
-    document.documentElement.style.setProperty('--top-h', topH + 'px');
   };
   let ticking = false;
   const update = () => {

@@ -5,75 +5,93 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Project GreenGlide — Wesley Hon</title>
 <meta name="description" content="Sensors and embedded feedback to make shared e-scooters safer.">
+<link rel="canonical" href="https://honwesley.github.io/honwesley-portfolio/projects/greenglide.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wesley Hon">
 <meta property="og:title" content="Project GreenGlide — Wesley Hon">
 <meta property="og:description" content="Sensors and embedded feedback to make shared e-scooters safer.">
-<meta property="og:image" content="https://honwesley.github.io/honwesley-portfolio/assets/img/peec-pcb-3d.jpg">
-<link rel="canonical" href="https://honwesley.github.io/honwesley-portfolio/projects/greenglide.html">
+<meta property="og:url" content="https://honwesley.github.io/honwesley-portfolio/projects/greenglide.html">
+<meta property="og:image" content="https://honwesley.github.io/honwesley-portfolio/assets/img/greenglide-1.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Inter+Tight:wght@300..800&display=swap" rel="stylesheet">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
 <meta name="theme-color" content="#F4EFE4" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#211D15" media="(prefers-color-scheme: dark)">
-<script>try{var t=localStorage.getItem("theme");if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.dataset.theme=t;}catch(e){}</script>
-<link rel="stylesheet" href="../styles.css?v=7fafbb33">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300..500&family=Inter+Tight:wght@400..700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add("js");try{var t=localStorage.getItem("theme");if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.dataset.theme=t;}catch(e){}</script>
+<link rel="stylesheet" href="../styles.css?v=fd5c1ae1">
 </head>
 <body class="pg-project">
 <a class="skip" href="#main">Skip to content</a>
 <header class="top">
-  <div class="brand">
-    <a class="mark" href="../index.html">Wesley Hon</a>
+  <div class="top-in">
+    <a class="mark" href="../index.html" aria-label="Wesley Hon, home">Wesley Hon</a>
     <button type="button" class="theme-toggle" role="switch" aria-checked="false" aria-label="Dark mode">
       <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
       <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
       <span class="knob"></span>
     </button>
+    <button type="button" class="menu-btn" aria-expanded="false" aria-controls="site-nav">
+      <span class="menu-lines" aria-hidden="true"><i></i><i></i></span><span class="menu-word">Menu</span>
+    </button>
+    <nav id="site-nav" class="nav" aria-label="Site">
+      <ul>
+        <li><a href="../index.html">Home</a></li><li><a href="../about.html">About</a></li><li><a href="../projects.html">Projects</a></li><li><a href="../experience.html">Experience</a></li>
+        <li><a href="https://github.com/honwesley" rel="noopener">GitHub</a></li>
+        <li class="nav-resume"><a class="btn btn-sm" href="../assets/docs/Wesley_Hon_Resume.pdf">Resume</a></li>
+      </ul>
+    </nav>
   </div>
-  <nav aria-label="Site">
-    <a href="../index.html">Home</a><a href="../about.html">About</a><a href="../projects.html">Projects</a><a href="../experience.html">Experience</a>
-    <a href="https://github.com/honwesley" rel="noopener">GitHub</a>
-    <a class="nav-cta" href="../assets/docs/Wesley_Hon_Resume.pdf">Resume</a>
-  </nav>
 </header>
 <main id="main">
 
-<article class="wrap proj-page">
-  <p class="crumb"><a href="../projects.html">All projects</a></p>
-  <header class="p-head">
-    <h1>Project GreenGlide</h1>
-    <p class="p-short">Sensors and embedded feedback to make shared e-scooters safer.</p>
-  </header>
-  <figure class="p-hero fit-cover" style="view-transition-name: p-greenglide"><img src="../assets/img/greenglide-1.jpg" alt="Sensor prototype on the scooter"></figure>
-  <div class="p-grid">
-    <aside class="spec">
-      <dl><div><dt>Where</dt><dd>With Vlasi Pagonis and Joseph Gitonga</dd></div><div><dt>Areas</dt><dd>Embedded, PCB design</dd></div></dl>
-      <h2>Tools</h2><ul class="toollist"><li>Microcontrollers</li><li>Proximity and motion sensing</li><li>Data analysis</li></ul>
-      <h2>Documents</h2><ul class="doclist"><li><a href="../assets/docs/greenglide-schematic.pdf">Schematics <span>(PDF)</span></a></li></ul>
-    </aside>
-    <div class="p-content">
-      <p class="p-summary">Exploring how sensors and real-time embedded code can reduce collisions and instability for e-scooter riders and pedestrians in dense cities.</p>
-      
-      <section class="p-sec"><h2>Goals</h2><ul class="did"><li>Better situational awareness and collision avoidance through real-time sensing and feedback.</li><li>Usage and environment data to understand accident patterns.</li><li>One hardware and software architecture that is reliable in real time.</li><li>Cheap enough for commercial and shared scooter fleets.</li></ul></section>
-      
-      
-      <section class="p-sec"><h2>Gallery</h2><div class="p-gallery"><button class="shot fit-cover" data-full="../assets/img/greenglide-1.jpg"><img src="../assets/img/greenglide-1.jpg" alt="Sensor prototype on the scooter" loading="lazy"></button><button class="shot fit-cover" data-full="../assets/img/greenglide-2.jpg"><img src="../assets/img/greenglide-2.jpg" alt="Prototype with lighting mounted on the deck" loading="lazy"></button><button class="shot fit-cover" data-full="../assets/img/greenglide-3.jpg"><img src="../assets/img/greenglide-3.jpg" alt="Prototype electronics close up" loading="lazy"></button><button class="shot fit-cover" data-full="../assets/img/greenglide-4.jpg"><img src="../assets/img/greenglide-4.jpg" alt="Lighting test" loading="lazy"></button><button class="shot fit-contain" data-full="../assets/img/greenglide-schematic.jpg"><img src="../assets/img/greenglide-schematic.jpg" alt="GreenGlide schematic" loading="lazy"></button></div></section>
+<article class="proj-page">
+  <div class="wrap">
+    <p class="crumb"><a href="../projects.html"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M16 10H5M9 5l-5 5 5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>All projects</a></p>
+    <header class="p-head">
+      <p class="label">Embedded, PCB design</p>
+      <h1>Project GreenGlide</h1>
+      <p class="p-short">Sensors and embedded feedback to make shared e-scooters safer.</p>
+      <dl class="spec-strip"><div><dt>Where</dt><dd>With Vlasi Pagonis and Joseph Gitonga</dd></div></dl>
+    </header>
+    <figure class="p-hero-fig"><div class="p-hero fit-cover" style="view-transition-name: p-greenglide"><picture><source type="image/webp" srcset="../assets/img/greenglide-1-800.webp 800w, ../assets/img/greenglide-1.webp 1050w" sizes="(min-width: 1280px) 1200px, 100vw"><img src="../assets/img/greenglide-1.jpg" alt="Sensor prototype on the scooter" width="1050" height="1400" fetchpriority="high"></picture></div><figcaption><span class="idx">Fig. 1</span>Sensor prototype on the scooter</figcaption></figure>
+    <div class="p-grid">
+      <div class="p-content">
+        <p class="p-summary">Exploring how sensors and real-time embedded code can reduce collisions and instability for e-scooter riders and pedestrians in dense cities.</p>
+        
+        <section class="p-sec"><h2>Goals</h2><ul class="did"><li>Better situational awareness and collision avoidance through real-time sensing and feedback.</li><li>Usage and environment data to understand accident patterns.</li><li>One hardware and software architecture that is reliable in real time.</li><li>Cheap enough for commercial and shared scooter fleets.</li></ul></section>
+        
+      </div>
+      <aside class="p-aside" aria-label="Project details">
+        <h2>Tools</h2><ul class="toollist"><li>Microcontrollers</li><li>Proximity and motion sensing</li><li>Data analysis</li></ul>
+        <h2>Documents</h2><ul class="doclist"><li><a href="../assets/docs/greenglide-schematic.pdf">Schematics <span>PDF</span></a></li></ul>
+      </aside>
     </div>
   </div>
-  <nav class="prevnext" aria-label="More projects">
-    <a class="pn" href="go-kart.html"><span class="pn-label">Previous</span><span class="pn-title">Verstappenmobiel electric go-kart</span><img src="../assets/img/kart-car.jpg" alt="" class="fit-cover" loading="lazy"></a>
-    <a class="pn" href="ee141-cpl-control.html"><span class="pn-label">Next</span><span class="pn-title">Feedback control of a constant power load</span><img src="../assets/img/ee141-voltage.jpg" alt="" class="fit-dark" loading="lazy"></a>
-  </nav>
+  
+  <div class="wrap">
+    <section class="figs" aria-labelledby="figs-h"><h2 id="figs-h" class="figs-h">Figures</h2><div class="fig-grid"><figure class="fig fit-cover"><button class="shot" type="button" data-full="../assets/img/greenglide-2.jpg" aria-label="Enlarge figure 2: Prototype with lighting mounted on the deck"><picture><source type="image/webp" srcset="../assets/img/greenglide-2-800.webp 800w, ../assets/img/greenglide-2.webp 1050w" sizes="(min-width: 960px) 600px, 100vw"><img src="../assets/img/greenglide-2.jpg" alt="Prototype with lighting mounted on the deck" width="1050" height="1400" loading="lazy" decoding="async"></picture></button><figcaption><span class="idx">Fig. 2</span>Prototype with lighting mounted on the deck</figcaption></figure><figure class="fig fit-cover"><button class="shot" type="button" data-full="../assets/img/greenglide-3.jpg" aria-label="Enlarge figure 3: Prototype electronics close up"><picture><source type="image/webp" srcset="../assets/img/greenglide-3-800.webp 800w, ../assets/img/greenglide-3.webp 1050w" sizes="(min-width: 960px) 600px, 100vw"><img src="../assets/img/greenglide-3.jpg" alt="Prototype electronics close up" width="1050" height="1400" loading="lazy" decoding="async"></picture></button><figcaption><span class="idx">Fig. 3</span>Prototype electronics close up</figcaption></figure><figure class="fig fit-cover"><button class="shot" type="button" data-full="../assets/img/greenglide-4.jpg" aria-label="Enlarge figure 4: Lighting test"><picture><source type="image/webp" srcset="../assets/img/greenglide-4-800.webp 800w, ../assets/img/greenglide-4.webp 1050w" sizes="(min-width: 960px) 600px, 100vw"><img src="../assets/img/greenglide-4.jpg" alt="Lighting test" width="1050" height="1400" loading="lazy" decoding="async"></picture></button><figcaption><span class="idx">Fig. 4</span>Lighting test</figcaption></figure><figure class="fig fit-contain"><button class="shot" type="button" data-full="../assets/img/greenglide-schematic.jpg" aria-label="Enlarge figure 5: GreenGlide schematic"><picture><source type="image/webp" srcset="../assets/img/greenglide-schematic-800.webp 800w, ../assets/img/greenglide-schematic.webp 1287w" sizes="(min-width: 960px) 600px, 100vw"><img src="../assets/img/greenglide-schematic.jpg" alt="GreenGlide schematic" width="1287" height="910" loading="lazy" decoding="async"></picture></button><figcaption><span class="idx">Fig. 5</span>GreenGlide schematic</figcaption></figure></div></section>
+    <nav class="prevnext" aria-label="More projects">
+      <a class="pn pn-previous" href="go-kart.html"><span class="pn-text"><span class="pn-label">Previous</span><span class="pn-title">Verstappenmobiel electric go-kart</span></span><span class="pn-img fit-cover"><picture><source type="image/webp" srcset="../assets/img/kart-car-800.webp 800w, ../assets/img/kart-car.webp 1050w" sizes="160px"><img src="../assets/img/kart-car.jpg" alt="" width="1050" height="1400" loading="lazy" decoding="async"></picture></span></a>
+      <a class="pn pn-next" href="ee141-cpl-control.html"><span class="pn-text"><span class="pn-label">Next</span><span class="pn-title">Feedback control of a constant power load</span></span><span class="pn-img fit-dark"><picture><source type="image/webp" srcset="../assets/img/ee141-voltage-800.webp 800w, ../assets/img/ee141-voltage.webp 1378w" sizes="160px"><img src="../assets/img/ee141-voltage.jpg" alt="" width="1378" height="903" loading="lazy" decoding="async"></picture></span></a>
+    </nav>
+  </div>
 </article>
 
 </main>
-<footer class="foot">
-  <h2>Let's talk hardware.</h2>
-  <p>Looking for internships and research in power electronics, controls and embedded systems.</p>
-  <div class="actions">
-    <a class="btn primary" href="mailto:wesleyhon@gmail.com">wesleyhon@gmail.com</a>
-    <a class="btn" href="https://linkedin.com/in/wesleyhon" rel="noopener">LinkedIn</a>
-    <a class="btn" href="https://github.com/honwesley" rel="noopener">GitHub</a>
-    <a class="btn" href="../assets/docs/Wesley_Hon_Resume.pdf">Resume (PDF)</a>
+<footer class="foot" aria-labelledby="foot-h">
+  <div class="foot-in">
+    <p class="label label-dark">Contact</p>
+    <h2 id="foot-h">Let's talk hardware.</h2>
+    <p class="foot-lede">Looking for internships and research in power electronics, controls and embedded systems.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="mailto:wesleyhon@gmail.com">wesleyhon@gmail.com</a>
+      <a class="btn btn-on-dark" href="https://linkedin.com/in/wesleyhon" rel="noopener">LinkedIn</a>
+      <a class="btn btn-on-dark" href="https://github.com/honwesley" rel="noopener">GitHub</a>
+      <a class="btn btn-on-dark" href="../assets/docs/Wesley_Hon_Resume.pdf">Resume (PDF)</a>
+    </div>
   </div>
   <p class="fine">© 2026 Wesley Hon</p>
 </footer>
@@ -82,6 +100,6 @@
   <img alt="">
   <p class="lb-cap"></p>
 </dialog>
-<script src="../main.js?v=af6bd679"></script>
+<script src="../main.js?v=42e0cac0"></script>
 </body>
 </html>
