@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Experience — Wesley Hon</title>
+<meta name="description" content="Engineering portfolio of Wesley Hon: power electronics, controls, embedded hardware and PCB design.">
+<meta property="og:title" content="Experience — Wesley Hon">
+<meta property="og:description" content="Engineering portfolio of Wesley Hon: power electronics, controls, embedded hardware and PCB design.">
+<meta property="og:image" content="https://honwesley.github.io/honwesley-portfolio/assets/img/peec-pcb-3d.jpg">
+<link rel="canonical" href="https://honwesley.github.io/honwesley-portfolio/experience.html">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="pg-experience">
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <a class="mark" href="index.html">Wesley Hon</a>
+  <nav aria-label="Site">
+    <a href="index.html">Home</a><a href="projects.html">Projects</a><a href="experience.html" aria-current="page">Experience</a>
+    <a href="https://github.com/honwesley" rel="noopener">GitHub</a>
+    <a class="nav-cta" href="assets/docs/Wesley_Hon_Resume.pdf">Resume</a>
+  </nav>
+</header>
+<main id="main">
+
+<section class="wrap exp-page">
+  <h1 class="page-h">Experience</h1>
+  <ol class="timeline">
+    <li>
+      <p class="t-when">June 2026 to present</p>
+      <h2>Undergraduate researcher</h2>
+      <p class="t-org">Power Electronics and Energy Conversion Lab, UCLA</p>
+      <ul class="did">
+        <li>Designed DC–DC boost converter PCBs from schematic through layout, and modeled converter dynamics in MATLAB/Simulink and LTspice with state-space models, transfer functions, Bode plots and stability criteria.</li>
+        <li>Developed a nonlinear model predictive controller for DC-bus voltage regulation under constant power loads, optimizing duty cycles and PWM for MOSFET switching. The bus recovers to reference in under 0.1 s after load disturbances.</li>
+        <li>Evaluated transient response, stability and disturbance rejection under load steps. Did hardware bring-up and root-cause analysis with DSOs, differential probes and electronic loads to characterize gate ringing, conduction losses and VDS switching transients.</li>
+      </ul>
+      <p class="t-link"><a href="projects/dc-microgrid-nmpc.html">Read the project write-up</a></p>
+    </li>
+    <li>
+      <p class="t-when">April 2025 to present</p>
+      <h2>Electronics project lead</h2>
+      <p class="t-org">UCLA Bruin Racing SAE</p>
+      <ul class="did">
+        <li>Built an eCVT hardware-in-the-loop actuator testbench, with root-cause failure analysis to improve dynamic shifting for Baja SAE.</li>
+        <li>Architected an ESP32-S3 controls and DAQ PCB: CAN transceivers, sensor-input and actuator-driver interfaces, custom UART firmware and a Raspberry Pi logging pipeline for real-time telemetry.</li>
+        <li>Led the KiCad UI PCB team for Supermileage through board bring-up, component selection, power distribution and electrical interface reviews.</li>
+      </ul>
+      <p class="t-link"><a href="projects/actuator-testbench.html">Actuator testbench</a><a href="projects/baja-daq.html">DAQ board</a><a href="projects/supermileage-ui.html">Supermileage UI board</a></p>
+    </li>
+    <li>
+      <p class="t-when">2026</p>
+      <h2>2nd place, IdeaHacks hardware hackathon</h2>
+      <p class="t-org">Los Angeles</p>
+    </li>
+  </ol>
+
+  <h2 class="section-h">Education</h2>
+  <div class="edu">
+    <h3>University of California, Los Angeles</h3>
+    <p>Power electronics and controls, autonomous systems, mechatronics. BS expected 2028, MS expected 2029.</p>
+    <p class="muted">Coursework: power electronics, principles of feedback control, dynamics, circuit theory, signal processing.</p>
+  </div>
+
+  <h2 class="section-h">Skills</h2>
+  <div class="skills">
+    <div><h3>Hardware and controls</h3><p>Altium Designer, KiCad, PCB layout, oscilloscopes and differential probes, CAN, UART, I2C, PWM, PID, LQR, NMPC</p></div>
+    <div><h3>Software and simulation</h3><p>Embedded C/C++, MATLAB, Simulink, LTspice, SolidWorks, Onshape, OpenCV, PyTorch</p></div>
+  </div>
+  <p class="actions"><a class="btn primary" href="assets/docs/Wesley_Hon_Resume.pdf">Download resume (PDF)</a></p>
+</section>
+
+</main>
+<footer class="foot">
+  <h2>Let's talk hardware.</h2>
+  <p>Looking for internships and research in power electronics, controls and embedded systems.</p>
+  <div class="actions">
+    <a class="btn primary" href="mailto:wesleyhon@gmail.com">wesleyhon@gmail.com</a>
+    <a class="btn" href="https://linkedin.com/in/wesleyhon" rel="noopener">LinkedIn</a>
+    <a class="btn" href="https://github.com/honwesley" rel="noopener">GitHub</a>
+    <a class="btn" href="assets/docs/Wesley_Hon_Resume.pdf">Resume (PDF)</a>
+  </div>
+  <p class="fine">© 2026 Wesley Hon</p>
+</footer>
+<dialog id="lightbox" aria-label="Image viewer">
+  <button class="lb-close" type="button">Close</button>
+  <img alt="">
+  <p class="lb-cap"></p>
+</dialog>
+<script src="main.js"></script>
+</body>
+</html>

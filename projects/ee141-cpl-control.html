@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Feedback control of a constant power load — Wesley Hon</title>
+<meta name="description" content="Linearize, design, then see what the nonlinear plant does to your controller.">
+<meta property="og:title" content="Feedback control of a constant power load — Wesley Hon">
+<meta property="og:description" content="Linearize, design, then see what the nonlinear plant does to your controller.">
+<meta property="og:image" content="https://honwesley.github.io/honwesley-portfolio/assets/img/peec-pcb-3d.jpg">
+<link rel="canonical" href="https://honwesley.github.io/honwesley-portfolio/projects/ee141-cpl-control.html">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="pg-project">
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <a class="mark" href="../index.html">Wesley Hon</a>
+  <nav aria-label="Site">
+    <a href="../index.html">Home</a><a href="../projects.html">Projects</a><a href="../experience.html">Experience</a>
+    <a href="https://github.com/honwesley" rel="noopener">GitHub</a>
+    <a class="nav-cta" href="../assets/docs/Wesley_Hon_Resume.pdf">Resume</a>
+  </nav>
+</header>
+<main id="main">
+
+<article class="wrap proj-page">
+  <p class="crumb"><a href="../projects.html">All projects</a></p>
+  <header class="p-head">
+    <h1>Feedback control of a constant power load</h1>
+    <p class="p-short">Linearize, design, then see what the nonlinear plant does to your controller.</p>
+  </header>
+  <figure class="p-hero fit-dark" style="view-transition-name: p-ee141-cpl-control"><img src="../assets/img/ee141-voltage.jpg" alt="Nonlinear closed-loop capacitor voltage settling to reference"></figure>
+  <div class="p-grid">
+    <aside class="spec">
+      <dl><div><dt>When</dt><dd>March 2026</dd></div><div><dt>Where</dt><dd>EC ENGR 141, Principles of Feedback Control</dd></div><div><dt>Areas</dt><dd>Controls, Power electronics, Coursework and teaching</dd></div></dl>
+      <h2>Tools</h2><ul class="toollist"><li>MATLAB</li><li>Simulink</li><li>State space</li><li>PID control</li></ul>
+      <h2>Documents</h2><ul class="doclist"><li><a href="../assets/docs/ee141-cpl-control.pdf">Report <span>(PDF)</span></a></li></ul>
+    </aside>
+    <div class="p-content">
+      <p class="p-summary">A DC source feeds a constant power load through an L-R-C network. The CPL adds a P/v term that makes the plant nonlinear and pushes it toward instability.</p>
+      
+      <section class="p-sec"><h2>Approach</h2><ol class="steps"><li><b>Model.</b> Nonlinear state space with inductor current and capacitor voltage as states.</li><li><b>Linearize.</b> About the equilibrium operating point, then derive the transfer function and check stability.</li><li><b>Design.</b> A controller for settling under 0.05 s with no overshoot.</li><li><b>Stress it.</b> Run the same controller on the full nonlinear plant with saturation limits on voltage and current.</li></ol></section><section class="p-sec"><h2>What it showed</h2><p>The gap between the linear and nonlinear responses, and how much a CPL&#x27;s negative incremental resistance erodes stability margin. This is the same problem I now work on at the lab at a larger scale.</p></section>
+      
+      
+      <section class="p-sec"><h2>Gallery</h2><div class="p-gallery"><button class="shot fit-dark" data-full="../assets/img/ee141-voltage.jpg"><img src="../assets/img/ee141-voltage.jpg" alt="Nonlinear closed-loop capacitor voltage settling to reference" loading="lazy"></button><button class="shot fit-contain" data-full="../assets/img/ee141-circuit.jpg"><img src="../assets/img/ee141-circuit.jpg" alt="Source, L-R-C network and constant power load" loading="lazy"></button><button class="shot fit-dark" data-full="../assets/img/ee141-simulink.jpg"><img src="../assets/img/ee141-simulink.jpg" alt="Simulink model of the nonlinear plant with the controller" loading="lazy"></button><button class="shot fit-dark" data-full="../assets/img/ee141-current.jpg"><img src="../assets/img/ee141-current.jpg" alt="Nonlinear closed-loop inductor current" loading="lazy"></button></div></section>
+    </div>
+  </div>
+  <nav class="prevnext" aria-label="More projects">
+    <a class="pn" href="greenglide.html"><span class="pn-label">Previous</span><span class="pn-title">Project GreenGlide</span><img src="../assets/img/greenglide-1.jpg" alt="" class="fit-cover" loading="lazy"></a>
+    <a class="pn" href="ece131a-detection.html"><span class="pn-label">Next</span><span class="pn-title">Distributed detection in Gaussian noise</span><img src="../assets/img/ece131-threshold.jpg" alt="" class="fit-dark" loading="lazy"></a>
+  </nav>
+</article>
+
+</main>
+<footer class="foot">
+  <h2>Let's talk hardware.</h2>
+  <p>Looking for internships and research in power electronics, controls and embedded systems.</p>
+  <div class="actions">
+    <a class="btn primary" href="mailto:wesleyhon@gmail.com">wesleyhon@gmail.com</a>
+    <a class="btn" href="https://linkedin.com/in/wesleyhon" rel="noopener">LinkedIn</a>
+    <a class="btn" href="https://github.com/honwesley" rel="noopener">GitHub</a>
+    <a class="btn" href="../assets/docs/Wesley_Hon_Resume.pdf">Resume (PDF)</a>
+  </div>
+  <p class="fine">© 2026 Wesley Hon</p>
+</footer>
+<dialog id="lightbox" aria-label="Image viewer">
+  <button class="lb-close" type="button">Close</button>
+  <img alt="">
+  <p class="lb-cap"></p>
+</dialog>
+<script src="../main.js"></script>
+</body>
+</html>

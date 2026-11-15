@@ -1,5 +1,7 @@
 # Wesley Hon — Engineering Portfolio
 
+Live at https://honwesley.github.io/honwesley-portfolio/
+
 A static site (plain HTML, CSS and JS, no build step) for GitHub Pages.
 
 ## Deploy on GitHub Pages
@@ -18,28 +20,35 @@ A static site (plain HTML, CSS and JS, no build step) for GitHub Pages.
 3. In the repository, open **Settings → Pages**. Under "Build and deployment", choose **Deploy from a branch**, branch `main`, folder `/ (root)`, then **Save**.
 4. Wait a minute or two for the site to go live at the URL shown on that page.
 
-## Files
+## Pages
 
 ```
-index.html          all page content
-styles.css          design tokens and layout
-main.js             Pendubot simulation (hero) and image lightbox
-assets/img/         photos, renders and schematic previews (converted from HEIC/PDF)
-assets/docs/        resume, schematics and reports linked from the page
-assets/video/       go-kart lap clip
-assets/favicon.svg
-.nojekyll           tells GitHub Pages to serve files as-is
+index.html                 Home: intro, live Pendubot, selected work
+projects.html              All projects, filterable, photos flip on hover
+projects/<name>.html       One page per project (15)
+experience.html            Experience, education, skills
+styles.css / main.js       Design and interactions, shared by every page
+assets/img, docs, video    Photos, renders, PDFs and the go-kart clip
+_build/                    The generator that writes all the pages
+.nojekyll                  Tells GitHub Pages to serve files as-is
 ```
 
-## Editing
+## Editing projects
 
-- **Text:** every project is an `<article class="proj">` (main projects) or `<article class="bin">` (More builds) in `index.html`. Edit the text in place.
-- **Images:** add a `.jpg` to `assets/img/` (about 1400 px on the long side keeps the page fast), then add a button inside a project's `.gallery`:
-  ```html
-  <button class="shot" data-full="assets/img/new.jpg"><img src="assets/img/new.jpg" alt="Describe the photo" loading="lazy"></button>
-  ```
-- **Resume:** replace `assets/docs/Wesley_Hon_Resume.pdf`, keeping the same file name.
-- **GitHub link:** add one to the header and footer once you have a profile to point to.
+All project content lives in one file: `_build/projects.py`. To change text, add photos or add a whole new project:
+
+1. Edit `_build/projects.py`. Each project is a `dict(...)` block; copy an existing one to add a new project.
+2. Put any new images in `assets/img/` (about 1400 px on the long side keeps pages fast) and PDFs in `assets/docs/`.
+3. From the site folder, run:
+   ```bash
+   python3 _build/build.py
+   ```
+   This rewrites every page. It only needs Python 3, no installs.
+4. Commit and push (or upload the changed files on GitHub).
+
+Small text fixes can also be made directly in the HTML files on GitHub, but those edits are overwritten the next time you run the build script, so prefer editing `projects.py`.
+
+**Resume:** replace `assets/docs/Wesley_Hon_Resume.pdf`, keeping the same name.
 
 ## The hero simulation
 

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Baja controls and DAQ board — Wesley Hon</title>
+<meta name="description" content="One board to log what the car is doing, timestamped and synchronized.">
+<meta property="og:title" content="Baja controls and DAQ board — Wesley Hon">
+<meta property="og:description" content="One board to log what the car is doing, timestamped and synchronized.">
+<meta property="og:image" content="https://honwesley.github.io/honwesley-portfolio/assets/img/peec-pcb-3d.jpg">
+<link rel="canonical" href="https://honwesley.github.io/honwesley-portfolio/projects/baja-daq.html">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body class="pg-project">
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <a class="mark" href="../index.html">Wesley Hon</a>
+  <nav aria-label="Site">
+    <a href="../index.html">Home</a><a href="../projects.html">Projects</a><a href="../experience.html">Experience</a>
+    <a href="https://github.com/honwesley" rel="noopener">GitHub</a>
+    <a class="nav-cta" href="../assets/docs/Wesley_Hon_Resume.pdf">Resume</a>
+  </nav>
+</header>
+<main id="main">
+
+<article class="wrap proj-page">
+  <p class="crumb"><a href="../projects.html">All projects</a></p>
+  <header class="p-head">
+    <h1>Baja controls and DAQ board</h1>
+    <p class="p-short">One board to log what the car is doing, timestamped and synchronized.</p>
+  </header>
+  <figure class="p-hero fit-cover" style="view-transition-name: p-baja-daq"><img src="../assets/img/daq-board.jpg" alt="Assembled DAQ board mounted in the vehicle"></figure>
+  <div class="p-grid">
+    <aside class="spec">
+      <dl><div><dt>Where</dt><dd>UCLA Bruin Racing Baja SAE</dd></div><div><dt>Role</dt><dd>Electronics project lead</dd></div><div><dt>Areas</dt><dd>PCB design, Embedded</dd></div></dl>
+      <h2>Tools</h2><ul class="toollist"><li>ESP32-S3</li><li>CAN</li><li>UART</li><li>I2C/SPI</li><li>Op-amp front ends</li><li>Raspberry Pi</li></ul>
+      <h2>Documents</h2><ul class="doclist"><li><a href="../assets/docs/baja-daq-schematic.pdf">DAQ schematic <span>(PDF)</span></a></li></ul>
+    </aside>
+    <div class="p-content">
+      <p class="p-summary">A central data acquisition and controls board, so powertrain and controls could tune from data instead of guesses.</p>
+      
+      <section class="p-sec"><h2>What&#x27;s on the board</h2><ul class="did"><li>ESP32-S3 controls and DAQ PCB, architected from dev-board schematics.</li><li>CAN transceivers, sensor inputs and actuator driver interfaces.</li><li>Op-amp stages to scale and filter analog sensors into ADC range.</li><li>IMU and GPS over I2C/SPI, plus an RTC for timestamped logs.</li><li>Custom UART firmware feeding a Raspberry Pi logging pipeline for real-time telemetry.</li><li>A structured connector pinout so sensors can be added without rewiring the harness.</li></ul></section><section class="p-sec"><h2>Why it mattered</h2><p>It turned vehicle behavior into measurable data the electronics, powertrain and controls teams could share, and it&#x27;s a platform new sensors can plug into.</p></section>
+      
+      
+      <section class="p-sec"><h2>Gallery</h2><div class="p-gallery"><button class="shot fit-cover" data-full="../assets/img/daq-board.jpg"><img src="../assets/img/daq-board.jpg" alt="Assembled DAQ board mounted in the vehicle" loading="lazy"></button><button class="shot fit-contain" data-full="../assets/img/daq-schematic.jpg"><img src="../assets/img/daq-schematic.jpg" alt="DAQ board schematic sheet" loading="lazy"></button><button class="shot fit-contain" data-full="../assets/img/baja-power.jpg"><img src="../assets/img/baja-power.jpg" alt="Vehicle power block diagram from the 48 V battery" loading="lazy"></button><button class="shot fit-contain" data-full="../assets/img/baja-controls.jpg"><img src="../assets/img/baja-controls.jpg" alt="Controls schematic sheet" loading="lazy"></button></div></section>
+    </div>
+  </div>
+  <nav class="prevnext" aria-label="More projects">
+    <a class="pn" href="signet.html"><span class="pn-label">Previous</span><span class="pn-title">SIGNET robotic arm</span><img src="../assets/img/signet-hand.jpg" alt="" class="fit-board" loading="lazy"></a>
+    <a class="pn" href="buck-boost.html"><span class="pn-label">Next</span><span class="pn-title">Buck–boost power stage study</span><img src="../assets/img/eoc-buckboost.jpg" alt="" class="fit-contain" loading="lazy"></a>
+  </nav>
+</article>
+
+</main>
+<footer class="foot">
+  <h2>Let's talk hardware.</h2>
+  <p>Looking for internships and research in power electronics, controls and embedded systems.</p>
+  <div class="actions">
+    <a class="btn primary" href="mailto:wesleyhon@gmail.com">wesleyhon@gmail.com</a>
+    <a class="btn" href="https://linkedin.com/in/wesleyhon" rel="noopener">LinkedIn</a>
+    <a class="btn" href="https://github.com/honwesley" rel="noopener">GitHub</a>
+    <a class="btn" href="../assets/docs/Wesley_Hon_Resume.pdf">Resume (PDF)</a>
+  </div>
+  <p class="fine">© 2026 Wesley Hon</p>
+</footer>
+<dialog id="lightbox" aria-label="Image viewer">
+  <button class="lb-close" type="button">Close</button>
+  <img alt="">
+  <p class="lb-cap"></p>
+</dialog>
+<script src="../main.js"></script>
+</body>
+</html>

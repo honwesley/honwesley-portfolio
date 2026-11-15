@@ -205,3 +205,76 @@
   dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
   dlg.addEventListener('close', () => { img.removeAttribute('src'); opener?.focus(); });
 })();
+
+/* =========================================================
+   Project tiles: flip through photos on hover / focus
+   ========================================================= */
+(() => {
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('.tile').forEach((t) => {
+    const imgs = [...t.querySelectorAll('.tile-media img')];
+    const ticks = [...t.querySelectorAll('.ticks i')];
+    if (imgs.length < 2) return;
+    let k = 0, timer = null;
+    const show = (n) => {
+      imgs.forEach((im, j) => im.classList.toggle('on', j === n));
+      ticks.forEach((tk, j) => tk.classList.toggle('on', j === n));
+      k = n;
+    };
+    show(0);
+    const start = () => {
+      if (reduce || timer) return;
+      show((k + 1) % imgs.length);
+      timer = setInterval(() => show((k + 1) % imgs.length), 1100);
+    };
+    const stop = () => { clearInterval(timer); timer = null; show(0); };
+    t.addEventListener('pointerenter', (ev) => { if (ev.pointerType === 'mouse') start(); });
+    t.addEventListener('pointerleave', stop);
+    t.addEventListener('focus', start);
+    t.addEventListener('blur', stop);
+  });
+})();
+
+/* =========================================================
+   Projects page filter, with tiles gliding to new spots
+   ========================================================= */
+(() => {
+  const grid = document.getElementById('tiles');
+  if (!grid) return;
+  const chips = [...document.querySelectorAll('.chip')];
+  const tiles = [...grid.querySelectorAll('.tile')];
+  const count = document.getElementById('count');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function apply(filter) {
+    const before = new Map(tiles.filter((t) => !t.hidden).map((t) => [t, t.getBoundingClientRect()]));
+    tiles.forEach((t) => { t.hidden = filter !== 'all' && !t.dataset.cats.split(' ').includes(filter); });
+    count.textContent = tiles.filter((t) => !t.hidden).length;
+    if (reduce) return;
+    tiles.filter((t) => !t.hidden).forEach((t) => {
+      t.querySelectorAll('.tile-media, .tile-info').forEach((el) => { el.style.animation = 'none'; });
+      const a = before.get(t), b = t.getBoundingClientRect();
+      if (a) {
+        const dx = a.left - b.left, dy = a.top - b.top, sx = a.width / b.width;
+        if (dx || dy || sx !== 1) {
+          t.animate([{ transformOrigin: 'top left', transform: `translate(${dx}px, ${dy}px) scale(${sx})` },
+                     { transformOrigin: 'top left', transform: 'none' }],
+                    { duration: 450, easing: 'cubic-bezier(.2,.7,.2,1)' });
+        }
+      } else {
+        t.animate([{ opacity: 0, transform: 'scale(.96)' }, { opacity: 1, transform: 'none' }],
+                  { duration: 350, easing: 'ease-out' });
+      }
+    });
+  }
+
+  chips.forEach((c) => c.addEventListener('click', () => {
+    chips.forEach((x) => x.setAttribute('aria-pressed', String(x === c)));
+    apply(c.dataset.filter);
+    history.replaceState(null, '', c.dataset.filter === 'all' ? location.pathname : '#' + c.dataset.filter);
+  }));
+
+  const start = location.hash.slice(1);
+  const chip = chips.find((c) => c.dataset.filter === start);
+  if (chip) chip.click();
+})();
