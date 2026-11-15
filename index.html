@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wesley Hon — Power electronics, controls, mechatronics</title>
+<meta name="description" content="Engineering portfolio of Wesley Hon, UCLA electrical engineering: power electronics, feedback control, embedded hardware and PCB design.">
+<meta property="og:title" content="Wesley Hon — Engineering portfolio">
+<meta property="og:description" content="Power electronics, controls and the boards that run them.">
+<meta property="og:image" content="assets/img/peec-pcb-3d.jpg">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#work">Skip to projects</a>
+
+<header class="top">
+  <a class="mark" href="#top">Wesley Hon</a>
+  <nav aria-label="Sections">
+    <a href="#work">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#more">More builds</a>
+    <a href="#contact">Contact</a>
+    <a class="nav-cta" href="assets/docs/Wesley_Hon_Resume.pdf">Resume</a>
+  </nav>
+</header>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-text">
+    <h1>Wesley<br>Hon</h1>
+    <p class="lede">Electrical engineering at UCLA. I design power converters, the controllers that keep them stable, and the boards they run on, then take them to the bench to see what breaks.</p>
+    <dl class="facts">
+      <div><dt>Focus</dt><dd>Power electronics, feedback control, autonomous systems, mechatronics</dd></div>
+      <div><dt>Degree</dt><dd>BS expected 2028, MS expected 2029</dd></div>
+      <div><dt>Now</dt><dd>Undergraduate researcher, Power Electronics and Energy Conversion Lab</dd></div>
+    </dl>
+    <div class="actions">
+      <a class="btn primary" href="assets/docs/Wesley_Hon_Resume.pdf">Download resume</a>
+      <a class="btn" href="mailto:wesleyhon@gmail.com">Email me</a>
+      <a class="btn" href="https://linkedin.com/in/wesleyhon" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+
+  <figure class="rig" aria-labelledby="rig-cap">
+    <div class="rig-stage">
+      <canvas id="pendubot" aria-label="Simulated Pendubot balancing upright. Click or use the push buttons to disturb it." role="img"></canvas>
+      <div class="readout" aria-live="off">
+        <span><i class="sw ch1"></i>θ₂ <b id="r-q2">0.0°</b></span>
+        <span><i class="sw ch2"></i>τ <b id="r-u">0.00 N·m</b></span>
+        <span class="state" id="r-state">Balancing</span>
+      </div>
+    </div>
+    <canvas id="scope" aria-hidden="true"></canvas>
+    <div class="rig-controls">
+      <button type="button" data-push="-1">Push left</button>
+      <button type="button" data-push="1">Push right</button>
+      <span class="hint">or click the arm</span>
+    </div>
+    <figcaption id="rig-cap">My Pendubot, simulated live: 8 in and 14 in aluminum links, a motor at the shoulder only, held upright by LQR with a 3 N·m torque limit. Push too hard and it falls, just like the real one.</figcaption>
+  </figure>
+</section>
+
+<!-- ============ FEATURED WORK ============ -->
+<section id="work" class="work" aria-labelledby="work-h">
+  <h2 id="work-h" class="section-h">Projects</h2>
+
+  <!-- Pendubot -->
+  <article class="proj" id="pendubot-project">
+    <header class="proj-head">
+      <h3>Underactuated Pendubot</h3>
+      <p class="when">2026, in progress</p>
+      <p class="tags">Controls, Mechanical, Embedded</p>
+    </header>
+    <div class="proj-body">
+      <p class="summary">Two links, one motor. The shoulder is driven and the elbow swings free, so the controller has to balance the passive link entirely through the dynamics of the active one. I'm building it to compare four control strategies on the same hardware.</p>
+      <ul class="did">
+        <li>Designed the mechanism: 6061-T6 aluminum links (8 in and 14 in), direct drive with no gearbox to remove backlash, absolute encoders on both joints, and a custom motor-control PCB.</li>
+        <li>Derived the nonlinear equations of motion and state-space model, and simulated the plant in MATLAB/Simulink.</li>
+        <li>Implementing PID, LQR, nonlinear MPC and fuzzy control in embedded C++, benchmarked on recovery time, overshoot, settling, smoothness and control effort.</li>
+      </ul>
+      <div class="experiments">
+        <h4>Test plan</h4>
+        <ol>
+          <li><b>Stabilization.</b> Settling time, overshoot, steady-state error.</li>
+          <li><b>Disturbance rejection.</b> Repeatable impulse; peak deflection and recovery time.</li>
+          <li><b>Robustness.</b> Add mass to a link and see which controller copes.</li>
+          <li><b>Compute cost.</b> Execution time, jitter and CPU load, PID and LQR versus NMPC.</li>
+        </ol>
+      </div>
+      <p class="docs"><a href="assets/docs/pendubot-modeling.pdf">Mathematical modeling (PDF)</a><a href="assets/docs/pendubot-state-space.pdf">State space and controllers (PDF)</a></p>
+    </div>
+    <div class="gallery g3">
+      <button class="shot tall" data-full="assets/img/pendubot-sketch.jpg"><img src="assets/img/pendubot-sketch.jpg" alt="Hand sketch of the Pendubot: controller electronics, motor actuator, encoder sensor and the two-link plant" loading="lazy"></button>
+      <button class="shot" data-full="assets/img/pendubot-plant.jpg"><img src="assets/img/pendubot-plant.jpg" alt="Plant diagram of the two links with joint angles and centers of mass" loading="lazy"></button>
+      <button class="shot" data-full="assets/img/pendubot-block.jpg"><img src="assets/img/pendubot-block.jpg" alt="Closed-loop block diagram: controller, plant, disturbance and state estimate" loading="lazy"></button>
+    </div>
+  </article>
+
+  <!-- PEEC -->
+  <article class="proj flip" id="peec-project">
+    <header class="proj-head">
+      <h3>Nonlinear MPC for a DC microgrid</h3>
+      <p class="when">June 2026 to present, Power Electronics and Energy Conversion Lab</p>
+      <p class="tags">Power electronics, Controls, PCB</p>
+    </header>
+    <div class="proj-body">
+      <p class="summary">Constant power loads are destabilizing: when the bus voltage dips, the load draws more current to hold its power, which pulls the voltage down further. I designed a nonlinear model predictive controller that sets the duty cycles of several parallel boost converters to hold a shared DC bus at its reference through large load steps.</p>
+      <ul class="did">
+        <li>Built the model up in stages: one averaged converter with a CPL, open loop, a simple duty controller to verify the plant, then NMPC, then four parallel converters with current sharing, and finally switching MOSFET, diode and PWM models.</li>
+        <li>Wrote the cost, state and output functions with constraints on duty cycle (0.05 to 0.90), inductor current and bus voltage limits.</li>
+        <li>Under load steps such as 5 kW to 8 kW, the bus recovers to reference in under 0.1 s, often under 20 ms in the switching-model simulation.</li>
+        <li>Designed the four-phase boost PCB with per-phase current sensing, a controller section and a buck plus LDO supply, then did bring-up with scopes, differential probes and electronic loads to chase gate ringing and switching transients.</li>
+      </ul>
+      <p class="docs"><a href="assets/docs/peec-boost-schematic.pdf">Board schematic (PDF)</a></p>
+    </div>
+    <div class="gallery g3">
+      <button class="shot wide" data-full="assets/img/peec-pcb-3d.jpg"><img src="assets/img/peec-pcb-3d.jpg" alt="3D render of the four-phase boost converter PCB with bulk capacitors" loading="lazy"></button>
+      <button class="shot" data-full="assets/img/peec-pcb-layout.jpg"><img src="assets/img/peec-pcb-layout.jpg" alt="PCB layout view of the boost converter board" loading="lazy"></button>
+      <button class="shot" data-full="assets/img/peec-simulink.jpg"><img src="assets/img/peec-simulink.jpg" alt="Simulink model of four boost converters on a shared DC bus with the NMPC" loading="lazy"></button>
+    </div>
+  </article>
+
+  <!-- Actuator testbench -->
+  <article class="proj" id="testbench-project">
+    <header class="proj-head">
+      <h3>eCVT actuator testbench</h3>
+      <p class="when">Aug 2025 to May 2026, UCLA Bruin Racing Baja SAE</p>
+      <p class="tags">Test engineering, Controls, Embedded</p>
+    </header>
+    <div class="proj-body">
+      <p class="summary">An off-vehicle hardware-in-the-loop rig for the car's electronic CVT shifter, so we could find actuator failures on a bench instead of on race day.</p>
+      <ul class="did">
+        <li>Primary motor drives the shifter while a second motor applies controllable load, both on ODrive controllers over CAN and I2C.</li>
+        <li>Encoder, optical limit switches and gear tooth sensor feedback, logged alongside ODrive telemetry on a Raspberry Pi.</li>
+        <li>Bring-up in steps: signal validation, baseline tests, then stress tests over many cycles, with pass criteria for repeatability, no stalling and consistent shifting.</li>
+      </ul>
+      <div class="fixes">
+        <h4>What broke, and the fix</h4>
+        <dl>
+          <dt>Missed gear-tooth pulses</dt><dd>The sensor gap was wrong. Re-set it and the signal came back clean.</dd>
+          <dt>Fine at no load, failing under load</dt><dd>The motor didn't have the torque for realistic shifting loads. The bench proved we needed more.</dd>
+          <dt>Trusting the controller's own numbers</dt><dd>Added an external encoder so we could compare commanded input against actual output.</dd>
+        </dl>
+      </div>
+      <p class="impact">Contributed to a 51.4% improvement in our Baja competition event performance.</p>
+      <p class="docs"><a href="assets/docs/actuator-testbench-schematic.pdf">Testbench schematic (PDF)</a></p>
+    </div>
+    <div class="gallery g5">
+      <button class="shot tall" data-full="assets/img/testbench-model.jpg"><img src="assets/img/testbench-model.jpg" alt="Actuator testbench on an aluminum extrusion frame" loading="lazy"></button>
+      <button class="shot" data-full="assets/img/testbench-shifter.jpg"><img src="assets/img/testbench-shifter.jpg" alt="Continuous gear shifter mechanism on the testbench" loading="lazy"></button>
+      <button class="shot" data-full="assets/img/testbench-wiring.jpg"><img src="assets/img/testbench-wiring.jpg" alt="Motor and encoder wiring on the testbench" loading="lazy"></button>
+      <button class="shot" data-full="assets/img/testbench-electronics.jpg"><img src="assets/img/testbench-electronics.jpg" alt="Testbench electronics: controllers, Raspberry Pi and wiring on the bench" loading="lazy"></button>
+      <button class="shot" data-full="assets/img/testbench-schematic.jpg"><img src="assets/img/testbench-schematic.jpg" alt="Testbench schematic sheet" loading="lazy"></button>
+    </div>
+  </article>
+
+  <!-- SIGNET -->
+  <article class="proj flip" id="signet-project">
+    <header class="proj-head">
+      <h3>SIGNET, a robotic arm that reads sign language</h3>
+      <p class="when">May 2026 to present</p>
+      <p class="tags">Robotics, Embedded, Computer vision</p>
+    </header>
+    <div class="proj-body">
+      <p class="summary">A teleoperated 6-DOF arm that mirrors my own arm's motion, paired with a vision model that recognizes ASL gestures.</p>
+      <ul class="did">
+        <li>ESP32 controllers with servo and BLDC drivers, IMUs and encoder feedback for multi-axis joint tracking.</li>
+        <li>Distributed embedded C++ firmware across I2C and UART with PID trajectory control: under 50 ms latency and 80% fewer telemetry faults.</li>
+        <li>Custom PyTorch and OpenCV models trained on more than 10,000 self-collected samples covering 26 ASL gestures, with a real-time MediaPipe pipeline.</li>
+        <li>Hand, forearm and joints modeled in Onshape and 3D printed; boards in KiCad.</li>
+      </ul>
+    </div>
+    <div class="gallery g1">
+      <button class="shot wide" data-full="assets/img/signet-cad.jpg"><img src="assets/img/signet-cad.jpg" alt="Renders of SIGNET's printed hand, forearm shell and wrist joint" loading="lazy"></button>
+    </div>
+  </article>
+
+  <!-- DAQ -->
+  <article class="proj" id="daq-project">
+    <header class="proj-head">
+      <h3>Baja controls and data acquisition board</h3>
+      <p class="when">UCLA Bruin Racing Baja SAE, electronics project lead</p>
+      <p class="tags">PCB, Embedded, Sensors</p>
+    </header>
+    <div class="proj-body">
+      <p class="summary">One board to collect what the car is doing, synchronized and timestamped, so the powertrain and controls teams could tune from data instead of guesses.</p>
+      <ul class="did">
+        <li>ESP32-S3 controls and DAQ PCB, architected from dev-board schematics, with CAN transceivers, sensor inputs and actuator driver interfaces.</li>
+        <li>Op-amp front ends to scale and filter analog sensors into ADC range; IMU and GPS over I2C/SPI; RTC for timestamps.</li>
+        <li>Custom UART firmware feeding a Raspberry Pi logging pipeline for real-time telemetry.</li>
+        <li>Keyed connector pinout so sensors can be added and debugged without rewiring the harness.</li>
+      </ul>
+      <p class="docs"><a href="assets/docs/baja-daq-schematic.pdf">DAQ schematic (PDF)</a></p>
+    </div>
+    <div class="gallery g3">
+      <button class="shot wide" data-full="assets/img/daq-board.jpg"><img src="assets/img/daq-board.jpg" alt="Assembled green DAQ board mounted in the vehicle" loading="lazy"></button>
+      <button class="shot" data-full="assets/img/daq-schematic.jpg"><img src="assets/img/daq-schematic.jpg" alt="DAQ board schematic sheet" loading="lazy"></button>
+      <button class="shot" data-full="assets/img/baja-power.jpg"><img src="assets/img/baja-power.jpg" alt="Vehicle power block diagram from the 48 V battery" loading="lazy"></button>
+    </div>
+  </article>
+</section>
+
+<!-- ============ EXPERIENCE ============ -->
+<section id="experience" class="experience" aria-labelledby="exp-h">
+  <h2 id="exp-h" class="section-h">Experience</h2>
+  <ol class="timeline">
+    <li>
+      <p class="t-when">June 2026 to present</p>
+      <h3>Undergraduate researcher</h3>
+      <p class="t-org">Power Electronics and Energy Conversion Lab, UCLA</p>
+      <p>DC–DC boost converter PCBs from schematic through layout, converter dynamics in MATLAB/Simulink and LTspice, and NMPC for DC-bus regulation under constant power loads. Hardware bring-up and root-cause analysis of gate ringing, conduction losses and switching transients.</p>
+    </li>
+    <li>
+      <p class="t-when">April 2025 to present</p>
+      <h3>Electronics project lead</h3>
+      <p class="t-org">UCLA Bruin Racing SAE</p>
+      <p>Built the eCVT hardware-in-the-loop testbench, architected the ESP32-S3 controls and DAQ board for Baja, and led the KiCad UI board team for Supermileage through bring-up, component selection, power distribution and interface reviews.</p>
+    </li>
+    <li>
+      <p class="t-when">2026</p>
+      <h3>2nd place, IdeaHacks hardware hackathon</h3>
+      <p class="t-org">Los Angeles</p>
+    </li>
+  </ol>
+
+  <div class="skills">
+    <div>
+      <h3>Hardware and controls</h3>
+      <p>Altium Designer, KiCad, PCB layout, oscilloscopes and differential probes, CAN, UART, I2C, PWM, PID, LQR, NMPC</p>
+    </div>
+    <div>
+      <h3>Software and simulation</h3>
+      <p>Embedded C/C++, MATLAB, Simulink, LTspice, SolidWorks, Onshape, OpenCV, PyTorch</p>
+    </div>
+    <div>
+      <h3>Coursework</h3>
+      <p>Power electronics, feedback control, dynamics, circuit theory, signal processing</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MORE BUILDS ============ -->
+<section id="more" class="more" aria-labelledby="more-h">
+  <h2 id="more-h" class="section-h">More builds</h2>
+  <p class="section-sub">Smaller boards, lab work, team projects and coursework.</p>
+
+  <div class="bins">
+    <article class="bin span2">
+      <button class="bin-img shot" data-full="assets/img/eoc-buckboost.jpg"><img src="assets/img/eoc-buckboost.jpg" alt="Comparison table of TPS63060 and TPS63802 buck-boost regulators" loading="lazy"></button>
+      <div class="bin-text">
+        <h3>Buck–boost power stage study</h3>
+        <p class="bin-meta">Emergence of Communication Lab</p>
+        <p>A 3.3 V rail from a single Li-ion cell (2.9 to 4.2 V). I compared the existing TPS63060 against the TPS63802: a third less footprint, roughly a third the quiescent current and half the inductance. Then I wrote the validation plan covering regulation, efficiency, load steps, ripple, inductor margin and thermals.</p>
+        <p class="docs"><a href="assets/docs/buck-boost-characterization.pdf">Characterization plan (PDF)</a></p>
+      </div>
+    </article>
+
+    <article class="bin">
+      <div class="bin-text">
+        <h3>Heater and thermistor control PCB</h3>
+        <p class="bin-meta">Ozcan Lab</p>
+        <p>Drives three heaters (up to 95 °C) and four LEDs from a Raspberry Pi. MOSFETs switch the heaters from GPIO, an ADS1115 reads three thermistors over I2C, and a TPS56837 buck steps 15 V to 5.1 V. My revision pass added RC filtering and ESD clamps on the thermistor inputs, widened and rerouted the 5 V trace, fixed a reversed MOSFET and upsized the TVS diode.</p>
+      </div>
+    </article>
+
+    <article class="bin">
+      <button class="bin-img shot" data-full="assets/img/lumos.jpg"><img src="assets/img/lumos.jpg" alt="LUMOS 3D-printed LED enclosure" loading="lazy"></button>
+      <div class="bin-text">
+        <h3>LUMOS</h3>
+        <p class="bin-meta">Personal build</p>
+        <p>A 48-LED display driven by an ESP32 through two TLC5947 drivers, with brightness and button controls, a DB25 harness and an AA pack through a 5 V buck. The enclosure took three printed fit-test revisions. Total BOM was under $50.</p>
+      </div>
+    </article>
+
+    <article class="bin">
+      <button class="bin-img shot" data-full="assets/img/smv-schematic.jpg"><img src="assets/img/smv-schematic.jpg" alt="Supermileage UI board schematic" loading="lazy"></button>
+      <div class="bin-text">
+        <h3>Supermileage driver UI board</h3>
+        <p class="bin-meta">Bruin Supermileage SAE</p>
+        <p>The driver's control panel and a node on the car's CAN bus. It has an ESP32, MOSFET and relay outputs for 12 V loads (lights, horn, ignition, kill switch), reverse-polarity and fuse protection, and 12 V to 5 V and 3.3 V conversion.</p>
+        <p class="docs"><a href="assets/docs/supermileage-ui-schematic.pdf">Schematic (PDF)</a></p>
+      </div>
+    </article>
+
+    <article class="bin">
+      <button class="bin-img shot" data-full="assets/img/brewbird-schematic.jpg"><img src="assets/img/brewbird-schematic.jpg" alt="Brewbird flow sensor schematic in KiCad" loading="lazy"></button>
+      <div class="bin-text">
+        <h3>Brewbird flow sensing</h3>
+        <p class="bin-meta">Intern project</p>
+        <p>Pulse-output flow sensor added to a brewing machine. It sits before the heater because the sensor is rated to 60 °C. Pull-up, RC filtering and protection clean up the open-collector signal, and pulse counts convert to volume through a calibrated K-factor.</p>
+      </div>
+    </article>
+
+    <article class="bin span2">
+      <div class="bin-video">
+        <video controls preload="none" poster="assets/img/kart-lap-poster.jpg" playsinline>
+          <source src="assets/video/kart-lap.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="bin-text">
+        <h3>Verstappenmobiel electric go-kart</h3>
+        <p class="bin-meta">Team of six</p>
+        <p>A 36 V, two-motor kart with Ackermann steering. I worked on the electronics: ESC and battery integration, a potentiometer on the tie rod for steering angle, an OLED on an F1-style wheel and a soldered perfboard controller in a sealed box.</p>
+        <div class="mini-gallery">
+          <button class="shot" data-full="assets/img/kart-car.jpg"><img src="assets/img/kart-car.jpg" alt="The finished go-kart" loading="lazy"></button>
+          <button class="shot" data-full="assets/img/kart-soldering.jpg"><img src="assets/img/kart-soldering.jpg" alt="Soldering the perfboard controller" loading="lazy"></button>
+          <button class="shot" data-full="assets/img/kart-box.jpg"><img src="assets/img/kart-box.jpg" alt="Electronics enclosure on the kart" loading="lazy"></button>
+          <button class="shot" data-full="assets/img/kart-block.jpg"><img src="assets/img/kart-block.jpg" alt="Go-kart electrical block diagram" loading="lazy"></button>
+        </div>
+      </div>
+    </article>
+
+    <article class="bin">
+      <button class="bin-img shot" data-full="assets/img/greenglide-1.jpg"><img src="assets/img/greenglide-1.jpg" alt="GreenGlide sensor prototype mounted on a scooter" loading="lazy"></button>
+      <div class="bin-text">
+        <h3>Project GreenGlide</h3>
+        <p class="bin-meta">Team of three</p>
+        <p>Sensing and embedded feedback to make shared e-scooters safer for riders and pedestrians, designed to be cheap enough for commercial fleets.</p>
+        <p class="docs"><a href="assets/docs/greenglide-schematic.pdf">Schematics (PDF)</a></p>
+      </div>
+    </article>
+
+    <article class="bin">
+      <div class="bin-text">
+        <h3>Feedback control of a constant power load</h3>
+        <p class="bin-meta">EC ENGR 141 project, March 2026</p>
+        <p>Modeled an L-R-C network feeding a CPL, linearized about equilibrium, and designed a controller for under 0.05 s settling with no overshoot. Then I ran it on the full nonlinear plant with voltage and current saturation.</p>
+        <p class="docs"><a href="assets/docs/ee141-cpl-control.pdf">Report (PDF)</a></p>
+      </div>
+    </article>
+
+    <article class="bin">
+      <div class="bin-text">
+        <h3>Distributed detection in Gaussian noise</h3>
+        <p class="bin-meta">ECE 131A project, June 2026</p>
+        <p>Detection and decision rules across multiple noisy sensors.</p>
+        <p class="docs"><a href="assets/docs/ece131a-distributed-detection.pdf">Report (PDF)</a></p>
+      </div>
+    </article>
+
+    <article class="bin">
+      <div class="bin-text">
+        <h3>AMC 10 competition math coaching</h3>
+        <p class="bin-meta">Teaching</p>
+        <p>Wrote lessons, diagnostics, quizzes and worked solutions across number theory, algebra, geometry and probability.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+</main>
+
+<footer id="contact" class="foot">
+  <h2>Let's talk hardware.</h2>
+  <p>Looking for internships and research in power electronics, controls and embedded systems.</p>
+  <div class="actions">
+    <a class="btn primary" href="mailto:wesleyhon@gmail.com">wesleyhon@gmail.com</a>
+    <a class="btn" href="https://linkedin.com/in/wesleyhon" rel="noopener">LinkedIn</a>
+    <a class="btn" href="assets/docs/Wesley_Hon_Resume.pdf">Resume (PDF)</a>
+  </div>
+  <p class="fine">© 2026 Wesley Hon</p>
+</footer>
+
+<dialog id="lightbox" aria-label="Image viewer">
+  <button class="lb-close" type="button" aria-label="Close">Close</button>
+  <img alt="">
+  <p class="lb-cap"></p>
+</dialog>
+
+<script src="main.js"></script>
+</body>
+</html>
