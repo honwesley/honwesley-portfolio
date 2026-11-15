@@ -22,7 +22,7 @@ CATEGORIES = [
     ("embedded", "Embedded"),
     ("pcb", "PCB design"),
     ("mech", "Mechanical"),
-    ("course", "Coursework and teaching"),
+    ("course", "Coursework"),
 ]
 
 PROJECTS = [
@@ -313,7 +313,7 @@ PROJECTS = [
         docs=[("Schematics", "greenglide-schematic.pdf")],
     ),
     dict(
-        slug="ee141-cpl-control", title="Feedback control of a constant power load", size="m",
+        slug="ee141-cpl-control", title="Feedback control of a constant power load", size="l",
         short="Linearize, design, then see what the nonlinear plant does to your controller.",
         when="March 2026", year="2026", org="EC ENGR 141, Principles of Feedback Control",
         cats=["controls", "power", "course"],
@@ -335,7 +335,7 @@ PROJECTS = [
         docs=[("Report", "ee141-cpl-control.pdf")],
     ),
     dict(
-        slug="ece131a-detection", title="Distributed detection in Gaussian noise", size="m",
+        slug="ece131a-detection", title="Distributed detection in Gaussian noise", size="l",
         short="How many noisy sensors does it take to get the error rate under 10⁻³?",
         when="June 2026", year="2026", org="ECE 131A extra credit project",
         cats=["course"],
@@ -353,21 +353,5 @@ PROJECTS = [
                 ("Threshold tuning", "Optimizing a modified threshold (γ ≈ −0.81) lowered the error with a fixed sensor count.")]},
         ],
         docs=[("Report", "ece131a-distributed-detection.pdf")],
-    ),
-    dict(
-        slug="amc-coaching", title="AMC 10 competition math coaching", size="m",
-        short="Lessons, diagnostics and quizzes for competition math students.",
-        when=None, year="2025", org="Teaching",
-        cats=["course"],
-        tools=["Curriculum design"],
-        cover=None,
-        images=[],
-        summary="Coaching students for the AMC 10 with a structured set of lessons and assessments.",
-        sections=[
-            {"h": "What I made", "list": [
-                "Lesson notes and worked examples for number theory and number sense: modular arithmetic, factorials, sequences, power cycles and parity invariants.",
-                "A diagnostic, topic quizzes and cumulative quizzes for each session, each with full solutions.",
-                "Common-problem sets in algebra, number theory, geometry and probability."]},
-        ],
     ),
 ]

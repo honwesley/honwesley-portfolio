@@ -123,7 +123,7 @@ def tile(p, root="", i=0, size=None):
         ticks = '<span class="ticks" aria-hidden="true">' + "<i></i>" * len(imgs) + "</span>" if len(imgs) > 1 else ""
         media = f'<span class="tile-media" style="view-transition-name: p-{p["slug"]}">{layers}{ticks}</span>'
     else:
-        media = f'<span class="tile-media tile-type" style="view-transition-name: p-{p["slug"]}"><span>{e(p["title"].split(" competition")[0])}</span></span>'
+        media = f'<span class="tile-media tile-type" style="view-transition-name: p-{p["slug"]}"><span>{e(p["title"])}</span></span>'
     when = p.get("when") or p.get("org", "")
     return f"""<a class="tile tile-{size}" href="{root}projects/{p['slug']}.html" data-cats="{' '.join(p['cats'])}" style="--i:{i}">
   {media}
@@ -275,7 +275,7 @@ def build_project(idx):
         cover_alt = next((a for f, a in p["images"] if f == p["cover"]), p["title"])
         hero = f'<figure class="p-hero fit-{fit(p["cover"])}" style="view-transition-name: p-{p["slug"]}"><img src="{root}assets/img/{p["cover"]}" alt="{e(cover_alt)}"></figure>'
     else:
-        hero = f'<figure class="p-hero tile-type" style="view-transition-name: p-{p["slug"]}"><span>{e(p["title"].split(" competition")[0])}</span></figure>'
+        hero = f'<figure class="p-hero tile-type" style="view-transition-name: p-{p["slug"]}"><span>{e(p["title"])}</span></figure>'
 
     gallery = ""
     if len(p["images"]) > 1 or (p["images"] and p["images"][0][0] != p["cover"]):
