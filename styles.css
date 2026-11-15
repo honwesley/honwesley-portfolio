@@ -350,13 +350,23 @@ h1, .page-h {
 .skills p { margin: 0; color: var(--steel); }
 
 /* ---------- Footer ---------- */
-.foot { background: var(--deep); color: var(--on-deep); padding: clamp(3rem, 7vw, 5.5rem) max(var(--gut), calc((100vw - var(--maxw)) / 2 + var(--gut))) 2rem; }
-.foot h2 { margin: 0 0 .75rem; font-size: clamp(2.6rem, 6vw, 4.75rem); line-height: 1; font-weight: 300; letter-spacing: -.03em; }
-.foot > p { color: #D5CDBF; max-width: 52ch; margin: 0 0 1.75rem; }
+/* Closing panel: the page scrolls up off it like a curtain until it fills the screen,
+   with its text centred. main sits above it; the panel is stuck to the bottom underneath. */
+main { position: relative; z-index: 1; background: var(--alu); box-shadow: 0 18px 30px -18px rgba(0,0,0,.35); }
+.foot {
+  position: sticky; bottom: 0; z-index: 0;
+  min-height: 100vh; min-height: 100svh;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+  background: var(--deep); color: var(--on-deep);
+  padding: 5rem var(--gut) 4.5rem;
+}
+.foot h2 { margin: 0 0 1rem; font-size: clamp(3rem, 9vw, 7.5rem); line-height: 1; font-weight: 300; letter-spacing: -.03em; }
+.foot > p { color: #D5CDBF; max-width: 46ch; margin: 0 auto 2rem; font-size: clamp(1.05rem, 1.6vw, 1.3rem); }
+.foot .actions { justify-content: center; }
 .foot .btn { border-color: var(--on-deep); color: var(--on-deep); }
 .foot .btn:hover { background: var(--on-deep); color: var(--deep); }
-.foot .btn.primary { border-color: var(--signal); }
-.foot .fine { margin-top: 3.5rem; font-size: .85rem; color: #9C937F; font-family: var(--ui); }
+.foot .btn.primary { border-color: var(--signal); color: #fff; }
+.foot .fine { position: absolute; left: 0; right: 0; bottom: 1.75rem; margin: 0; max-width: none; text-align: center; font-size: .85rem; color: #9C937F; font-family: var(--ui); }
 
 /* ---------- Lightbox ---------- */
 dialog#lightbox { border: 0; padding: 0; background: transparent; max-width: 94vw; max-height: 94vh; overflow: visible; }
