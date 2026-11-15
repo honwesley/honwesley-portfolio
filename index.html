@@ -13,12 +13,22 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#E6E9EC" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0F192B" media="(prefers-color-scheme: dark)">
+<script>try{var t=localStorage.getItem("theme");if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.dataset.theme=t;}catch(e){}</script>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body class="pg-home">
 <a class="skip" href="#main">Skip to content</a>
 <header class="top">
-  <a class="mark" href="index.html">Wesley Hon</a>
+  <div class="brand">
+    <a class="mark" href="index.html">Wesley Hon</a>
+    <button type="button" class="theme-toggle" role="switch" aria-checked="false" aria-label="Dark mode">
+      <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
+      <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
+      <span class="knob"></span>
+    </button>
+  </div>
   <nav aria-label="Site">
     <a href="index.html" aria-current="page">Home</a><a href="projects.html">Projects</a><a href="experience.html">Experience</a>
     <a href="https://github.com/honwesley" rel="noopener">GitHub</a>

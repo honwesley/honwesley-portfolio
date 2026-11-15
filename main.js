@@ -1,4 +1,24 @@
 /* =========================================================
+   Light / dark theme switch
+   ========================================================= */
+(() => {
+  const root = document.documentElement;
+  const btn = document.querySelector('.theme-toggle');
+  if (!btn) return;
+  const sync = () => {
+    const dark = root.dataset.theme === 'dark';
+    btn.setAttribute('aria-checked', String(dark));
+  };
+  sync();
+  btn.addEventListener('click', () => {
+    root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    try { localStorage.setItem('theme', root.dataset.theme); } catch (e) { /* storage off: still switches for this page */ }
+    sync();
+    document.dispatchEvent(new Event('themechange'));
+  });
+})();
+
+/* =========================================================
    Pendubot simulation
    Plant: two aluminum links (6061, 2 in x 1/4 in), 8 in and 14 in.
    Angles: q1 = link 1 from upright, q2 = link 2 relative to link 1.
@@ -50,7 +70,10 @@
   const N = 480; const histQ = new Float32Array(N), histU = new Float32Array(N); let head = 0;
 
   const css = (n) => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
-  const col = { ink: css('--ink'), steel: css('--steel'), rule: css('--rule'), link: css('--link'), ch1: css('--ch1'), ch2: css('--ch2'), signal: css('--signal'), plate: css('--plate') };
+  const col = {};
+  const readColors = () => { ['ink', 'steel', 'rule', 'link', 'ch1', 'ch2', 'signal', 'plate'].forEach((k) => { col[k] = css('--' + k); }); };
+  readColors();
+  document.addEventListener('themechange', readColors);
 
   let W = 0, H = 0, dpr = 1, SW = 0, SH = 0;
   function size() {
