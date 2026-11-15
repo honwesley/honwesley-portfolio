@@ -20,7 +20,7 @@
 
 /* =========================================================
    Pendubot simulation
-   Plant: two aluminum links (6061, 2 in x 1/4 in), 8 in and 14 in long.
+   Plant: two equal aluminum links (6061, 2 in x 1/4 in), each 11 in long.
    Angles: q1 = link 1 from upright, q2 = link 2 relative to link 1.
    The motor never switches off. A hybrid supervisor runs:
      - swing-up: energy pumping through collocated partial feedback
@@ -39,21 +39,21 @@
   // ---------- plant ----------
   const rho = 2700, wd = 0.0508, th = 0.00635, g = 9.81;
   const b = 0.002;                      // N·m·s/rad, shoulder bearing and motor friction (the elbow is frictionless)
-  const l1 = 8 * 0.0254, l2 = 14 * 0.0254;
+  const l1 = 11 * 0.0254, l2 = 11 * 0.0254;
   const m1 = rho * l1 * wd * th, m2 = rho * l2 * wd * th;
   const lc1 = l1 / 2, lc2 = l2 / 2;
   const I1 = m1 * l1 * l1 / 12, I2 = m2 * l2 * l2 / 12;
   const UMAX = 3;                       // N·m, motor torque limit
   const H = 0.001;                      // s, physics and control step (1 kHz)
 
-  const K = [-40.70993, -36.44109, -8.68555, -5.52524];          // LQR, Q = diag(10, 40, 1, 1), R = 2
-  const P = [[352.699384, 264.773243, 74.904033, 40.579896],     // Riccati solution, used for the
-             [264.773243, 207.297711, 56.775024, 30.792226],     // catch region and NMPC terminal cost
-             [74.904033, 56.775024, 16.061388, 8.701128],
-             [40.579896, 30.792226, 8.701128, 4.71874]];
+  const K = [-29.31094, -25.21231, -6.46627, -3.42211];          // LQR, Q = diag(10, 40, 1, 1), R = 2
+  const P = [[190.330032, 124.401891, 41.286795, 16.774564],    // Riccati solution, used for the
+             [124.401891, 89.502381, 27.468373, 11.210861],      // catch region and NMPC terminal cost
+             [41.286795, 27.468373, 9.117194, 3.704202],
+             [16.774564, 11.210861, 3.704202, 1.512019]];
   const QD = [10, 40, 1, 1], RW = 2;
   const ETOP = 1.333991;                                         // J, energy at rest upright
-  const PID = { kp1: -3.41507, kp2: -36.44109, kd1: -2.68626, kd2: -5.52524, ki1: -2.0 };
+  const PID = { kp1: -3.2789, kp2: -25.21231, kd1: -2.58753, kd2: -3.42211, ki1: -2.0 };
   const SW = { kp: 6, kd: 4, ke: 80, kx: 8 };                    // swing-up gains
   const CATCH = 40, LOSE = 120;                                  // hand-off thresholds on the LQR cost-to-go
   const NM = { NB: 4, Hz: 0.2, h: 0.004, Ts: 0.02, iters: 2, step: 2.0 };

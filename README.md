@@ -52,7 +52,7 @@ Small text fixes can also be made directly in the HTML files on GitHub, but thos
 
 ## The hero simulation
 
-`main.js` simulates the Pendubot with the real link geometry (6061 aluminum, 2 in × 1/4 in, 8 in and 14 in long) at 1 kHz with RK4 and a 3 N·m motor limit.
+`main.js` simulates the Pendubot with two equal 6061 aluminum links (each 11 in long, 2 in × 1/4 in) at 1 kHz with RK4 and a 3 N·m motor limit.
 
 The motor torque acts on the shoulder only. The elbow is a free, frictionless pin: link 2 moves only under gravity and the motion of link 1. Visitors can grab and shove link 1 only. A force on link 1 enters the equations as a shoulder torque (τ = Jᵀ F), so nothing ever acts on the elbow directly.
 
@@ -65,4 +65,4 @@ The motor never switches off. A supervisor switches between two modes:
   - **NMPC:** pre-stabilized nonlinear MPC: u = sat(−Kx + v), with v piecewise constant over four blocks of a 0.2 s horizon, re-solved at 50 Hz by gradient descent on the full nonlinear model.
   - **Fuzzy:** 5×5 rule base on the LQR-projected angle error and rate error, with product inference and weighted-average defuzzification.
 
-Gains were tuned offline on the same model. Each controller recovered from hanging straight down, from link 2 spinning at up to 20 rad/s, and from random states up to 10 rad/s on link 1 and 20 rad/s on link 2. The slowest recovery was 7.7 s. The simulation code also lives in `_build/pendubot.js` for reference.
+Gains were tuned offline on the same model. Each controller recovered from hanging straight down, from link 2 spinning at up to 20 rad/s, and from random states up to 10 rad/s on link 1 and 20 rad/s on link 2. The slowest recovery was 7.7 s (PID); LQR, NMPC and fuzzy all recovered within 6 s. The simulation code also lives in `_build/pendubot.js` for reference.

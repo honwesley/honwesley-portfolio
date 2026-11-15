@@ -39,7 +39,7 @@ PROJECTS = [
         summary="The shoulder is driven and the elbow swings free, so the controller has to balance the passive link entirely through the dynamics of the active one. I'm building it to compare four control strategies on the same hardware.",
         sections=[
             {"h": "The design", "list": [
-                "6061-T6 aluminum links, 8 in and 14 in long, 2 in wide and 1/4 in thick, with masses and inertias taken from CAD.",
+                "Two equal 6061-T6 aluminum links, each 11 in long, 2 in wide and 1/4 in thick, with masses and inertias taken from CAD.",
                 "Direct drive with link 1 bolted to the motor shaft and no gearbox, which removes backlash at the joint that matters most.",
                 "Absolute encoders on both joints. Encoder 2 rides on link 1 through a flexible coupling so it doesn't side-load its bearings.",
                 "A custom motor-control PCB running a real-time control loop in embedded C++.",

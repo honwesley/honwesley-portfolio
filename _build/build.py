@@ -169,7 +169,7 @@ SIM = """<figure class="rig" aria-labelledby="rig-cap">
     <div><dt>ω₂, rad/s</dt><dd id="t-w2">0.00</dd></div>
     <div><dt>E − E<sub>top</sub>, J</dt><dd id="t-e">0.000</dd></div>
   </dl>
-  <figcaption id="rig-cap">My Pendubot, simulated live at 1 kHz with the real link geometry and a 3 N·m motor limit. The motor drives the shoulder only; the elbow is a free, frictionless pin moved by nothing but gravity and link 1. When the arm falls, an energy-based swing-up brings it back and hands off to the controller you pick.</figcaption>
+  <figcaption id="rig-cap">My Pendubot, simulated live at 1 kHz with two equal 11 in aluminum links and a 3 N·m motor limit. The motor drives the shoulder only; the elbow is a free, frictionless pin moved by nothing but gravity and link 1. When the arm falls, an energy-based swing-up brings it back and hands off to the controller you pick.</figcaption>
 </figure>"""
 
 
