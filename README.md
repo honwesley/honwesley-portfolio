@@ -52,15 +52,17 @@ Small text fixes can also be made directly in the HTML files on GitHub, but thos
 
 ## The hero simulation
 
-`main.js` simulates the Pendubot with the real link geometry (6061 aluminum, 2 in × 1/4 in, 8 in and 14 in long) at 1 kHz with RK4 and a 3 N·m motor limit. The motor never switches off. A supervisor switches between:
+`main.js` simulates the Pendubot with the real link geometry (6061 aluminum, 2 in × 1/4 in, 8 in and 14 in long) at 1 kHz with RK4 and a 3 N·m motor limit.
 
-- **Swing-up:** energy pumping through collocated partial feedback linearization of the shoulder. It runs whenever the arm is far from upright.
-- **Balance:** the controller picked in the panel. It takes over once the LQR cost-to-go xᵀPx drops below 25, and hands back to swing-up above 75.
+The motor torque acts on the shoulder only. The elbow is a free, frictionless pin: link 2 moves only under gravity and the motion of link 1. Visitors can grab and shove link 1 only. A force on link 1 enters the equations as a shoulder torque (τ = Jᵀ F), so nothing ever acts on the elbow directly.
+
+The motor never switches off. A supervisor switches between two modes:
+
+- **Swing-up:** energy pumping through collocated partial feedback linearization of the shoulder. Because the motor can only change the arm's energy by moving link 1, the commanded link 1 acceleration includes a term proportional to link 2's velocity times the energy error. Without it, link 1 could sit still while link 2 spins forever over the frictionless elbow.
+- **Balance:** the controller picked in the panel. It takes over once the LQR cost-to-go xᵀPx drops below 40, and hands back to swing-up above 120.
   - **PID:** two PID loops, on the link 1 angle and the absolute link 2 angle, with the integral on link 1.
   - **LQR:** Q = diag(10, 40, 1, 1), R = 2, on the linearization about upright.
   - **NMPC:** pre-stabilized nonlinear MPC: u = sat(−Kx + v), with v piecewise constant over four blocks of a 0.2 s horizon, re-solved at 50 Hz by gradient descent on the full nonlinear model.
   - **Fuzzy:** 5×5 rule base on the LQR-projected angle error and rate error, with product inference and weighted-average defuzzification.
 
-Visitors can grab the arm and throw it. A spring from the pointer to the tip is mapped to joint torques through the Jacobian. The two scopes show joint angles, motor torque and energy error, and the panel below shows live telemetry.
-
-Gains were tuned offline on the same model. Each controller recovered from hanging straight down and from random states up to 10 rad/s on link 1 and 20 rad/s on link 2. The simulation code also lives in `_build/pendubot.js` for reference.
+Gains were tuned offline on the same model. Each controller recovered from hanging straight down, from link 2 spinning at up to 20 rad/s, and from random states up to 10 rad/s on link 1 and 20 rad/s on link 2. The slowest recovery was 7.7 s. The simulation code also lives in `_build/pendubot.js` for reference.

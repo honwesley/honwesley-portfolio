@@ -137,8 +137,8 @@ def tile(p, root="", i=0, size=None):
 
 SIM = """<figure class="rig" aria-labelledby="rig-cap">
   <div class="rig-stage">
-    <canvas id="pendubot" role="img" aria-label="Simulated Pendubot. Drag the arm to disturb it; the controller swings it back up and balances it."></canvas>
-    <span class="grab-hint">Grab the arm and throw it</span>
+    <canvas id="pendubot" role="img" aria-label="Simulated Pendubot. Drag link 1 to disturb it; the controller swings it back up and balances it."></canvas>
+    <span class="grab-hint">Grab link 1 and shove it</span>
   </div>
   <div class="rig-bar">
     <div class="ctl-pick" role="group" aria-label="Balance controller">
@@ -169,7 +169,7 @@ SIM = """<figure class="rig" aria-labelledby="rig-cap">
     <div><dt>ω₂, rad/s</dt><dd id="t-w2">0.00</dd></div>
     <div><dt>E − E<sub>top</sub>, J</dt><dd id="t-e">0.000</dd></div>
   </dl>
-  <figcaption id="rig-cap">My Pendubot, simulated live at 1 kHz with the real link geometry and a 3 N·m motor limit. The motor never switches off: when the arm falls, an energy-based swing-up brings it back and hands off to the controller you pick.</figcaption>
+  <figcaption id="rig-cap">My Pendubot, simulated live at 1 kHz with the real link geometry and a 3 N·m motor limit. The motor drives the shoulder only; the elbow is a free, frictionless pin moved by nothing but gravity and link 1. When the arm falls, an energy-based swing-up brings it back and hands off to the controller you pick.</figcaption>
 </figure>"""
 
 
@@ -306,7 +306,7 @@ def build_project(idx):
     if p.get("video"):
         video = f'<section class="p-sec"><h2>On track</h2><video class="p-video" controls preload="none" playsinline poster="{root}assets/img/{p["poster"]}"><source src="{root}assets/video/{p["video"]}" type="video/mp4"></video></section>'
 
-    sim = f'<section class="p-sec"><h2>Try it</h2><p>The same dynamics, running in your browser. Pick a controller, then grab the arm and throw it as hard as you like. Watch the telemetry as it swings back up and catches.</p>{SIM}</section>' if p.get("sim") else ""
+    sim = f'<section class="p-sec"><h2>Try it</h2><p>The same dynamics, running in your browser. Pick a controller, then grab link 1 and shove it as hard as you like. The elbow is unactuated, so link 2 only reacts through the dynamics. Watch the telemetry as it swings back up and catches.</p>{SIM}</section>' if p.get("sim") else ""
     impact = f'<p class="impact">{e(p["impact"])}</p>' if p.get("impact") else ""
     sections = "".join(section(s) for s in p["sections"])
 

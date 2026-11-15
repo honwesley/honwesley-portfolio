@@ -6,16 +6,19 @@
      - swing-up: energy pumping through collocated partial feedback
        linearization of the shoulder, until the state is near upright
      - balance: the selected controller (PID, LQR, NMPC or fuzzy)
+   The motor torque acts on the shoulder only. The elbow is a free,
+   frictionless pin: only gravity and the motion of link 1 move link 2.
    All four were tuned and tested offline on the same model: each
-   recovers from hanging straight down and from random states up to
-   10 rad/s on link 1 and 20 rad/s on link 2.
+   recovers from hanging straight down, from link 2 spinning at 20 rad/s,
+   and from random states up to 10 rad/s on link 1 and 20 rad/s on link 2.
    ========================================================= */
 (() => {
   const cv = document.getElementById('pendubot');
   if (!cv) return;
 
   // ---------- plant ----------
-  const rho = 2700, wd = 0.0508, th = 0.00635, g = 9.81, b = 0.002;
+  const rho = 2700, wd = 0.0508, th = 0.00635, g = 9.81;
+  const b = 0.002;                      // N·m·s/rad, shoulder bearing and motor friction (the elbow is frictionless)
   const l1 = 8 * 0.0254, l2 = 14 * 0.0254;
   const m1 = rho * l1 * wd * th, m2 = rho * l2 * wd * th;
   const lc1 = l1 / 2, lc2 = l2 / 2;
@@ -31,8 +34,8 @@
   const QD = [10, 40, 1, 1], RW = 2;
   const ETOP = 1.333991;                                         // J, energy at rest upright
   const PID = { kp1: -3.41507, kp2: -36.44109, kd1: -2.68626, kd2: -5.52524, ki1: -2.0 };
-  const SW = { kp: 3, kd: 2, ke: 20 };                           // swing-up gains
-  const CATCH = { pid: 25, lqr: 25, nmpc: 25, fuzzy: 25 }, LOSE = 75;
+  const SW = { kp: 6, kd: 4, ke: 80, kx: 8 };                    // swing-up gains
+  const CATCH = 40, LOSE = 120;                                  // hand-off thresholds on the LQR cost-to-go
   const NM = { NB: 4, Hz: 0.2, h: 0.004, Ts: 0.02, iters: 2, step: 2.0 };
   const FZ = 30;                                                  // fuzzy universe scale
 
@@ -50,17 +53,19 @@
     const G2 = -m2 * lc2 * g * Math.sin(x[0] + x[1]);
     return [M11, M12, M22, C1, C2, G1, G2];
   }
-  function f(x, u, e1, e2) {
+  function f(x, u, e1) {
     const [M11, M12, M22, C1, C2, G1, G2] = terms(x);
-    const r1 = u - b * x[2] - C1 - G1 + e1, r2 = -b * x[3] - C2 - G2 + e2;
+    // Only the shoulder sees the motor torque u and the external disturbance e1.
+    // The elbow equation has nothing in it but inertia, coupling and gravity.
+    const r1 = u - b * x[2] - C1 - G1 + e1, r2 = -C2 - G2;
     const det = M11 * M22 - M12 * M12;
     return [x[2], x[3], (M22 * r1 - M12 * r2) / det, (-M12 * r1 + M11 * r2) / det];
   }
-  function rk4(x, u, h, e1 = 0, e2 = 0) {
-    const a = f(x, u, e1, e2);
-    const k2 = f(x.map((v, i) => v + h / 2 * a[i]), u, e1, e2);
-    const k3 = f(x.map((v, i) => v + h / 2 * k2[i]), u, e1, e2);
-    const k4 = f(x.map((v, i) => v + h * k3[i]), u, e1, e2);
+  function rk4(x, u, h, e1 = 0) {
+    const a = f(x, u, e1);
+    const k2 = f(x.map((v, i) => v + h / 2 * a[i]), u, e1);
+    const k3 = f(x.map((v, i) => v + h / 2 * k2[i]), u, e1);
+    const k4 = f(x.map((v, i) => v + h * k3[i]), u, e1);
     return x.map((v, i) => v + h / 6 * (a[i] + 2 * k2[i] + 2 * k3[i] + k4[i]));
   }
   function energy(x) {
@@ -78,8 +83,11 @@
     const [M11, M12, M22, C1, C2, G1, G2] = terms(x);
     const E = energy(x);
     let v = -SW.kp * wrap(x[0]) - SW.kd * x[2] + SW.ke * (ETOP - E) * x[2];
+    // The motor can only change the energy by moving link 1, so when link 1 is still and link 2
+    // is spinning (elbow frictionless), drive link 1 with link 2's velocity to add or remove energy.
+    v += SW.kx * (ETOP - E) * x[3];
     if (Math.abs(x[2]) < 0.05 && Math.abs(x[3]) < 0.05 && Math.abs(ETOP - E) > 0.2) v += 8;  // start pumping from rest
-    const q2dd = -(M12 * v + C2 + G2 + b * x[3]) / M22;
+    const q2dd = -(M12 * v + C2 + G2) / M22;
     return M11 * v + M12 * q2dd + C1 + G1 + b * x[2];
   }
 
@@ -197,12 +205,18 @@
     return { scale, bx, by, p1, p2 };
   };
 
-  // ---------- grab and throw ----------
+  // ---------- shove link 1 ----------
+  // Only link 1 can be grabbed. A force on link 1 enters the equations as a torque on the shoulder
+  // alone, so the free elbow still only feels gravity and the motion of link 1.
   const toLocal = (ev) => { const r = cv.getBoundingClientRect(); return [ev.clientX - r.left, ev.clientY - r.top]; };
+  let grabS = 0;   // where on link 1 it was grabbed, metres from the shoulder
   cv.addEventListener('pointerdown', (ev) => {
-    const [mx, my] = toLocal(ev), { p1, p2 } = geom();
-    const d = (a) => Math.hypot(a[0] - mx, a[1] - my);
-    if (Math.min(d(p1), d(p2), d([(p1[0] + p2[0]) / 2, (p1[1] + p2[1]) / 2])) > 60) return;
+    const [mx, my] = toLocal(ev), { scale, bx, by, p1 } = geom();
+    const dx = p1[0] - bx, dy = p1[1] - by, len2 = dx * dx + dy * dy;
+    const t = Math.max(0, Math.min(1, ((mx - bx) * dx + (my - by) * dy) / len2));
+    const cx = bx + t * dx, cy = by + t * dy;
+    if (Math.hypot(mx - cx, my - cy) > 36) return;
+    grabS = Math.max(0.25, t) * l1;
     grab = [mx, my]; cv.setPointerCapture(ev.pointerId); ev.preventDefault();
   });
   cv.addEventListener('pointermove', (ev) => { if (grab) grab = toLocal(ev); });
@@ -210,19 +224,16 @@
   cv.addEventListener('pointerup', release);
   cv.addEventListener('pointercancel', release);
 
-  // Spring from the pointer to the tip of link 2, mapped to joint torques through the Jacobian.
+  // Spring from the pointer to the grabbed point on link 1, mapped to a shoulder torque: tau = J^T F.
   function external() {
-    if (!grab) return [0, 0];
+    if (!grab) return 0;
     const { scale, bx, by } = geom();
     const tx = (grab[0] - bx) / scale, ty = (by - grab[1]) / scale;   // pointer in metres, y up
-    const a2 = x[0] + x[1];
-    const px = l1 * Math.sin(x[0]) + l2 * Math.sin(a2), py = l1 * Math.cos(x[0]) + l2 * Math.cos(a2);
-    const j11 = l1 * Math.cos(x[0]) + l2 * Math.cos(a2), j12 = l2 * Math.cos(a2);
-    const j21 = -l1 * Math.sin(x[0]) - l2 * Math.sin(a2), j22 = -l2 * Math.sin(a2);
-    const vx = j11 * x[2] + j12 * x[3], vy = j21 * x[2] + j22 * x[3];
-    let Fx = 40 * (tx - px) - 1.5 * vx, Fy = 40 * (ty - py) - 1.5 * vy;
-    const Fm = Math.hypot(Fx, Fy); if (Fm > 25) { Fx *= 25 / Fm; Fy *= 25 / Fm; }
-    return [j11 * Fx + j21 * Fy, j12 * Fx + j22 * Fy];
+    const px = grabS * Math.sin(x[0]), py = grabS * Math.cos(x[0]);
+    const jx = grabS * Math.cos(x[0]), jy = -grabS * Math.sin(x[0]);
+    let Fx = 60 * (tx - px) - 2 * jx * x[2], Fy = 60 * (ty - py) - 2 * jy * x[2];
+    const Fm = Math.hypot(Fx, Fy); if (Fm > 30) { Fx *= 30 / Fm; Fy *= 30 / Fm; }
+    return jx * Fx + jy * Fy;
   }
 
   // ---------- step ----------
@@ -232,15 +243,14 @@
     for (let i = 0; i < n; i++) {
       const z = err(x), V = quad(z);
       if (mode === 'balance' && V > LOSE) mode = 'swing';
-      if (mode === 'swing' && V < CATCH[kind] && !grab) { mode = 'balance'; ctl.reset(); }
+      if (mode === 'swing' && V < CATCH && !grab) { mode = 'balance'; ctl.reset(); }
       const c0 = performance.now();
       u = clampU(mode === 'balance' ? (kind === 'nmpc' ? ctl.nmpc(x, z) : ctl[kind](z)) : swingup(x));
       const us = (performance.now() - c0) * 1000;
       // NMPC only solves every 20 ms, so time its solves; time every update for the others
       if (!(mode === 'balance' && kind === 'nmpc') || ctl.nmT === 0) solveUs = 0.85 * solveUs + 0.15 * us;
       calls++;
-      const [e1, e2] = external();
-      x = rk4(x, u, H, e1, e2);
+      x = rk4(x, u, H, external());
     }
     return performance.now() - t0;
   }
@@ -255,8 +265,9 @@
     ctx.setLineDash([4, 6]); ctx.strokeStyle = col.rule; ctx.lineWidth = 1;
     ctx.beginPath(); ctx.arc(bx, by, (l1 + l2) * scale, 0, Math.PI * 2); ctx.stroke(); ctx.setLineDash([]);
     if (grab) {
+      const gx = bx + grabS * scale * Math.sin(x[0]), gy = by - grabS * scale * Math.cos(x[0]);
       ctx.strokeStyle = col.signal; ctx.lineWidth = 1.5; ctx.setLineDash([3, 4]);
-      ctx.beginPath(); ctx.moveTo(p2[0], p2[1]); ctx.lineTo(grab[0], grab[1]); ctx.stroke(); ctx.setLineDash([]);
+      ctx.beginPath(); ctx.moveTo(gx, gy); ctx.lineTo(grab[0], grab[1]); ctx.stroke(); ctx.setLineDash([]);
       ctx.fillStyle = col.signal; ctx.beginPath(); ctx.arc(grab[0], grab[1], 5, 0, Math.PI * 2); ctx.fill();
     }
     ctx.lineCap = 'round';
