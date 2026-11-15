@@ -243,7 +243,7 @@ def build_home():
     <h2 id="awards-h" class="section-h">Awards</h2>
   </div>
   <ul class="where">
-    <li><b>IdeaHacks 2026</b><span>2nd place, hardware hackathon</span></li>
+    <li><b>IdeaHacks 2026</b><span>2nd place for <a href="https://devpost.com/software/cpr-trainer-a9olkm" rel="noopener">CPR Trainer</a>, an ESP32 CPR trainer with real-time feedback</span></li>
   </ul>
 </section>
 """
@@ -397,7 +397,7 @@ def build_experience():
 
   <h2 class="section-h">Awards</h2>
   <ul class="awards">
-    <li><b>2nd place, IdeaHacks 2026</b><span>Hardware hackathon, Los Angeles</span></li>
+    <li><b>2nd place, IdeaHacks 2026</b><span><a href="https://devpost.com/software/cpr-trainer-a9olkm" rel="noopener">CPR Trainer</a>: a low-cost ESP32 CPR trainer with real-time feedback</span></li>
   </ul>
 
   <h2 class="section-h">Education</h2>
