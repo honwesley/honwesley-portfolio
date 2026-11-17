@@ -112,9 +112,34 @@ def pic(rel, alt, root="", cls="", sizes="100vw", lazy=True, priority=False):
 ARROW = '<svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>'
 
 
+# ---------- links that leave the site ----------
+# Anything off-site (other websites, and PDFs, which the browser opens on their own) opens in a new
+# tab so the portfolio stays open behind it. Screen readers are told about the new tab.
+import re
+
+_A = re.compile(r'<a\b([^>]*?)\shref="([^"]+)"([^>]*)>(.*?)</a>', re.S)
+NEW_TAB = '<span class="sr-only"> (opens in a new tab)</span>'
+
+
+def _new_tab(m):
+    before, href, after, inner = m.groups()
+    if not (href.startswith(("http://", "https://")) or href.split("?")[0].lower().endswith(".pdf")):
+        return m.group(0)
+    attrs = re.sub(r'\s(?:rel|target)="[^"]*"', "", before + after)
+    return f'<a{attrs} href="{href}" target="_blank" rel="noopener noreferrer">{inner}{NEW_TAB}</a>'
+
+
+def new_tabs(html):
+    return _A.sub(_new_tab, html)
+
+
 # ---------- page shell ----------
 
-def page(title, body, root="", desc=DEFAULT_DESC, current="", path="", image="assets/img/og-card.png", jsonld=None):
+def page(*args, **kw):
+    return new_tabs(_page(*args, **kw))
+
+
+def _page(title, body, root="", desc=DEFAULT_DESC, current="", path="", image="assets/img/og-card.png", jsonld=None):
     nav = [("index.html", "Home", "home"), ("about.html", "About", "about"),
            ("projects.html", "Projects", "projects"), ("experience.html", "Experience", "experience")]
     links = "".join(

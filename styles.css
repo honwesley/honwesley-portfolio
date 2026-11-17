@@ -110,6 +110,7 @@ button { font: inherit; color: inherit; }
 .skip:focus { left: var(--s4); top: var(--s4); }
 .wrap { width: 100%; max-width: var(--maxw); margin-inline: auto; padding-inline: var(--gut); }
 .muted { color: var(--muted); }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 
 /* ---------- 3. Type components ---------- */
 h1, h2, h3 { margin: 0; text-wrap: balance; overflow-wrap: break-word; }
